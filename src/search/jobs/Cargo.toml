@@ -1,0 +1,24 @@
+[package]
+name = "search_jobs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_database = { package = "database", path = "../../database"}
+harana_document = { package = "document", path = "../../document" }
+harana_file_crawler = { package = "file_crawler", path = "../../file_crawler"}
+harana_indexer_core = { package = "indexer_core", path = "../../indexer/core" }
+harana_io = { package = "io", path = "../../io" }
+harana_job = { package = "job", path = "../../job" }
+harana_search_core = { package = "search_core", path = "../core"}
+harana_search_extensions = { package = "search_extensions", path = "../extensions"}
+harana_search_index = { package = "search_index", path = "../index"}
+harana_tantivy = { package = "tantivy", path = "../../tantivy"}
+serde = { version = "1.0.188", features = ["derive"] }
+
+blake3 = "1"
+filesize = "0.2.0"
+finder_info = "0.2.3"
+rand = "0.8.5"
+time = "0.3.30"

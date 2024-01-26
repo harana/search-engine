@@ -1,0 +1,17 @@
+[package]
+name = "indexer_hardware"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_indexer_core = { package = "indexer_core", path = "../core" }
+harana_io = { package = "io", path = "../../io" }
+
+layout21converters = "3.0.0-pre.2"
+sdfparse = "0.1.1"
+
+[[bench]]
+name = "benchmark_hardware"
+harness = false

@@ -1,0 +1,23 @@
+[package]
+name = "file_crawler"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../common" }
+harana_io = { package = "io", path = "../io" }
+
+regex = "1"
+ignore = "0.4"
+dirs = "5.0.1"
+strsim = "0.10.0"
+
+clap-verbosity-flag = "2.0"
+crossbeam = "0.8"
+log = "0.4"
+num_cpus = "1"
+partial_application = "0.2"
+rand = "0.8"
+structopt = "0.3"
+threadpool = "1.8"
+walkdir = "2.4.0"

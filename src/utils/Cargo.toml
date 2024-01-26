@@ -1,0 +1,19 @@
+[package]
+name = "utils"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../common" }
+
+parking_lot = "0.12.1"
+
+[dev-dependencies]
+pretty_env_logger = "0.5.0"
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+tracing-subscriber = "0.3"
+
+[build-dependencies]
+flate2 = "1"
+anyhow = "1"

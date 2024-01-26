@@ -1,0 +1,16 @@
+[package]
+name = "search_extensions"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_indexer = { package = "indexer", path = "../../indexer" }
+harana_indexer_core = { package = "indexer_core", path = "../../indexer/core" }
+harana_opener = { package = "opener", path = "../../opener" }
+harana_opener_core = { package = "opener_core", path = "../../opener/core" }
+harana_search_core = { package = "search_core", path = "../core" }
+harana_thumbnailer = { package = "thumbnailer", path = "../../thumbnailer" }
+harana_thumbnailer_core = { package = "thumbnailer_core", path = "../../thumbnailer/core" }
+
+paste = "1.0"

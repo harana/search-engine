@@ -1,0 +1,16 @@
+[package]
+name = "search_core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_indexer_core = { package = "indexer_core", path = "../../indexer/core" }
+harana_opener_core = { package = "opener_core", path = "../../opener/core" }
+harana_thumbnailer_core = { package = "thumbnailer_core", path = "../../thumbnailer/core" }
+harana_tantivy = { package = "tantivy", path = "../../tantivy" }
+
+notify-rust = "4"
+strum = "0.25.0"
+strum_macros = "0.25"

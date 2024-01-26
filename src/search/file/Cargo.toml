@@ -1,0 +1,23 @@
+[package]
+name = "search_file"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_database = { package = "database", path = "../../database"}
+harana_file_crawler = { package = "file_crawler", path = "../../file_crawler"}
+harana_file_watcher = { package = "file_watcher", path = "../../file_watcher"}
+harana_indexer_core = { package = "indexer_core", path = "../../indexer/core" }
+harana_io = { package = "io", path = "../../io" }
+harana_job = { package = "job", path = "../../job" }
+harana_search_core = { package = "search_core", path = "../core"}
+harana_search_extensions = { package = "search_extensions", path = "../extensions"}
+harana_search_index = { package = "search_index", path = "../index"}
+harana_search_jobs = { package = "search_jobs", path = "../jobs" }
+harana_tantivy = { package = "tantivy", path = "../../tantivy"}
+
+blake3 = "1"
+chrono = "0.4"
+filesize = "0.2.0"
+partial_application = "0.2.1"

@@ -1,0 +1,19 @@
+[package]
+name = "indexer_map"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_indexer_core = { package = "indexer_core", path = "../core" }
+harana_io = { package = "io", path = "../../io" }
+
+fitparser = "0.6.1"
+gpx = { version = "0.9.1", features = ["use-serde"] }
+kml = "0.8.3"
+tcx = "0.9.3"
+
+[[bench]]
+name = "benchmark_map"
+harness = false

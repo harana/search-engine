@@ -1,0 +1,12 @@
+[package]
+name = "rpc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_rpc_core = { package = "rpc_core", path = "core" }
+harana_rpc_pubsub = { package = "rpc_pubsub", path = "pubsub" }
+harana_rpc_tauri = { package = "rpc_tauri", path = "tauri" }
+harana_rpc_utils = { package = "rpc_utils", path = "utils" }
+harana_rpc_ws = { package = "rpc_ws", path = "ws" }
+

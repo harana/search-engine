@@ -1,0 +1,9 @@
+INSERT INTO search_folders (title, name_or_path, is_path, enabled, crawled) VALUES ("Audio", "audio", 0, 0, 0);
+INSERT INTO search_folders (title, name_or_path, is_path, enabled, crawled) VALUES ("Desktop", "desktop", 0, 0, 0);
+INSERT INTO search_folders (title, name_or_path, is_path, enabled, crawled) VALUES ("Document", "document", 0, 0, 0);
+INSERT INTO search_folders (title, name_or_path, is_path, enabled, crawled) VALUES ("Download", "download", 0, 0, 0);
+INSERT INTO search_folders (title, name_or_path, is_path, enabled, crawled) VALUES ("Font", "font", 0, 0, 0);
+INSERT INTO search_folders (title, name_or_path, is_path, enabled, crawled) VALUES ("Home", "home", 0, 0, 0);
+INSERT INTO search_folders (title, name_or_path, is_path, enabled, crawled) VALUES ("Picture", "picture", 0, 0, 0);
+INSERT INTO search_folders (title, name_or_path, is_path, enabled, crawled) VALUES ("Public", "public", 0, 0, 0);
+INSERT INTO search_folders (title, name_or_path, is_path, enabled, crawled) VALUES ("Video", "video", 0, 0, 0);

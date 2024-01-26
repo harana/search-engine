@@ -1,0 +1,44 @@
+[package]
+name = "thumbnailer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../common" }
+
+harana_thumbnailer_aiff = { package = "thumbnailer_aiff", path = "aiff" }
+harana_thumbnailer_avif = { package = "thumbnailer_avif", path = "avif" }
+harana_thumbnailer_bmp = { package = "thumbnailer_bmp", path = "bmp" }
+harana_thumbnailer_code = { package = "thumbnailer_code", path = "code" }
+harana_thumbnailer_core = { package = "thumbnailer_core", path = "core" }
+harana_thumbnailer_dds = { package = "thumbnailer_dds", path = "dds" }
+harana_thumbnailer_epub = { package = "thumbnailer_epub", path = "epub" }
+harana_thumbnailer_flac = { package = "thumbnailer_flac", path = "flac" }
+harana_thumbnailer_gif = { package = "thumbnailer_gif", path = "gif" }
+harana_thumbnailer_heif = { package = "thumbnailer_heif", path = "heif" }
+harana_thumbnailer_ico = { package = "thumbnailer_ico", path = "ico" }
+harana_thumbnailer_ipynb = { package = "thumbnailer_ipynb", path = "ipynb" }
+harana_thumbnailer_jpeg = { package = "thumbnailer_jpeg", path = "jpeg" }
+harana_thumbnailer_json = { package = "thumbnailer_json", path = "json" }
+harana_thumbnailer_m4a = { package = "thumbnailer_m4a", path = "m4a" }
+harana_thumbnailer_mac = { package = "thumbnailer_mac", path = "mac" }
+harana_thumbnailer_md = { package = "thumbnailer_md", path = "md" }
+harana_thumbnailer_mp3 = { package = "thumbnailer_mp3", path = "mp3" }
+harana_thumbnailer_noop = { package = "thumbnailer_noop", path = "noop" }
+harana_thumbnailer_png = { package = "thumbnailer_png", path = "png" }
+harana_thumbnailer_pnm = { package = "thumbnailer_pnm", path = "pnm" }
+harana_thumbnailer_ppm = { package = "thumbnailer_ppm", path = "ppm" }
+harana_thumbnailer_psd = { package = "thumbnailer_psd", path = "psd" }
+harana_thumbnailer_qoi = { package = "thumbnailer_qoi", path = "qoi" }
+harana_thumbnailer_raw = { package = "thumbnailer_raw", path = "raw" }
+harana_thumbnailer_svg = { package = "thumbnailer_svg", path = "svg" }
+harana_thumbnailer_tex = { package = "thumbnailer_tex", path = "tex" }
+harana_thumbnailer_tga = { package = "thumbnailer_tga", path = "tga" }
+harana_thumbnailer_three = { package = "thumbnailer_three", path = "three" }
+harana_thumbnailer_tiff = { package = "thumbnailer_tiff", path = "tiff" }
+harana_thumbnailer_txt = { package = "thumbnailer_txt", path = "txt" }
+#harana_thumbnailer_video = { package = "thumbnailer_video", path = "video" }
+harana_thumbnailer_wav = { package = "thumbnailer_wav", path = "wav" }
+harana_thumbnailer_webp = { package = "thumbnailer_webp", path = "webp" }
+
+harana_io = { package = "io", path = "../io" }

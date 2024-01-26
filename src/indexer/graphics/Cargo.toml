@@ -1,0 +1,20 @@
+[package]
+name = "indexer_graphics"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_indexer_core = { package = "indexer_core", path = "../core" }
+harana_io = { package = "io", path = "../../io" }
+
+blend = "0.8.0"
+dxf = "0.5.0"
+libflate = "2.0.0"
+lightwave-3d = "1.0.0"
+zstd = "0.12"
+
+[[bench]]
+name = "benchmark_graphics"
+harness = false

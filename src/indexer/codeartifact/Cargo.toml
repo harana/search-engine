@@ -1,0 +1,19 @@
+[package]
+name = "indexer_codeartifact"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_indexer_core = { package = "indexer_core", path = "../core" }
+harana_io = { package = "io", path = "../../io" }
+
+deb-rust = { git = "https://github.com/harana-oss/deb-rust.git", branch = "main" }
+jars = "0.1.1"
+msi = "0.6.0"
+wasm-metadata = "0.10.3"
+
+[[bench]]
+name = "benchmark_codeartifact"
+harness = false

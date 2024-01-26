@@ -1,0 +1,15 @@
+[package]
+name = "file_opener_linux"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_file_opener_common = { package = "file_opener_common", path = "../common" }
+
+libc = "0.2"
+tokio = { version = "1", features = ["fs"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+# WARNING: gtk should follow the same version used by tauri
+gtk = "0.15"

@@ -1,0 +1,8 @@
+[package]
+name = "opener_core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_io = { package = "io", path = "../../io" }

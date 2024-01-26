@@ -1,0 +1,11 @@
+[package]
+name = "http_server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../common" }
+harana_io = { package = "io", path = "../io" }
+
+[target.'cfg(linux)'.dependencies]
+glommio = "0.8.0"

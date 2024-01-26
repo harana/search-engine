@@ -1,0 +1,16 @@
+[package]
+name = "indexer_video"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_indexer_core = { package = "indexer_core", path = "../core" }
+harana_io = { package = "io", path = "../../io" }
+
+srt_parser = "0.1.15"
+
+[[bench]]
+name = "benchmark_video"
+harness = false

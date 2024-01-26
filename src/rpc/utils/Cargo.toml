@@ -1,0 +1,20 @@
+[package]
+name = "rpc_utils"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_rpc_core = { package = "rpc_core", path = "../core" }
+
+bytes = "1.0"
+futures = "0.3"
+globset = "0.4"
+lazy_static = "1.1.0"
+log = "0.4"
+tokio = { version = "1", features = ["rt-multi-thread", "io-util", "time", "net"] }
+tokio-util = { version = "0.7", features = ["codec"] }
+tokio-stream = { version = "0.1", features = ["net"] }
+
+unicase = "2.0"
+
+

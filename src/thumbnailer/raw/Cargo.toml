@@ -1,0 +1,14 @@
+[package]
+name = "thumbnailer_raw"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_io = { package = "io", path = "../../io" }
+harana_search_core = { package = "search_core", path = "../../search/core" }
+harana_thumbnailer_core = { package = "thumbnailer_core", path = "../core" }
+
+libraw = { git = "https://github.com/harana-oss/libraw-rs.git" }
+image = "0.24.7"

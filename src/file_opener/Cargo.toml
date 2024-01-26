@@ -1,0 +1,10 @@
+[package]
+name = "file_opener"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_file_opener_common = { package = "file_opener_common", path = "common" }
+harana_file_opener_linux = { package = "file_opener_linux", path = "linux" }
+harana_file_opener_mac = { package = "file_opener_mac", path = "mac" }
+harana_file_opener_windows = { package = "file_opener_windows", path = "windows" }

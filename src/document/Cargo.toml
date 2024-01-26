@@ -1,0 +1,14 @@
+[package]
+name = "document"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../common" }
+harana_tantivy = { package = "tantivy", path = "../tantivy" }
+
+config = "0.13"
+humansize = "2"
+timeago = "0.4"
+time = "0.3"
+uuid = "1"

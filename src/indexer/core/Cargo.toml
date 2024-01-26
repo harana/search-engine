@@ -1,0 +1,52 @@
+[package]
+name = "indexer_core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_io = { package = "io", path = "../../io" }
+
+byteorder = "1.4.3"
+candle-core = "0.3.0"
+candle-examples = "0.3.0"
+candle-nn = "0.3.0"
+candle-transformers = "0.3.0"
+hf-hub = "0.3.1"
+image = { version = "0.24", default_features = false }
+imageproc = "0.23"
+jbig2dec = "0.3"
+jpeg2k = { version = "0.6.5" }
+kamadak-exif = "0.5"
+leptess = "0.14.0"
+magick_rust = { version = "0.19.1", features = ["disable-hdri"] }
+mutter = "0.1"
+ndarray = "0.15"
+okolors = "0.4"
+palette = "0.7.3"
+reverse_geocoder = "3"
+rust-bert = "0.21"
+rust_decimal = "1.32"
+rust_decimal_macros = "1.32"
+rust_tokenizers = "8"
+rusttype = "0.9.3"
+rusty-tesseract = "1.1"
+stop-words = "0.8"
+tokenizers = "0.15"
+tracing = "0.1"
+wav = "1.0.0"
+zune-inflate = "0.2.54"
+libdeflater = "1.19.0"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+candle-core = { version = "0.3.0", features = ["mkl"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+candle-core = { version = "0.3.0", features = ["accelerate"] }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+candle-core = { version = "0.3.0" }
+
+[dev-dependencies]
+tokenizers = { version = ">=0.13.4", default-features = false, features = [ "onig" ] }

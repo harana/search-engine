@@ -1,0 +1,52 @@
+[package]
+name = "search-engine"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = [
+    "src/application",
+    "src/bunny",
+    "src/common",
+    "src/config",
+    "src/document",
+    "src/file_crawler",
+    "src/file_watcher",
+    "src/http_server",
+    "src/indexer",
+    "src/io",
+    "src/job",
+    "src/json",
+    "src/meilisearch",
+    "src/metrics",
+    "src/opener",
+    "src/file_opener",
+    "src/rocksdb",
+    "src/rpc",
+    "src/s3",
+    "src/search",
+    "src/tantivy",
+    "src/search_jni",
+    "src/thumbnailer",
+    "src/utils"
+]
+
+[dependencies]
+snmalloc-rs = "0.3.4"
+
+#[patch.crates-io]
+#rusty_ffmpeg = { git = "https://github.com/harana-oss/rusty_ffmpeg.git" }
+
+[build-dependencies]
+conan2 = "0.1.0"
+
+#[profile.test]
+#opt-level = 2
+#lto = "fat"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+incremental = false
+opt-level = "s"

@@ -1,0 +1,8 @@
+[package]
+name = "json"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+simd-json-derive = "0.13.0"
+#rsonpath-lib = "0.5.1"

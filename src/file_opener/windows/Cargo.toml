@@ -1,0 +1,16 @@
+[package]
+name = "file_opener_windows"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_file_opener_common = { package = "file_opener_common", path = "../common" }
+
+thiserror = "1.0.48"
+normpath = "1.1.1"
+libc = "0.2"
+
+[target.'cfg(target_os = "windows")'.dependencies.windows]
+version = "0.51.1"
+features = ["Win32_UI_Shell", "Win32_Foundation", "Win32_System_Com"]

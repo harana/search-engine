@@ -1,0 +1,16 @@
+[package]
+name = "indexer_archive"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_indexer_core = { package = "indexer_core", path = "../core" }
+harana_io = { package = "io", path = "../../io" }
+
+archive-reader = { git = "https://github.com/harana-oss/archive-reader.git" }
+
+[[bench]]
+name = "benchmark_archive"
+harness = false

@@ -1,0 +1,14 @@
+[package]
+name = "rpc_ws"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_rpc_core = { package = "rpc_core", path = "../core" }
+harana_rpc_utils = { package = "rpc_utils", path = "../utils" }
+
+futures = "0.3"
+log = "0.4"
+parking_lot = "0.12"
+slab = "0.4"
+ws = { git = "https://github.com/harana-oss/ws-rs.git" }

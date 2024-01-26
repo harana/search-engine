@@ -1,0 +1,19 @@
+[package]
+name = "indexer_data"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_indexer_core = { package = "indexer_core", path = "../core" }
+harana_io = { package = "io", path = "../../io" }
+
+csv = "1"
+parquet = "47.0.0"
+qif_parser = "0.2.0"
+safetensors = "0.3.3"
+
+[[bench]]
+name = "benchmark_data"
+harness = false

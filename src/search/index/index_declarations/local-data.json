@@ -1,0 +1,10 @@
+{
+  "name": "local-data",
+
+  "writer_buffer": 64000000,
+  "writer_threads": 12,
+  "storage_type": "filesystem",
+
+  "fields": {},
+  "search_fields": ["title", "primary_tokens", "secondary_tokens"]
+}

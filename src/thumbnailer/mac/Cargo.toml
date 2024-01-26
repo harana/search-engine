@@ -1,0 +1,21 @@
+[package]
+name = "thumbnailer_mac"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_io = { package = "io", path = "../../io" }
+harana_search_core = { package = "search_core", path = "../../search/core" }
+harana_thumbnailer_core = { package = "thumbnailer_core", path = "../core" }
+
+base64-simd = "0.8.0"
+
+cacao = { version = "0.4.0-beta2", features = ["appkit", "quicklook"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+swift-rs = "1"
+
+[target.'cfg(target_os = "macos")'.build-dependencies]
+swift-rs = { version = "1", features = ["build"] }

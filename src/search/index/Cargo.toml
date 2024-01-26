@@ -1,0 +1,20 @@
+[package]
+name = "search_index"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_database = { package = "database", path = "../../database"}
+harana_document = { package = "document", path = "../../document" }
+harana_file_crawler = { package = "file_crawler", path = "../../file_crawler"}
+harana_indexer_core = { package = "indexer_core", path = "../../indexer/core" }
+harana_io = { package = "io", path = "../../io" }
+harana_job = { package = "job", path = "../../job" }
+harana_search_core = { package = "search_core", path = "../core"}
+harana_search_extensions = { package = "search_extensions", path = "../extensions"}
+harana_tantivy = { package = "tantivy", path = "../../tantivy"}
+
+chrono = "0.4"
+paste = "1.0"
+rust-embed = "8"

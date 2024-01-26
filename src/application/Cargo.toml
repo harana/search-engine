@@ -1,0 +1,12 @@
+[package]
+name = "application"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../common" }
+
+directories = "5"
+plist = "1"
+rust_search = "2"
+triple_accel = "0.4.0"

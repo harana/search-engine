@@ -1,0 +1,10 @@
+[package]
+name = "opener"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_opener_core = { package = "opener_core", path = "core" }
+harana_opener_noop = { package = "opener_noop", path = "noop" }
+
+harana_io = { package = "io", path = "../io" }

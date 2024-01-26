@@ -1,0 +1,20 @@
+[package]
+name = "indexer_image"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_indexer_core = { package = "indexer_core", path = "../core" }
+harana_io = { package = "io", path = "../../io" }
+
+libraw = { git = "https://github.com/harana-oss/libraw-rs.git" }
+lrcat-extractor = { git = "https://github.com/harana-oss/lrcat-extractor.git" }
+psd = "0.3.4"
+svg_metadata = "0.5.0"
+svg = "0.14.0"
+
+[[bench]]
+name = "benchmark_image"
+harness = false

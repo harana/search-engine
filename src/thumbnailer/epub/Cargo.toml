@@ -1,0 +1,14 @@
+[package]
+name = "thumbnailer_epub"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../../common" }
+harana_document = { package = "document", path = "../../document" }
+harana_thumbnailer_core = { package = "thumbnailer_core", path = "../core" }
+harana_io = { package = "io", path = "../../io" }
+harana_search_core = { package = "search_core", path = "../../search/core" }
+
+epub = "2.1"
+regex = "1.10"

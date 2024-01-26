@@ -1,0 +1,69 @@
+[package]
+name = "indexer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../common" }
+harana_indexer_airbyte = { package = "indexer_airbyte", path = "airbyte" }
+harana_indexer_application = { package = "indexer_application", path = "application" }
+harana_indexer_archive = { package = "indexer_archive", path = "archive" }
+harana_indexer_audio = { package = "indexer_audio", path = "audio" }
+harana_indexer_book = { package = "indexer_book", path = "book" }
+harana_indexer_calendar = { package = "indexer_calendar", path = "calendar" }
+harana_indexer_certificate = { package = "indexer_certificate", path = "certificate" }
+harana_indexer_code = { package = "indexer_code", path = "code" }
+harana_indexer_codeartifact = { package = "indexer_codeartifact", path = "codeartifact" }
+harana_indexer_contact = { package = "indexer_contact", path = "contact" }
+harana_indexer_data = { package = "indexer_data", path = "data" }
+harana_indexer_diskimage = { package = "indexer_diskimage", path = "diskimage" }
+harana_indexer_document = { package = "indexer_document", path = "document" }
+harana_indexer_email = { package = "indexer_email", path = "email" }
+harana_indexer_font = { package = "indexer_font", path = "font" }
+harana_indexer_game = { package = "indexer_game", path = "game" }
+harana_indexer_graphics = { package = "indexer_graphics", path = "graphics" }
+harana_indexer_hardware = { package = "indexer_hardware", path = "hardware" }
+harana_indexer_image = { package = "indexer_image", path = "image" }
+harana_indexer_map = { package = "indexer_map", path = "map" }
+harana_indexer_noop = { package = "indexer_noop", path = "noop" }
+harana_indexer_science = { package = "indexer_science", path = "science" }
+harana_indexer_video = { package = "indexer_video", path = "video" }
+
+harana_io = { package = "io", path = "../io" }
+
+byteorder = "1.4.3"
+candle-core = "0.3.0"
+candle-examples = "0.3.0"
+candle-nn = "0.3.0"
+candle-transformers = "0.3.0"
+hf-hub = "0.3.1"
+image = "0.24"
+imageproc = "0.23"
+magick_rust = { version = "0.19", features = ["disable-hdri"] }
+kamadak-exif = "0.5"
+metadata = "0.1.8"
+mutter = "0.1"
+ndarray = "0.15"
+palette = "0.7.3"
+reverse_geocoder = "3"
+rust-bert = "0.21"
+rust_decimal = "1.32"
+rust_decimal_macros = "1.32"
+rust_tokenizers = "8"
+rusttype = "0.9.3"
+rusty-tesseract = "1.1"
+tokenizers = "0.14.0"
+tracing = "0.1"
+wav = "1.0.0"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+candle-core = { version = "0.3.0", features = ["mkl"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+candle-core = { version = "0.3.0", features = ["accelerate"] }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+candle-core = { version = "0.3.0" }
+
+[dev-dependencies]
+tokenizers = { version = ">=0.13.4", default-features = false, features = [ "onig" ] }

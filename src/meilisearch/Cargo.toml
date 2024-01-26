@@ -1,0 +1,10 @@
+[package]
+name = "meilisearch"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../common" }
+curl = "0.4"
+flume = { git = "https://github.com/zesterer/flume", branch = "master" }
+once_cell = "1.18"

@@ -39,7 +39,7 @@ candle-transformers = "0.3.0"
 hf-hub = "0.3.1"
 image = "0.24"
 imageproc = "0.23"
-magick_rust = { version = "0.19", features = ["disable-hdri"] }
+#magick_rust = { version = "0.19", features = ["disable-hdri"] }
 kamadak-exif = "0.5"
 metadata = "0.1.8"
 ndarray = "0.15"

@@ -3,7 +3,7 @@ ffmpeg/6.1
 ktx/4.0.0
 leptonica/1.82.0
 libarchive/3.7.1
-libfdk_aac/2.0.2
+libfdk_aac/2.0.3
 libheif/1.16.2
 libraw/0.21.1
 openjpeg/2.5.0

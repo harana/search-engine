@@ -6,6 +6,7 @@ libarchive/3.7.2
 libfdk_aac/2.0.3
 libheif/1.16.2
 libraw/0.21.1
+libva/2.20.0
 openjpeg/2.5.0
 tesseract/5.3.0
 

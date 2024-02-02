@@ -1,4 +1,5 @@
 [requires]
+#ffmpeg/6.1
 ktx/4.0.0
 leptonica/1.83.1
 libarchive/3.7.2

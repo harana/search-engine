@@ -6057,7 +6057,6 @@ dependencies = [
  "jpeg2k",
  "kamadak-exif",
  "libdeflater",
- "magick_rust",
  "ndarray",
  "okolors",
  "palette",
@@ -7604,17 +7603,6 @@ name = "macro_rules_attribute-proc_macro"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b8dd856d451cc0da70e2ef2ce95a18e39a93b7558bedf10201ad28503f918568"
-
-[[package]]
-name = "magick_rust"
-version = "0.19.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c912b69250bcd5d024852a1a75c567d3b5d881871a55b741018741632a921bf8"
-dependencies = [
- "bindgen 0.68.1",
- "libc",
- "pkg-config",
-]
 
 [[package]]
 name = "malloc_buf"

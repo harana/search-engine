@@ -5,6 +5,7 @@ leptonica/1.82.0
 libarchive/3.7.1
 libfdk_aac/2.0.3
 libheif/1.16.2
+libmp3lame/3.100
 libraw/0.21.1
 openjpeg/2.5.0
 tesseract/5.3.0

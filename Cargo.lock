@@ -6050,7 +6050,6 @@ dependencies = [
  "kamadak-exif",
  "magick_rust",
  "metadata",
- "mutter",
  "ndarray",
  "palette",
  "reverse_geocoder 3.0.1",

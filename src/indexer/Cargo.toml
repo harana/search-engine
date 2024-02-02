@@ -42,7 +42,6 @@ imageproc = "0.23"
 magick_rust = { version = "0.19", features = ["disable-hdri"] }
 kamadak-exif = "0.5"
 metadata = "0.1.8"
-mutter = "0.1"
 ndarray = "0.15"
 palette = "0.7.3"
 reverse_geocoder = "3"

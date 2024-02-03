@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 use font::{File, Names};
-use font::opentype::truetype::naming_table::NameID;
+use font::opentype::truetype::tables::names::NameID;
 
 use harana_common::anyhow::Result;
 use harana_common::hashbrown::HashSet;

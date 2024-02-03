@@ -21,9 +21,9 @@ jpeg2k = { version = "0.6.5" }
 kamadak-exif = "0.5"
 #magick_rust = { version = "0.19.1", features = ["disable-hdri"] }
 ndarray = "0.15"
-okolors = "0.5"
+okolors = "0.4"
 palette = "0.7.3"
-reverse_geocoder = "4"
+reverse_geocoder = "3"
 rust_decimal = "1.32"
 rust_decimal_macros = "1.32"
 rust_tokenizers = "8"

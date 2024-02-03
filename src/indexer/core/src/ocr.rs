@@ -12,7 +12,7 @@ static DEBUG_FILE: &str = "NUL";
 
 // FIXME: Need to add Tessearct/Liptonica to Conan
 pub fn text_file(path: &Path) -> Result<String> {
-    Result::Ok("")
+    Result::Ok("".to_string())
     // let mut lt = leptess::LepTess::new(None, "eng")?;
     // lt.set_variable(Variable::TesseditCharWhitelist, " :./|0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")?;
     // lt.set_variable(Variable::TesseditPagesegMode, "11")?;
@@ -22,7 +22,7 @@ pub fn text_file(path: &Path) -> Result<String> {
 }
 
 pub fn text_image(tiff_image: &[u8], dpi: i32) -> Result<String> {
-    Result::Ok("")
+    Result::Ok("".to_string())
     // let mut lt = leptess::LepTess::new(None, "eng")?;
     // lt.set_variable(Variable::TesseditCharWhitelist, " :./|0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")?;
     // lt.set_image_from_mem(tiff_image)?;

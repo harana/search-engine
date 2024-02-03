@@ -9,7 +9,7 @@ harana_document = { package = "document", path = "../../document" }
 harana_indexer_core = { package = "indexer_core", path = "../core" }
 harana_io = { package = "io", path = "../../io" }
 
-font = "0.24.1"
+font = "0.28.1"
 
 [[bench]]
 name = "benchmark_font"

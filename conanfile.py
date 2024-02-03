@@ -8,7 +8,7 @@ class Harana(ConanFile):
         self.requires("ffmpeg/6.1")
         self.requires("ktx/4.0.0")
         self.requires("leptonica/1.83.1")
-        self.requires("libarchive/3.7.1")
+        self.requires("libarchive/3.7.2")
         self.requires("libheif/1.16.2")
         self.requires("libmp3lame/3.100")
         self.requires("libpng/1.6.42", override=True)

@@ -12,9 +12,8 @@ harana_thumbnailer_core = { package = "thumbnailer_core", path = "../core" }
 
 base64-simd = "0.8.0"
 
-cacao = { version = "0.4.0-beta2", features = ["appkit", "quicklook"] }
-
 [target.'cfg(target_os = "macos")'.dependencies]
+cacao = { version = "0.4.0-beta2", features = ["appkit", "quicklook"] }
 swift-rs = "1"
 
 [target.'cfg(target_os = "macos")'.build-dependencies]

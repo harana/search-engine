@@ -18,10 +18,12 @@ lazy_static! {
 	pub static ref BASE64: Base64 = base64_simd::STANDARD;
 }
 
+#[cfg(target_os = "macos")]
 swift!(
 	pub fn file_thumbnail(source_path: &SRString) -> SRString
 );
 
+#[cfg(target_os = "macos")]
 swift!(
 	pub fn quicklook_preview(source_path: &SRString) -> SRString
 );

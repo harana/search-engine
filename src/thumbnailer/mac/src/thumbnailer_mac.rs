@@ -39,6 +39,9 @@ impl Thumbnailer for ThumbnailerMac {
             let image = Image::new(decoded, false, ImageType::Tiff, None);
             image?.crop(width, height, target_file, false)
         }
+
+        #[cfg(not(target_os = "macos"))]
+        Ok(())
     }
 
     fn should_auto_complete(&self) -> bool {

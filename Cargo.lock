@@ -7180,8 +7180,8 @@ dependencies = [
 
 [[package]]
 name = "libheif-rs"
-version = "1.0.0"
-source = "git+https://github.com/harana-oss/libheif-rs#b701194b4294ce459c836f97a40b2a04e486e334"
+version = "0.22.0"
+source = "git+https://github.com/harana-oss/libheif-rs#904d3c91b2b191c08f93ba06267f2cb93f17cf87"
 dependencies = [
  "enumn",
  "four-cc",

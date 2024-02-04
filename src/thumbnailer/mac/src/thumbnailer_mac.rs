@@ -1,6 +1,8 @@
 use std::path::Path;
 
 use base64_simd::Base64;
+
+#[cfg(target_os = "macos")]
 use swift_rs::{SRString, swift};
 
 use harana_common::anyhow::Result;
@@ -28,13 +30,15 @@ swift!(
 impl Thumbnailer for ThumbnailerMac {
 
     async fn thumbnail(&self, source_file: &Path, target_file: &Path, _document_id: u64, _app: &'static AppHandle<Wry>, width: u32, height: u32) -> Result<()> {
-        let source_path = SRString::from(source_file.to_str().unwrap());
         #[cfg(target_os = "macos")]
-        let preview_base64 = unsafe { quicklook_preview(&source_path) };
-        let decoded = BASE64.decode_to_vec(preview_base64)?;
+        {
+            let source_path = SRString::from(source_file.to_str().unwrap());
+            let preview_base64 = unsafe { quicklook_preview(&source_path) };
+            let decoded = BASE64.decode_to_vec(preview_base64)?;
 
-        let image = Image::new(decoded, false, ImageType::Tiff, None);
-        image?.crop(width, height, target_file, false)
+            let image = Image::new(decoded, false, ImageType::Tiff, None);
+            image?.crop(width, height, target_file, false)
+        }
     }
 
     fn should_auto_complete(&self) -> bool {

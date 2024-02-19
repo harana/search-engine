@@ -2,9 +2,9 @@ use harana_common::hashbrown::HashSet;
 use std::ops::Deref;
 use std::path::PathBuf;
 
-use docx_rust::DocxFile;
+use docx_rust::{DocxError, DocxFile};
 
-use harana_common::anyhow::Result;
+use harana_common::anyhow::{anyhow, Result};
 use harana_common::serde::{self, Deserialize, Serialize};
 use harana_common::serde_json;
 use harana_indexer_core::entity_recognition::entity_tokens;
@@ -39,7 +39,11 @@ impl Indexer for IndexerDocx {
 
     fn index(&self, path: PathBuf) -> Result<IndexResult> {
         let docx = DocxFile::from_file(path.clone()).unwrap();
-        let mut docx = docx.parse().unwrap();
+        let mut docx = docx.parse().map_err(|e| match e {
+            DocxError::IO(_) => anyhow!("IO error"),
+            DocxError::Xml(_) => anyhow!("XML error"),
+            DocxError::Zip(_) => anyhow!("ZIP error")
+        })?;
 
         let mut primary_tokens = HashSet::new();
         let mut secondary_tokens = HashSet::new();

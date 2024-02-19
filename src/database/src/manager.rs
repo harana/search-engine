@@ -2,6 +2,7 @@ use std::path::PathBuf;
 use std::sync::Arc;
 
 use deadpool_sqlite::{Config, Pool};
+use rusqlite::config::DbConfig;
 use rusqlite::Connection;
 use rusqlite_migration::{M, Migrations};
 

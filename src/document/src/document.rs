@@ -57,7 +57,7 @@ impl Document {
 
         Self {
             id: hit.document_id.to_string(),
-            title: hit_string(&hit, "title").unwrap(),
+            title: hit_string(&hit, "title").unwrap_or(String::new()),
             description: hit_string(&hit, "documentation"),
             tags: hit_string(&hit, "tags"),
             author: hit_string(&hit, "author"),

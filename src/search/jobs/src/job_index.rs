@@ -6,7 +6,7 @@ use serde::Deserialize;
 use harana_common::anyhow::{Context, Result};
 use harana_common::async_trait::async_trait;
 use harana_common::itertools::Itertools;
-use harana_common::log::info;
+use harana_common::log::{error, info};
 use harana_common::serde::Serialize;
 use harana_common::{futures, serde_json, tokio};
 use harana_common::serde_json::Value;
@@ -88,9 +88,13 @@ impl JobHandler for JobHandlerIndex {
         info!("{} > {} > {}/{}", indexer_name, payload.file_path.clone().to_str().context("No payload file path")?, primary_token_count, secondary_token_count);
 
         // Update Database
-        self.database_manager.files(move |connection| {
+        let database_error = self.database_manager.files(move |connection| {
             files_update_index(connection, payload.file_path.to_str().context("No payload file path")?.to_string())
-        }).await.expect("Failed to update index");
+        }).await;
+
+        if database_error.is_err() {
+            error!("Failed to update index due to database error: {}", database_error.err().unwrap().to_string())
+        }
 
         Ok(())
     }

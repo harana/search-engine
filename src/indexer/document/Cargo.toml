@@ -9,24 +9,24 @@ harana_document = { package = "document", path = "../../document" }
 harana_indexer_core = { package = "indexer_core", path = "../core" }
 harana_io = { package = "io", path = "../../io" }
 
-calamine = "0.22.0"
+calamine = "0.24"
 codepage = "0.1"
-docx-rust = "0.1.5"
-dotext_ed8fc7b = "0.1.2"
+docx-rust = "0.1"
+dotext_ed8fc7b = "0.1"
 encoding_rs = "0.8"
-flexi_logger = { version = "0.27.0", default-features = false, features = [ "textfilter" ] }
+flexi_logger = { version = "0.27", default-features = false, features = [ "textfilter" ] }
 image = "0.24"
 ipynb = "0.0.1"
 log = "0.4"
-markdown = "1.0.0-alpha.13"
-msoffice_pptx = "0.2.1"
-msoffice_shared = "0.1.1"
-nanohtml2text = "0.1.4"
-pbix = "0.1.0"
-pddl-parser = "0.1.0"
+markdown = "1.0.0-alpha.16"
+msoffice_pptx = "0.2"
+msoffice_shared = "0.1"
+nanohtml2text = "0.1"
+pbix = "0.1"
+pddl-parser = "0.2"
 pdf = { git = "https://github.com/harana-oss/pdf.git" }
 rtf-grimoire = "0.2"
-webarchive = "0.2.1"
+webarchive = "0.2"
 
 [[bench]]
 name = "benchmark_document"

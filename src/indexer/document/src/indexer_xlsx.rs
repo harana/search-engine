@@ -34,7 +34,7 @@ impl Indexer for IndexerXlsx {
             .sheet_names()
             .to_vec()
             .iter()
-            .filter_map(|sheet_name| workbook.worksheet_range(sheet_name))
+            .filter_map(|sheet_name| workbook.worksheet_range(sheet_name).ok())
             .filter_map(Result::ok)
             .map(|range| {
                 range

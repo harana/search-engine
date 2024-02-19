@@ -5,7 +5,7 @@ use std::path::PathBuf;
 use image::{DynamicImage, EncodableLayout, ImageBuffer, ImageFormat, RgbImage};
 use pdf::content::{Op, TextDrawAdjusted};
 use pdf::enc::set_jpx_decoder;
-use pdf::file::FileOptions;
+use pdf::file::{FileOptions, ValueSize};
 use pdf::object::{Resolve, XObject};
 use pdf::PdfError;
 
@@ -125,18 +125,20 @@ impl Indexer for IndexerPdf {
 
             let mut rgb_img: RgbImage = ImageBuffer::new(img.width, img.height);
 
-            rgb_img.copy_from_slice(data.as_bytes());
+            if rgb_img.size() == data.as_bytes().len() {
+                rgb_img.copy_from_slice(data.as_bytes());
 
-            let mut img = DynamicImage::from(rgb_img).grayscale();
-            let mut grey_img = img.as_mut_luma8().unwrap();
+                let mut img = DynamicImage::from(rgb_img).grayscale();
+                let mut grey_img = img.as_mut_luma8().unwrap();
 
-            let mut output = Cursor::new(Vec::new());
-            grey_img.write_to(&mut output, ImageFormat::Tiff)?;
+                let mut output = Cursor::new(Vec::new());
+                grey_img.write_to(&mut output, ImageFormat::Tiff)?;
 
-            let text = ocr::text_image(output.get_ref().as_bytes(), 70)?;
-            let cleaned_texts = text.split(" ").filter(|t| t.len() > 3).join(" ");
-            primary_tokens.extend(entity_tokens(cleaned_texts.as_str()));
-            secondary_tokens.extend(tokenize(cleaned_texts.as_str()));
+                let text = ocr::text_image(output.get_ref().as_bytes(), 70)?;
+                let cleaned_texts = text.split(" ").filter(|t| t.len() > 3).join(" ");
+                primary_tokens.extend(entity_tokens(cleaned_texts.as_str()));
+                secondary_tokens.extend(tokenize(cleaned_texts.as_str()));
+            }
         }
 
         let metadata = PdfMetadata {

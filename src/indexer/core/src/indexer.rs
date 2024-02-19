@@ -1,8 +1,9 @@
+use std::panic::RefUnwindSafe;
 use std::path::PathBuf;
 use harana_common::anyhow::Result;
 use crate::index_result::IndexResult;
 
-pub trait Indexer: Send + Sync {
+pub trait Indexer: Send + Sync + RefUnwindSafe {
 
     fn index(&self, path: PathBuf) -> Result<IndexResult>;
 

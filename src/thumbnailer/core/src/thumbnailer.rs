@@ -1,3 +1,4 @@
+use std::panic::RefUnwindSafe;
 use std::path::Path;
 
 use harana_common::anyhow::Result;
@@ -5,7 +6,7 @@ use harana_common::async_trait::async_trait;
 use harana_common::tauri::{AppHandle, Wry};
 
 #[async_trait]
-pub trait Thumbnailer: Send + Sync {
+pub trait Thumbnailer: Send + Sync + RefUnwindSafe {
 
     async fn thumbnail(&self,
                  source_file: &Path,

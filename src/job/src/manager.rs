@@ -11,7 +11,7 @@ use harana_common::hashbrown::HashMap;
 use harana_common::itertools::Itertools;
 use harana_common::log::info;
 use harana_common::once_cell::sync::OnceCell;
-use harana_common::{futures, serde, tokio};
+use harana_common::serde;
 use harana_common::serde::{Deserialize, Serialize};
 use harana_common::serde_json::Value;
 use harana_common::sysinfo::SystemExt;
@@ -46,16 +46,7 @@ type TaskId = String;
 pub async fn handler_job(job: RunningJob, context: Arc<JobContext>) -> Result<(), Error> {
     let payload: JobPayload = job.json_payload()?;
     let handler = HANDLERS.get().unwrap().get(payload.category.as_str()).unwrap();
-
-    let mutex = std::sync::Mutex::new(payload.payload);
-
-    std::panic::catch_unwind(|| {
-        let mut payload = mutex.lock().unwrap();
-        let handle = tokio::runtime::Handle::current();
-        let _ = handle.enter();
-        futures::executor::block_on(handler.handle(payload.take()));
-    });
-
+    handler.handle(payload.payload).await;
     Ok(())
 }
 

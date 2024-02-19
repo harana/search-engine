@@ -8,7 +8,7 @@ use harana_common::async_trait::async_trait;
 use harana_common::itertools::Itertools;
 use harana_common::log::info;
 use harana_common::serde::Serialize;
-use harana_common::serde_json;
+use harana_common::{futures, serde_json, tokio};
 use harana_common::serde_json::Value;
 use harana_database::files_update_index::files_update_index;
 use harana_database::manager::DatabaseManager;
@@ -71,7 +71,10 @@ impl JobHandler for JobHandlerIndex {
         index.delete_document(payload.document_id).await?;
 
         // Index document
-        let index_result = extension_details.0.index(payload.file_path.clone())?;
+        let file_path = payload.file_path.clone();
+        let index_result = std::panic::catch_unwind(|| {
+            extension_details.0.index(file_path).unwrap()
+        }).unwrap();
 
         // Add to Tantivy
         let tantivy_payload = JobHandlerIndex::tantivy_payload(existing_data, index_result.clone()).await;

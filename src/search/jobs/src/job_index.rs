@@ -70,8 +70,10 @@ impl JobHandler for JobHandlerIndex {
         // Delete existing document from Tantivy
         index.delete_document(payload.document_id).await?;
 
-        // Add to Tantivy
+        // Index document
         let index_result = extension_details.0.index(payload.file_path.clone())?;
+
+        // Add to Tantivy
         let tantivy_payload = JobHandlerIndex::tantivy_payload(existing_data, index_result.clone()).await;
         index.add_document(payload.document_id, tantivy_payload).await?;
         index.commit().await?;

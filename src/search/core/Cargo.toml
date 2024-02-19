@@ -13,5 +13,5 @@ harana_tantivy = { package = "tantivy", path = "../../tantivy" }
 
 nix = { version = "0.27.1", features = ["user"] }
 notify-rust = "4"
-strum = "0.25.0"
-strum_macros = "0.25"
+strum = "0.26"
+strum_macros = "0.26"

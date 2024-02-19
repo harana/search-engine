@@ -38,7 +38,12 @@ pub struct IndexerDocx;
 impl Indexer for IndexerDocx {
 
     fn index(&self, path: PathBuf) -> Result<IndexResult> {
-        let docx = DocxFile::from_file(path.clone()).unwrap();
+        let docx = DocxFile::from_file(path.clone()).map_err(|e| match e {
+            DocxError::IO(_) => anyhow!("IO error"),
+            DocxError::Xml(_) => anyhow!("XML error"),
+            DocxError::Zip(_) => anyhow!("ZIP error")
+        })?;
+
         let mut docx = docx.parse().map_err(|e| match e {
             DocxError::IO(_) => anyhow!("IO error"),
             DocxError::Xml(_) => anyhow!("XML error"),

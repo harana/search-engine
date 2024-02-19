@@ -3,6 +3,7 @@ use std::io::Cursor;
 use std::path::PathBuf;
 
 use image::{DynamicImage, EncodableLayout, ImageBuffer, ImageFormat, RgbImage};
+use harana_common::log::{error, info};
 use pdf::content::{Op, TextDrawAdjusted};
 use pdf::enc::set_jpx_decoder;
 use pdf::file::{FileOptions, ValueSize};
@@ -37,6 +38,8 @@ pub struct IndexerPdf;
 impl Indexer for IndexerPdf {
 
     fn index(&self, path: PathBuf) -> Result<IndexResult> {
+        info!("trying to index PDF path: {}", path.as_os_str().to_str().unwrap());
+
         let file = FileOptions::cached().open(path.clone())?;
         let resolver = file.resolver();
 

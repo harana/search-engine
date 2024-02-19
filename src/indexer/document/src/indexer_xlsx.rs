@@ -1,11 +1,11 @@
 use std::path::PathBuf;
-use calamine::{open_workbook, Reader, Xlsx};
+use calamine::{open_workbook, DataType, Reader, Xlsx};
 
 use harana_common::{anyhow, serde_json};
 use harana_common::anyhow::Result;
 use harana_common::hashbrown::HashSet;
+use harana_common::itertools::Itertools;
 use harana_common::serde::{self, Deserialize, Serialize};
-use harana_common::tracing::{Level, span};
 use harana_indexer_core::index_result::IndexResult;
 use harana_indexer_core::indexer::Indexer;
 use harana_indexer_core::tokenizer::tokenize;
@@ -34,7 +34,7 @@ impl Indexer for IndexerXlsx {
             .sheet_names()
             .to_vec()
             .iter()
-            .filter_map(|sheet_name| workbook.worksheet_range(sheet_name).ok())
+            .map(|sheet_name| workbook.worksheet_range(sheet_name))
             .filter_map(Result::ok)
             .map(|range| {
                 range

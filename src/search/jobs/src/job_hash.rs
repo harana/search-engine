@@ -5,9 +5,11 @@ use serde::Deserialize;
 
 use harana_common::anyhow::Result;
 use harana_common::async_trait::async_trait;
+use harana_common::log::info;
 use harana_common::serde::Serialize;
 use harana_common::serde_json;
 use harana_common::serde_json::Value;
+use harana_database::files_add::files_add;
 use harana_database::files_update_hash::files_update_hash;
 use harana_database::manager::DatabaseManager;
 use harana_job::handler::JobHandler;
@@ -43,7 +45,7 @@ impl JobHandler for JobHandlerHash {
 
         // Update database
         self.database_manager.files(move |c| {
-            files_update_hash(c, payload.file_path.to_str().unwrap().to_string(), hash)
+            files_add(c, payload.file_path.to_str().unwrap().to_string(), hash)
         }).await?;
 
         Ok(())

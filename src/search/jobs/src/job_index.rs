@@ -62,19 +62,23 @@ impl JobHandler for JobHandlerIndex {
         let index = self.index_manager.get_index(extension_details.2);
 
         // Get existing document from Tantivy
-        let existing_data = index.get_document(payload.document_id).await?.doc.into_iter()
-            .filter(|d| d.1.is_some())
-            .map(|(k, v)| (k, v.unwrap()))
-            .collect();
+        let existing_data = match index.get_document(payload.document_id).await {
+            Ok(doc) => {
+                index.delete_document(payload.document_id).await?;
 
-        // Delete existing document from Tantivy
-        index.delete_document(payload.document_id).await?;
+                doc.doc.into_iter()
+                    .filter(|d| d.1.is_some())
+                    .map(|(k, v)| (k, v.unwrap()))
+                    .collect()
+            }
+            Err(_) => {
+                BTreeMap::new()
+            }
+        };
 
         // Index document
         let file_path = payload.file_path.clone();
-        let index_result = std::panic::catch_unwind(|| {
-            extension_details.0.index(file_path).unwrap()
-        }).unwrap();
+        let index_result = extension_details.0.index(file_path)?;
 
         // Add to Tantivy
         let tantivy_payload = JobHandlerIndex::tantivy_payload(existing_data, index_result.clone()).await;

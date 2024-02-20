@@ -45,12 +45,14 @@ impl DatabaseManager {
 
         let core_manager = core_pool.get().await.unwrap();
         core_manager.interact(move |mut c| {
+            info!("Migrating core database ..");
             let core_migrations = Migrations::new(CORE_MIGRATIONS.iter().map(|m| M::up(m)).collect::<Vec<_>>());
             core_migrations.to_latest(&mut c).unwrap()
         }).await.expect("Failed to migrate core database");
 
         let files_manager = files_pool.get().await.unwrap();
         files_manager.interact(move |mut c| {
+            info!("Migrating files database ..");
             let files_migrations = Migrations::new(FILES_MIGRATIONS.iter().map(|m| M::up(m)).collect::<Vec<_>>());
             files_migrations.to_latest(&mut c).unwrap()
         }).await.expect("Failed to migrate files database");

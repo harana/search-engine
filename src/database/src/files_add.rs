@@ -15,7 +15,7 @@ pub const QUERY: &str = r##"
 pub fn files_add(tx: &Connection, path: String, hash: String) -> Result<()> {
     let mut sql_stmt = tx.prepare_cached(QUERY)?;
 
-    sql_stmt.execute(named_params! {
+    sql_stmt.insert(named_params! {
         "$path": encode(path),
         "$hash": hash
     })?;

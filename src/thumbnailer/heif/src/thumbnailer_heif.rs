@@ -69,7 +69,7 @@ mod tests {
 
         let _ = ThumbnailerHeif.thumbnail(
             Path::new("../../../test_files/Sample1.heic"),
-            Path::new("/Users/naden/Desktop/Sample1.png"),
+            Path::new("../../../test_files/output/Sample1.png"),
             0,
             None,
             400,

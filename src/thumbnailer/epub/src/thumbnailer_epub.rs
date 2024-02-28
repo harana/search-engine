@@ -50,7 +50,7 @@ mod tests {
 
         let _ = ThumbnailerEpub.thumbnail(
             Path::new("../../../test_files/Sample1.epub"),
-            Path::new("/Users/naden/Desktop/Sample1.png"),
+            Path::new("../../../test_files/output/Sample1.png"),
             0,
             None,
             600,

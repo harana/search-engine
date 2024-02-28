@@ -11,4 +11,4 @@ harana_search_core = { package = "search_core", path = "../../search/core" }
 harana_thumbnailer_core = { package = "thumbnailer_core", path = "../core" }
 
 cstr = "0.2"
-#rsmpeg = { version = "0.14", features = ["ffmpeg6"] }
+rsmpeg = { git = "https://github.com/harana-oss/rsmpeg" }

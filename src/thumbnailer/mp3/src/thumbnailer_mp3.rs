@@ -46,7 +46,7 @@ mod tests {
 
         let _ = ThumbnailerMp3.thumbnail(
             Path::new("../../../test_files/Sample1.mp3"),
-            Path::new("/Users/naden/Desktop/Sample1.png"),
+            Path::new("../../../test_files/output/Sample1.png"),
             0,
             None,
             400,

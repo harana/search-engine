@@ -25,7 +25,7 @@ impl Thumbnailer for ThumbnailerVideo {
         let c_str_ptr = c_string.as_ptr();
         let c_str = unsafe { CStr::from_ptr(c_str_ptr) };
 
-        let mut input_format_context = AVFormatContextInput::open(c_str)?;
+        let mut input_format_context = AVFormatContextInput::open(c_str, None, &mut None)?;
 
         let (video_stream_index, mut decode_context) = {
             let (stream_index, decoder) = input_format_context
@@ -85,6 +85,9 @@ impl Thumbnailer for ThumbnailerVideo {
                 encode_context.height,
                 encode_context.pix_fmt,
                 SWS_FAST_BILINEAR | SWS_PRINT_INFO,
+                None,
+                None,
+                None
             )
                 .context("Invalid swscontext parameter.")?;
 
@@ -139,7 +142,7 @@ mod tests {
 
         let _ = ThumbnailerVideo.thumbnail(
             Path::new("../../../test_files/Sample1.mp4"),
-            Path::new("/Users/naden/Desktop/Sample1.png"),
+            Path::new("../../../test_files/output/Sample1.png"),
             0,
             None,
             400,

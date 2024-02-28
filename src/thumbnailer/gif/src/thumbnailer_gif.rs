@@ -35,7 +35,7 @@ mod tests {
 
         let _ = ThumbnailerGif.thumbnail(
             Path::new("../../../test_files/Sample1.gif"),
-            Path::new("/Users/naden/Desktop/Sample1.png"),
+            Path::new("../../../test_files/output/Sample1.png"),
             0,
             None,
             400,

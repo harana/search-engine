@@ -37,7 +37,7 @@ harana_thumbnailer_tga = { package = "thumbnailer_tga", path = "tga" }
 harana_thumbnailer_three = { package = "thumbnailer_three", path = "three" }
 harana_thumbnailer_tiff = { package = "thumbnailer_tiff", path = "tiff" }
 harana_thumbnailer_txt = { package = "thumbnailer_txt", path = "txt" }
-#harana_thumbnailer_video = { package = "thumbnailer_video", path = "video" }
+harana_thumbnailer_video = { package = "thumbnailer_video", path = "video" }
 harana_thumbnailer_wav = { package = "thumbnailer_wav", path = "wav" }
 harana_thumbnailer_webp = { package = "thumbnailer_webp", path = "webp" }
 

@@ -28,7 +28,7 @@ use harana_thumbnailer_tga::thumbnailer_tga::ThumbnailerTga;
 use harana_thumbnailer_three::thumbnailer_three::ThumbnailerThree;
 use harana_thumbnailer_tiff::thumbnailer_tiff::ThumbnailerTiff;
 use harana_thumbnailer_txt::thumbnailer_txt::ThumbnailerTxt;
-// use harana_thumbnailer_video::thumbnailer_video::ThumbnailerVideo;
+use harana_thumbnailer_video::thumbnailer_video::ThumbnailerVideo;
 use harana_thumbnailer_wav::thumbnailer_wav::ThumbnailerWav;
 use harana_thumbnailer_webp::thumbnailer_webp::ThumbnailerWebp;
 
@@ -62,6 +62,6 @@ pub static Tga: ThumbnailerTga = ThumbnailerTga;
 pub static Three: ThumbnailerThree = ThumbnailerThree;
 pub static Tiff: ThumbnailerTiff = ThumbnailerTiff;
 pub static Txt: ThumbnailerTxt = ThumbnailerTxt;
-pub static Video: ThumbnailerNoop = ThumbnailerNoop;
+pub static Video: ThumbnailerVideo = ThumbnailerVideo;
 pub static Wav: ThumbnailerWav = ThumbnailerWav;
 pub static Webp: ThumbnailerWebp = ThumbnailerWebp;

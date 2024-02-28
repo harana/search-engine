@@ -3663,7 +3663,7 @@ extensions! {
     title = "PDF"
     category = Document
     indexer = Document_Pdf
-    thumbnailer = Noop
+    thumbnailer = Mac
     opener = Noop
     viewer = Pdf
     cards = []
@@ -5808,6 +5808,16 @@ extensions! {
     format = Jpeg2000Part1
     extension = "jp2"
     title = "JPEG 2000 Part 1"
+    category = Image
+    indexer = Image_Imagemagick
+    thumbnailer = Jpeg
+    opener = Noop
+    viewer = Noop
+    cards = []
+
+    format = JointPhotographicExpertsGroup
+    extension = "jpeg"
+    title = "JPEG"
     category = Image
     indexer = Image_Imagemagick
     thumbnailer = Jpeg

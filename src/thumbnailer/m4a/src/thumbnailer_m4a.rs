@@ -49,7 +49,7 @@ mod tests {
 
         let _ = ThumbnailerM4a.thumbnail(
             Path::new("../../../test_files/Sample1.m4a"),
-            Path::new("/Users/naden/Desktop/Sample1.png"),
+            Path::new("../../../test_files/output/Sample1.png"),
             0,
             None,
             400,

@@ -1,20 +1,25 @@
+use std::cmp;
 use std::fmt::{Debug, Display};
 use std::path::PathBuf;
 use std::sync::Arc;
+use std::time::Duration;
+use std::thread;
 
 use effectum::{Error, Job, JobRunner, Queue, RunningJob, Worker};
 
 use harana_common::anyhow::Result;
-use harana_common::futures::future::try_join_all;
+use harana_common::battery::Manager;
+use harana_common::futures::future::{ok, try_join_all};
 use harana_common::futures::FutureExt;
 use harana_common::hashbrown::HashMap;
 use harana_common::itertools::Itertools;
 use harana_common::log::info;
 use harana_common::once_cell::sync::OnceCell;
-use harana_common::serde;
+use harana_common::{num_cpus, serde, systemstat};
 use harana_common::serde::{Deserialize, Serialize};
 use harana_common::serde_json::Value;
-use harana_common::sysinfo::SystemExt;
+use harana_common::sysinfo::*;
+use harana_common::systemstat::Platform;
 use harana_common::uuid::Uuid;
 use harana_database::manager::DatabaseManager;
 use harana_database::job_groups_get::job_groups_get;
@@ -31,7 +36,18 @@ pub struct JobManager {
 }
 
 #[derive(Clone, Debug)]
-pub struct JobContext {}
+pub struct JobContext {
+    ac_power_required: bool,
+    battery_life_remaining_enabled: bool,
+    battery_life_remaining_value: u8,
+    cpu_maximum_usage_enabled: bool,
+    cpu_maximum_usage_value: u8,
+    cpu_maximum_temperature_enabled: bool,
+    cpu_maximum_temperature_value: u8,
+    hours_between_enabled: bool,
+    hours_between_start: u8,
+    hours_between_end: u8
+}
 
 #[derive(Serialize, Deserialize)]
 #[serde(crate = "self::serde")]
@@ -43,16 +59,22 @@ struct JobPayload {
 
 type TaskId = String;
 
-pub async fn handler_job(job: RunningJob, context: Arc<JobContext>) -> Result<(), Error> {
-    let payload: JobPayload = job.json_payload()?;
-    let handler = HANDLERS.get().unwrap().get(payload.category.as_str()).unwrap();
-    handler.handle(payload.payload).await;
-    Ok(())
-}
-
 impl JobManager {
 
-    pub async fn new(path_prefix: &PathBuf, worker_count: usize, database_manager: &'static DatabaseManager, handlers: HashMap<String, Box<dyn JobHandler>>) -> Self {
+    pub async fn new(path_prefix: &PathBuf,
+                     worker_count: usize,
+                     database_manager: &'static DatabaseManager,
+                     handlers: HashMap<String, Box<dyn JobHandler>>,
+                     ac_power_required: bool,
+                     battery_life_remaining_enabled: bool,
+                     battery_life_remaining_value: u8,
+                     cpu_maximum_usage_enabled: bool,
+                     cpu_maximum_usage_value: u8,
+                     cpu_maximum_temperature_enabled: bool,
+                     cpu_maximum_temperature_value: u8,
+                     hours_between_enabled: bool,
+                     hours_between_start: u8,
+                     hours_between_end: u8) -> Self {
         let _ = HANDLERS.set(handlers);
         let _ = QUEUE.set(Queue::new(path_prefix.join("harana-jobs.db").as_path()).await.unwrap());
 
@@ -63,8 +85,19 @@ impl JobManager {
         info!("Creating {} workers to process jobs ..", worker_count);
 
         let workers = (1..worker_count).into_iter().map(|i| {
-            let context = Arc::new(JobContext{});
-            Worker::builder(QUEUE.get().unwrap(), context).max_concurrency(5).jobs(job_runners.clone()).build()
+            let context = Arc::new(JobContext{
+                ac_power_required,
+                battery_life_remaining_enabled,
+                battery_life_remaining_value,
+                cpu_maximum_usage_enabled,
+                cpu_maximum_usage_value,
+                cpu_maximum_temperature_enabled,
+                cpu_maximum_temperature_value,
+                hours_between_enabled,
+                hours_between_start,
+                hours_between_end
+            });
+            Worker::builder(QUEUE.get().unwrap(), context).max_concurrency(1).jobs(job_runners.clone()).build()
         }).collect_vec();
 
         Self {
@@ -114,27 +147,71 @@ impl JobManager {
             PAUSED = false
         }
     }
+}
 
-    // fn should_execute(&'static self, task: &HaranaTask) -> bool {
-    //     unsafe {
-    //         if PAUSED {
-    //             return false;
-    //         }
-    //     }{
-    //
-    //     if task.attempts <= 10 {
-    //         return true;
-    //     }
-    //
-    //     let time_diff = OffsetDateTime::now_utc() - task.last_attempt_date;
-    //     if task.attempts <= 100 && time_diff.whole_minutes() >= 60 {
-    //         return true;
-    //     }
-    //
-    //     if time_diff.whole_hours() >= 24 {
-    //         return true;
-    //     }
-    //
-    //     return false;
-    // }
+pub async fn handler_job(job: RunningJob, context: Arc<JobContext>) -> Result<(), Error> {
+    let payload: JobPayload = job.json_payload()?;
+    let handler = HANDLERS.get().unwrap().get(payload.category.as_str()).unwrap();
+
+    if (should_execute(context)) {
+        handler.handle(payload.payload).await;
+    }else{
+        thread::sleep(Duration::from_secs(1));
+    }
+
+    Ok(())
+}
+
+fn should_execute(context: Arc<JobContext>) -> bool {
+    let mut sys = System::new_all();
+
+    let valid_ac =
+        if context.ac_power_required {
+            systemstat::System::new().on_ac_power().unwrap_or(true)
+        } else {
+            true
+        };
+
+    let valid_battery =
+        if context.battery_life_remaining_enabled {
+            Manager::new()
+                .and_then(|b| b.batteries())
+                .and_then(|b| b.last().unwrap())
+                .and_then(|b| Ok((b.state_of_charge().value * 100.0) as u8 > context.battery_life_remaining_value))
+                .unwrap_or(true)
+        } else {
+            true
+        };
+
+    let valid_cpu_temperature =
+        if context.cpu_maximum_temperature_enabled {
+            let components = Components::new_with_refreshed_list();
+            let mut max = 0.0;
+
+            for component in &components {
+                if component.temperature() > max {
+                    max = component.temperature();
+                }
+            }
+            (max as u8) < context.cpu_maximum_temperature_value
+        } else {
+            true
+        };
+
+    let valid_cpu_usage =
+        if context.cpu_maximum_usage_enabled {
+            let mut total = 0.0;
+            sys.refresh_cpu();
+
+            for cpu in sys.cpus() {
+                total += cpu.cpu_usage()
+            }
+
+            let average = total / sys.cpus().len() as f32;
+            (average as u8) < context.cpu_maximum_usage_value
+        } else {
+            true
+        };
+
+    valid_ac && valid_battery && valid_cpu_temperature && valid_cpu_usage
 }

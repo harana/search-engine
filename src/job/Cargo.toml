@@ -8,5 +8,5 @@ harana_common = { package = "common", path = "../common" }
 harana_database = { package = "database", path = "../database" }
 
 effectum = "0.4"
+log = "0.4"
 time = "0.3"
-log = "0.4.20"

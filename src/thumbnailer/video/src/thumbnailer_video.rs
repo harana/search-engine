@@ -12,6 +12,7 @@ use rsmpeg::{avcodec::*, avformat::*, avutil::*, error::RsmpegError, ffi, swscal
 
 use harana_common::anyhow::{Context, Result};
 use harana_common::async_trait::async_trait;
+use harana_common::log::debug;
 use harana_common::tauri::{AppHandle, Wry};
 use harana_thumbnailer_core::thumbnailer::Thumbnailer;
 
@@ -57,7 +58,7 @@ impl Thumbnailer for ThumbnailerVideo {
             }
         };
 
-        println!("Cover frame info: {:#?}", cover_frame);
+        debug!("Cover frame info: {:#?}", cover_frame);
 
         let mut encode_context = {
             let encoder = AVCodec::find_encoder(AVCodecID_AV_CODEC_ID_MJPEG).context("Encoder not found")?;
@@ -84,7 +85,7 @@ impl Thumbnailer for ThumbnailerVideo {
                 encode_context.width,
                 encode_context.height,
                 encode_context.pix_fmt,
-                SWS_FAST_BILINEAR | SWS_PRINT_INFO,
+                SWS_FAST_BILINEAR,
                 None,
                 None,
                 None
@@ -106,8 +107,6 @@ impl Thumbnailer for ThumbnailerVideo {
                 decode_context.height,
                 &mut scaled_cover_frame,
             )?;
-
-            println!("{:#?}", scaled_cover_frame.deref());
 
             encode_context.send_frame(Some(&scaled_cover_frame))?;
             encode_context.receive_packet()?

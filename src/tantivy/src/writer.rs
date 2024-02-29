@@ -8,7 +8,6 @@ use harana_common::crossbeam::channel::{self, RecvTimeoutError};
 use harana_common::crossbeam::queue::SegQueue;
 use harana_common::serde;
 use harana_common::serde::{Deserialize, Serialize};
-use harana_common::sysinfo::SystemExt;
 use harana_common::tantivy::schema::{Field, Schema};
 use harana_common::tantivy::{IndexWriter, Opstamp, Term};
 use harana_common::hashbrown::HashMap;

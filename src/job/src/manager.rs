@@ -63,6 +63,7 @@ impl JobManager {
 
     pub async fn new(path_prefix: &PathBuf,
                      worker_count: usize,
+                     worker_concurrency: usize,
                      database_manager: &'static DatabaseManager,
                      handlers: HashMap<String, Box<dyn JobHandler>>,
                      ac_power_required: bool,
@@ -97,7 +98,7 @@ impl JobManager {
                 hours_between_start,
                 hours_between_end
             });
-            Worker::builder(QUEUE.get().unwrap(), context).max_concurrency(1).jobs(job_runners.clone()).build()
+            Worker::builder(QUEUE.get().unwrap(), context).max_concurrency(worker_concurrencyp as u16).jobs(job_runners.clone()).build()
         }).collect_vec();
 
         Self {

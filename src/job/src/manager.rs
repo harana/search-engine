@@ -98,7 +98,7 @@ impl JobManager {
                 hours_between_start,
                 hours_between_end
             });
-            Worker::builder(QUEUE.get().unwrap(), context).max_concurrency(worker_concurrencyp as u16).jobs(job_runners.clone()).build()
+            Worker::builder(QUEUE.get().unwrap(), context).max_concurrency(worker_concurrency as u16).jobs(job_runners.clone()).build()
         }).collect_vec();
 
         Self {

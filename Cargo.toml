@@ -34,9 +34,6 @@ members = [
 [dependencies]
 snmalloc-rs = "0.3.4"
 
-#[patch.crates-io]
-#rusty_ffmpeg = { git = "https://github.com/harana-oss/rusty_ffmpeg.git" }
-
 [build-dependencies]
 conan2 = "0.1.0"
 

@@ -42,8 +42,8 @@ impl ApplicationManager {
         self.applications.store(Arc::from(apps.clone()));
     }
 
-    pub async fn search(&self, prefix: &str) -> Vec<Application> {
-        self.applications.load()
+    pub async fn search(&self, prefix: &str) -> Option<Application> {
+        let applications = self.applications.load()
             .iter()
             .map(|a| Application {
                 name: a.clone().name,
@@ -51,13 +51,26 @@ impl ApplicationManager {
                 source_icon_path: a.clone().source_icon_path,
                 target_icon_path: a.clone().target_icon_path
             })
-            .into_iter()
-            .filter(|a| {
-                a.name.to_lowercase().split(" ").any(|word|
-                    word.starts_with(&prefix.to_lowercase()) ||
-                    word == prefix.to_lowercase()
-                ) || levenshtein_exp(a.name.to_lowercase().as_bytes(), prefix.to_lowercase().as_bytes()) <= 2
-            })
-            .collect_vec()
+            .collect_vec();
+
+        for a in &applications {
+            if a.name.to_lowercase() == prefix.to_lowercase() {
+                return Some(a.clone())
+            }
+        }
+
+        for a in &applications {
+            if a.name.to_lowercase().split(" ").any(|w| w.starts_with(&prefix.to_lowercase()) || w == prefix.to_lowercase()) {
+                return Some(a.clone())
+            }
+        }
+
+        for a in &applications {
+            if levenshtein_exp(a.name.to_lowercase().as_bytes(), prefix.to_lowercase().as_bytes()) <= 2 {
+                return Some(a.clone())
+            }
+        }
+
+        return None
     }
 }

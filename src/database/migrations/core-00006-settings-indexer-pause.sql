@@ -1,0 +1,10 @@
+INSERT OR IGNORE INTO settings (key, value) VALUES ("indexer_pause_ac_power_required", "true");
+INSERT OR IGNORE INTO settings (key, value) VALUES ("indexer_pause_battery_life_remaining_enabled", "true");
+INSERT OR IGNORE INTO settings (key, value) VALUES ("indexer_pause_battery_life_remaining_value", "10");
+INSERT OR IGNORE INTO settings (key, value) VALUES ("indexer_pause_cpu_maximum_temperature_enabled", "true");
+INSERT OR IGNORE INTO settings (key, value) VALUES ("indexer_pause_cpu_maximum_temperature_value", "80");
+INSERT OR IGNORE INTO settings (key, value) VALUES ("indexer_pause_cpu_maximum_usage_enabled", "true");
+INSERT OR IGNORE INTO settings (key, value) VALUES ("indexer_pause_cpu_maximum_usage_value", "60");
+INSERT OR IGNORE INTO settings (key, value) VALUES ("indexer_pause_hours_between_enabled", "true");
+INSERT OR IGNORE INTO settings (key, value) VALUES ("indexer_pause_hours_between_start", "9");
+INSERT OR IGNORE INTO settings (key, value) VALUES ("indexer_pause_hours_between_end", "17");

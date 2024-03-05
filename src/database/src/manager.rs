@@ -11,12 +11,13 @@ use harana_common::futures::TryFutureExt;
 use harana_common::log::{debug, error, info};
 use harana_common::thread_pools::{DATABASE_POOL, execute_future_result_operation};
 
-const CORE_MIGRATIONS: [&str; 5] = [
+const CORE_MIGRATIONS: [&str; 6] = [
     include_str!("../migrations/core-00001-init.sql"),
     include_str!("../migrations/core-00002-developer-sources.sql"),
     include_str!("../migrations/core-00003-search-categories.sql"),
     include_str!("../migrations/core-00004-search-folders.sql"),
-    include_str!("../migrations/core-00005-indexer-pause-settings.sql"),
+    include_str!("../migrations/core-00005-settings-general.sql"),
+    include_str!("../migrations/core-00006-settings-indexer-pause.sql")
 ];
 
 const FILES_MIGRATIONS: [&str; 1] = [

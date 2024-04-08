@@ -13,7 +13,7 @@ blend = "0.8.0"
 dxf = "0.5.0"
 libflate = "2.0.0"
 lightwave-3d = "1.0.0"
-zstd = "0.12"
+zstd = "0.13.1"
 
 [[bench]]
 name = "benchmark_graphics"

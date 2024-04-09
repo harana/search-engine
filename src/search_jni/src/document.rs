@@ -8,6 +8,7 @@ use harana_tantivy::structures::{DocumentPayload, DocumentValue, DocumentValueOp
 pub struct Document {
     pub id: String,
     pub title: Option<String>,
+    pub subtitle: Option<String>,
     pub description: Option<String>,
     pub author: Option<String>,
     pub primary_tokens: Vec<String>,
@@ -33,6 +34,7 @@ impl Document {
     pub fn to_tantivy_payload(&self) -> DocumentPayload {
         let map = BTreeMap::from([
             ("title".to_string(), str(self.title.clone())),
+            ("subtitle".to_string(), str(self.subtitle.clone())),
             ("description".to_string(), str(self.description.clone())),
             ("author".to_string(), str(self.author.clone())),
             ("primary_tokens".to_string(), str(Some(self.primary_tokens.clone().join(",")))),

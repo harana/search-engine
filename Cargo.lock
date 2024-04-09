@@ -6206,6 +6206,7 @@ dependencies = [
  "libflate",
  "lightwave-3d",
  "zstd 0.12.4",
+ "zstd-sys",
 ]
 
 [[package]]

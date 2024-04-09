@@ -14,6 +14,7 @@ use harana_tantivy::structures::DocumentHit;
 pub struct Document {
     pub id: String,
     pub title: String,
+    pub subtitle: Option<String>,
     pub description: Option<String>,
     pub tags: Option<String>,
     pub author: Option<String>,
@@ -58,7 +59,8 @@ impl Document {
         Self {
             id: hit.document_id.to_string(),
             title: hit_string(&hit, "title").unwrap_or(String::new()),
-            description: hit_string(&hit, "documentation"),
+            subtitle: hit_string(&hit, "subtitle"),
+            description: hit_string(&hit, "description"),
             tags: hit_string(&hit, "tags"),
             author: hit_string(&hit, "author"),
             primary_tokens,

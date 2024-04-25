@@ -10,7 +10,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ArbitraryBinaryData
     extension = "bin"
@@ -20,7 +20,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MsDosExecutable
     extension = "exe"
@@ -30,7 +30,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = LinearExecutable
     extension = "le"
@@ -40,7 +40,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SevenZip
     extension = "7z"
@@ -50,7 +50,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = UnixArchiver
     extension = "a"
@@ -60,7 +60,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdvancedCompressionEngine
     extension = "ace"
@@ -70,7 +70,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Alz
     extension = "alz"
@@ -80,7 +80,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ArchivedByRobertJung
     extension = "ar"
@@ -90,7 +90,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Bzip
     extension = "bz"
@@ -100,7 +100,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Bzip2
     extension = "bz2"
@@ -110,7 +110,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Bzip3
     extension = "bz3"
@@ -120,7 +120,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Cabinet
     extension = "cab"
@@ -130,7 +130,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "compress"
     title = "Unix Compress"
@@ -139,7 +139,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Cpio
     extension = "cpio"
@@ -149,7 +149,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Gzip
     extension = "gz"
@@ -159,7 +159,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Lha
     extension = "lha"
@@ -169,7 +169,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = LempelZivFiniteStateEntropy
     extension = "lzfse"
@@ -179,7 +179,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Lzip
     extension = "lz"
@@ -189,7 +189,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Lzip
     extension = "lzh"
@@ -199,7 +199,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Lz4
     extension = "lz4"
@@ -209,7 +209,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = LempelZivMarkovChainAlgorithm
     extension = "lzma"
@@ -219,7 +219,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Lzop
     extension = "lzo"
@@ -229,7 +229,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Larc
     extension = "lzs"
@@ -239,7 +239,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = LongRangeZip
     extension = "lrzip"
@@ -249,7 +249,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mtree"
     title = "Mtree"
@@ -258,7 +258,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pax"
     title = "Pax"
@@ -267,7 +267,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Pmarc
     extension = "pma"
@@ -277,7 +277,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = RoshalArchive
     extension = "rar"
@@ -287,7 +287,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Rzip
     extension = "rz"
@@ -297,7 +297,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Seqbox
     extension = "sbx"
@@ -307,7 +307,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "shar"
     title = "Shar"
@@ -316,7 +316,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Snappy
     extension = "sz"
@@ -326,7 +326,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Stuffit
     extension = "sit"
@@ -336,7 +336,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = StuffitX
     extension = "sitx"
@@ -346,7 +346,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Squashfs
     extension = "squashfs"
@@ -356,7 +356,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = TapeArchive
     extension = "tar"
@@ -366,7 +366,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ExtensibleArchive
     extension = "xar"
@@ -376,7 +376,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Xz
     extension = "xz"
@@ -386,7 +386,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "warc"
     title = "Warc"
@@ -395,7 +395,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WindowsImagingFormat
     extension = "wim"
@@ -405,7 +405,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = UnixCompress
     extension = "Z"
@@ -415,7 +415,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Zip
     extension = "zip"
@@ -425,7 +425,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Zoo
     extension = "zoo"
@@ -435,7 +435,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Zpaq
     extension = "zpaq"
@@ -445,7 +445,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Zstandard
     extension = "zstd"
@@ -455,7 +455,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Iff8BitSampledVoice
     extension = "8svx"
@@ -465,7 +465,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdvancedAudioCoding
     extension = "aac"
@@ -475,7 +475,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AudioCodec3
     extension = "ac3"
@@ -485,7 +485,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AudioInterchangeFileFormat
     extension = "aiff"
@@ -495,7 +495,7 @@ extensions! {
     thumbnailer = Aiff
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "alac"
     title = "Apple Lossless Audio Codec"
@@ -504,7 +504,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdaptiveMultiRate
     extension = "amr"
@@ -514,7 +514,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MonkeysAudio
     extension = "ape"
@@ -524,7 +524,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "at3"
     title = "Sony UMD Audio"
@@ -533,7 +533,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Au
     extension = "au"
@@ -543,7 +543,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AudioVisualResearch
     extension = "avr"
@@ -553,7 +553,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = CdAudio
     extension = "cda"
@@ -563,7 +563,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SonyDsdStreamFile
     extension = "dsf"
@@ -573,7 +573,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdobeFlashPlayerAudio
     extension = "f4a"
@@ -583,7 +583,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdobeFlashPlayerAudiobook
     extension = "f4b"
@@ -593,7 +593,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = FreeLosslessAudioCodec
     extension = "flac"
@@ -603,7 +603,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ImpulseTrackerModule
     extension = "it"
@@ -613,7 +613,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "lrc"
     title = "Lyrics"
@@ -622,7 +622,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AppleItunesAudio
     extension = "m4a"
@@ -632,7 +632,7 @@ extensions! {
     thumbnailer = M4a
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AppleItunesAudiobook
     extension = "m4b"
@@ -642,7 +642,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AppleItunesProtectedAudio
     extension = "m4p"
@@ -652,7 +652,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MatroskaAudio
     extension = "mka"
@@ -662,7 +662,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MusicalInstrumentDigitalInterface
     extension = "midi"
@@ -672,7 +672,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mmf"
     title = "Yamaha Synthetic Music"
@@ -681,7 +681,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = UltimateSoundtrackerModule
     extension = "mod"
@@ -691,7 +691,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mp1"
     title = "MPEG-1/2 Audio Layer 1"
@@ -700,7 +700,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Mpeg12AudioLayer2
     extension = "mp2"
@@ -710,7 +710,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Mpeg12AudioLayer3
     extension = "mp3"
@@ -720,7 +720,7 @@ extensions! {
     thumbnailer = Mp3
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Musepack
     extension = "mpc"
@@ -730,7 +730,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mus"
     title = "Music Time Internal"
@@ -739,7 +739,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Musicxml
     extension = "musicxml"
@@ -749,7 +749,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MusicxmlZipped
     extension = "mxl"
@@ -759,7 +759,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ncm"
     title = "Netease Cloud Music"
@@ -768,7 +768,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ncw"
     title = "Native Instruments Compressed Wave"
@@ -777,7 +777,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OggFlac
     extension = "oga"
@@ -787,7 +787,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OggVorbis
     extension = "ogg"
@@ -797,7 +797,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OggMultiplexedMedia
     extension = "ogx"
@@ -807,7 +807,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OggOpus
     extension = "opus"
@@ -817,7 +817,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "psf"
     title = "Parameter Storage Format"
@@ -826,7 +826,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = QualcommPurevoice
     extension = "qcp"
@@ -836,7 +836,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = QuiteOkAudio
     extension = "qoa"
@@ -846,7 +846,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Realaudio
     extension = "ra"
@@ -856,7 +856,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ScreamTracker3Module
     extension = "s3m"
@@ -866,7 +866,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Soundfont2
     extension = "sf2"
@@ -876,7 +876,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sf3"
     title = "SoundFont 3"
@@ -885,7 +885,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sfz"
     title = "SoundFont Z"
@@ -894,7 +894,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OggSpeex
     extension = "spx"
@@ -904,7 +904,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Fasttracker2ExtendedModule
     extension = "xm"
@@ -914,7 +914,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = CreativeVoice
     extension = "voc"
@@ -924,7 +924,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WaveformAudio
     extension = "wav"
@@ -934,7 +934,7 @@ extensions! {
     thumbnailer = Wav
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Wavpack
     extension = "wv"
@@ -944,7 +944,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WindowsMediaAudio
     extension = "wma"
@@ -954,7 +954,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "awz"
     title = "Amazon Kindle Book"
@@ -963,7 +963,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "awz3"
     title = "Amazon Kindle Book"
@@ -972,7 +972,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = BroadBandEbook
     extension = "bbeb"
@@ -982,7 +982,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ElectronicPublication
     extension = "epub"
@@ -992,7 +992,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Epub
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Fictionbook
     extension = "fb2"
@@ -1002,7 +1002,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = FictionbookZipped
     extension = "fbz"
@@ -1012,7 +1012,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftReader
     extension = "lit"
@@ -1022,7 +1022,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Mobipocket
     extension = "mobi"
@@ -1032,7 +1032,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ogam"
     title = "OGAM Markup Language"
@@ -1041,7 +1041,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "rm"
     title = "Remarkable"
@@ -1050,7 +1050,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "tw"
     title = "Twine Story"
@@ -1059,7 +1059,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "twee"
     title = "Twine Story"
@@ -1068,7 +1068,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "usfm"
     title = "Unified Standard Format Marker"
@@ -1077,7 +1077,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "zim"
     title = "Zim Wiki Extract"
@@ -1086,7 +1086,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Icalendar
     extension = "ics"
@@ -1096,7 +1096,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Calendar
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "vcf"
     title = "Variant Call Format"
@@ -1105,7 +1105,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PgpMessage
     extension = "asc"
@@ -1115,7 +1115,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PgpPrivateKeyBlock
     extension = "asc"
@@ -1125,7 +1125,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PgpSignature
     extension = "asc"
@@ -1135,7 +1135,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Certificate
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PgpSignedMessage
     extension = "asc"
@@ -1145,7 +1145,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Certificate
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = DerCertificate
     extension = "der"
@@ -1155,7 +1155,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = JavaKeystore
     extension = "jks"
@@ -1165,7 +1165,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Certificate
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PemCertificate
     extension = "crt"
@@ -1175,7 +1175,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Certificate
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PemCertificateSigningRequest
     extension = "crt"
@@ -1185,7 +1185,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Certificate
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PemPrivateKey
     extension = "key"
@@ -1195,7 +1195,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Certificate
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pgp"
     title = "PGP Key/Signature"
@@ -1204,7 +1204,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Certificate
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PemPublicKey
     extension = "pub"
@@ -1214,7 +1214,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Certificate
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "p12"
     title = "Private Key"
@@ -1223,7 +1223,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Certificate
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Atom
     extension = "atom"
@@ -1233,7 +1233,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MsDosBatch
     extension = "bat"
@@ -1243,7 +1243,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "c"
     title = "C"
@@ -1252,7 +1252,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cfc"
     title = "Coldfusion"
@@ -1261,7 +1261,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cfm"
     title = "Coldfusion"
@@ -1270,7 +1270,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = JavaClass
     extension = "class"
@@ -1280,7 +1280,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ClojureScript
     extension = "clj"
@@ -1290,7 +1290,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cmake"
     title = "cmake"
@@ -1299,7 +1299,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cmd"
     title = "Command"
@@ -1308,7 +1308,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "conf"
     title = "Conf"
@@ -1317,7 +1317,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cpp"
     title = "C++ Source"
@@ -1326,7 +1326,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cr"
     title = "Crystal"
@@ -1335,7 +1335,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cs"
     title = "C#"
@@ -1344,7 +1344,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "css"
     title = "CSS"
@@ -1353,7 +1353,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "d"
     title = "D"
@@ -1362,7 +1362,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dart"
     title = "Dart"
@@ -1371,7 +1371,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dbml"
     title = "Database Markup Language"
@@ -1380,7 +1380,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dockerfile"
     title = "Dockerfile"
@@ -1389,7 +1389,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dtd"
     title = "Document Type Definition"
@@ -1398,7 +1398,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ExecutableAndLinkableFormat
     extension = "elf"
@@ -1408,7 +1408,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ecor"
     title = "Eclipse Modeling Format"
@@ -1417,7 +1417,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "erl"
     title = "Erlang"
@@ -1426,7 +1426,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "exs"
     title = "Exilir"
@@ -1435,7 +1435,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "f90"
     title = "Fortran"
@@ -1444,7 +1444,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "fs"
     title = "F#"
@@ -1453,7 +1453,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ftl"
     title = "Fluent"
@@ -1462,7 +1462,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "funscript"
     title = "Funscript"
@@ -1471,7 +1471,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "g6"
     title = "Graph6"
@@ -1480,7 +1480,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "go"
     title = "Go"
@@ -1489,7 +1489,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "goff"
     title = "Goff Configuration"
@@ -1498,7 +1498,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gradle"
     title = "Gradle"
@@ -1507,7 +1507,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "groovy"
     title = "Groovy"
@@ -1516,7 +1516,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "h"
     title = "C Header"
@@ -1525,7 +1525,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "hcl"
     title = "HCL"
@@ -1534,7 +1534,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "hoa"
     title = "Hanoi Omega Automata"
@@ -1543,7 +1543,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "hpp"
     title = "C++ Header"
@@ -1552,7 +1552,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "hs"
     title = "Haskell"
@@ -1561,7 +1561,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = HypertextMarkupLanguage
     extension = "html"
@@ -1571,7 +1571,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "in"
     title = "in"
@@ -1580,7 +1580,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "java"
     title = "Java"
@@ -1589,7 +1589,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "jl"
     title = "Julia"
@@ -1598,7 +1598,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "js"
     title = "JavaScript"
@@ -1607,7 +1607,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "jsx"
     title = "JavaScript"
@@ -1616,7 +1616,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "kdl"
     title = "Cuddly Document Language"
@@ -1625,7 +1625,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "kt"
     title = "Kotlin"
@@ -1634,7 +1634,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "le"
     title = "Linear Executable"
@@ -1643,7 +1643,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "less"
     title = "Less"
@@ -1652,7 +1652,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "lisp"
     title = "Lisp"
@@ -1661,7 +1661,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "lmf"
     title = "Lexical Markup Framework"
@@ -1670,7 +1670,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "lock"
     title = "Lock"
@@ -1679,7 +1679,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = LuaScript
     extension = "lua"
@@ -1689,7 +1689,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ml"
     title = "OCaml"
@@ -1698,7 +1698,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MathematicalMarkupLanguage
     extension = "mathml"
@@ -1708,7 +1708,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mustache"
     title = "Mustache"
@@ -1717,7 +1717,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "nim"
     title = "Nim"
@@ -1726,7 +1726,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pas"
     title = "Pascal"
@@ -1735,7 +1735,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "patch"
     title = "Patch"
@@ -1744,7 +1744,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pddl"
     title = "Planning Domain Definition"
@@ -1753,7 +1753,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pe"
     title = "Portable Executable"
@@ -1762,7 +1762,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "php"
     title = "PHP"
@@ -1771,7 +1771,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PerlScript
     extension = "pl"
@@ -1781,7 +1781,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pml"
     title = "Philipp's Modern Language"
@@ -1790,7 +1790,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pnm"
     title = "Portable Any Map"
@@ -1799,7 +1799,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pnml"
     title = "Petri Net Markup Language"
@@ -1808,7 +1808,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "properties"
     title = "Properties"
@@ -1817,7 +1817,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "proto"
     title = "ProtoBuffer"
@@ -1826,7 +1826,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ps1"
     title = "Powershell"
@@ -1835,7 +1835,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PythonScript
     extension = "py"
@@ -1845,7 +1845,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "qasm"
     title = "Quantum Assembly Language"
@@ -1854,7 +1854,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "r"
     title = "R"
@@ -1863,7 +1863,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = RubyScript
     extension = "rb"
@@ -1873,7 +1873,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "rkt"
     title = "Racket"
@@ -1882,7 +1882,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "rpsl"
     title = "Routing Policy Specification Language"
@@ -1891,7 +1891,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "rs"
     title = "Rust"
@@ -1900,7 +1900,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ru"
     title = "Ruby"
@@ -1909,7 +1909,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sbt"
     title = "Scala Build Tool"
@@ -1918,7 +1918,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "scala"
     title = "Scala"
@@ -1927,7 +1927,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sdl"
     title = "Scenario Defined Language"
@@ -1936,7 +1936,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sgml"
     title = "Standard Generalized Markup Language"
@@ -1945,7 +1945,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ShellScript
     extension = "sh"
@@ -1955,7 +1955,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sql"
     title = "SQL"
@@ -1964,7 +1964,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sum"
     title = "sum"
@@ -1973,7 +1973,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "swift"
     title = "Swift"
@@ -1982,7 +1982,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "tap"
     title = "Test Anything Protocol"
@@ -1991,7 +1991,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ToolCommandLanguageScript
     extension = "tcl"
@@ -2001,7 +2001,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "tf"
     title = "Terraform"
@@ -2010,7 +2010,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "tfvar"
     title = "Terraform Variables"
@@ -2019,7 +2019,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ts"
     title = "TypeScript"
@@ -2028,7 +2028,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "thrift"
     title = "Thrift"
@@ -2037,7 +2037,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "toml"
     title = "TOML"
@@ -2046,7 +2046,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "udl"
     title = "Universal Data Language"
@@ -2055,7 +2055,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ur"
     title = "Ur"
@@ -2064,7 +2064,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "v"
     title = "V"
@@ -2073,7 +2073,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "vala"
     title = "Vala"
@@ -2082,7 +2082,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "vb"
     title = "Visual Basic"
@@ -2091,7 +2091,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wit"
     title = "Wasm Interface Type"
@@ -2100,7 +2100,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "xcodeproj"
     title = "XCode Project"
@@ -2109,7 +2109,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ExtensibleMarkupLanguage
     extension = "xml"
@@ -2119,7 +2119,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ExtensibleStylesheetLanguageTransformations
     extension = "xslt"
@@ -2129,7 +2129,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "yaml"
     title = "YAML"
@@ -2138,7 +2138,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "yul"
     title = "Yul"
@@ -2147,7 +2147,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "yml"
     title = "YAML"
@@ -2156,7 +2156,7 @@ extensions! {
     thumbnailer = Code
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdobeIntegratedRuntime
     extension = "air"
@@ -2166,7 +2166,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WindowsAppPackage
     extension = "appx"
@@ -2176,7 +2176,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AndroidPackage
     extension = "apk"
@@ -2186,7 +2186,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AndroidCompiledResources
     extension = "arsc"
@@ -2196,7 +2196,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = LlvmBitcode
     extension = "bc"
@@ -2206,7 +2206,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "btf"
     title = "BPF Type Format"
@@ -2215,7 +2215,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = CompoundFileBinary
     extension = "cfb"
@@ -2225,7 +2225,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = CommonObjectFileFormat
     extension = "coff"
@@ -2235,7 +2235,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = GoogleChromeExtension
     extension = "crx"
@@ -2245,7 +2245,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = DalvikExecutable
     extension = "dex"
@@ -2255,7 +2255,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OptimizedDalvikExecutable
     extension = "dey"
@@ -2265,7 +2265,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = DynamicLinkLibrary
     extension = "dll"
@@ -2275,7 +2275,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = DebianBinaryPackage
     extension = "deb"
@@ -2285,7 +2285,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = EnterpriseApplicationArchive
     extension = "ear"
@@ -2295,7 +2295,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ggjt"
     title = "Machine Learning Model"
@@ -2304,7 +2304,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ggmf"
     title = "Machine Learning Model"
@@ -2313,7 +2313,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ggml"
     title = "Machine Learning Model"
@@ -2322,7 +2322,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gguf"
     title = "Machine Learning Model"
@@ -2331,7 +2331,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = IosAppStorePackage
     extension = "ipa"
@@ -2341,7 +2341,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = JavaArchive
     extension = "jar"
@@ -2351,7 +2351,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ktest"
     title = "KTest Binary"
@@ -2360,7 +2360,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = LuaBytecode
     extension = "luac"
@@ -2370,7 +2370,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MachO
     extension = "mach"
@@ -2380,7 +2380,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mdx"
     title = "Mdict Dictionary"
@@ -2389,7 +2389,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftSoftwareInstaller
     extension = "msi"
@@ -2399,7 +2399,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pbf"
     title = "ProtocolBuffer Binary Format"
@@ -2408,7 +2408,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = RedHatPackageManager
     extension = "rpm"
@@ -2418,7 +2418,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftVisualStudioSolution
     extension = "sln"
@@ -2428,7 +2428,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Tasty
     extension = "tasty"
@@ -2438,7 +2438,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftVisualStudioExtension
     extension = "vsix"
@@ -2448,7 +2448,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WebApplicationArchive
     extension = "war"
@@ -2458,7 +2458,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WebassemblyBinary
     extension = "wasm"
@@ -2468,7 +2468,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WebassemblyText
     extension = "wat"
@@ -2478,7 +2478,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Xap
     extension = "xap"
@@ -2488,7 +2488,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Xpinstall
     extension = "xpi"
@@ -2498,7 +2498,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "aba"
     title = "Australian Banking Association Records"
@@ -2507,7 +2507,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "abf"
     title = "Axon Binary Format"
@@ -2516,7 +2516,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftAccess2007Database
     extension = "accdb"
@@ -2526,7 +2526,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ApacheArrowColumnar
     extension = "arrow"
@@ -2536,7 +2536,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "arxml"
     title = "Autosar Arxml"
@@ -2545,7 +2545,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ApacheAvroObjectContainer
     extension = "avro"
@@ -2555,7 +2555,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "bam"
     title = "Binary Alignment/Map"
@@ -2564,7 +2564,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "bcf"
     title = "Binary Call Format"
@@ -2573,7 +2573,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "bed"
     title = "Browser Extensible Data"
@@ -2582,7 +2582,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "bgzf"
     title = "Blocked GZip Format"
@@ -2591,7 +2591,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "bson"
     title = "Binary Javascript Object Notation"
@@ -2600,7 +2600,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cbor"
     title = "Concise Binary Object Representation"
@@ -2609,7 +2609,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cff"
     title = "Comtrade Data"
@@ -2618,7 +2618,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cnf"
     title = "DIMACS CNF"
@@ -2627,7 +2627,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "conllu"
     title = "CoNLL-U Annotations"
@@ -2636,7 +2636,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cram"
     title = "CRAM"
@@ -2645,7 +2645,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "csi"
     title = "Coordinate Sorted Index"
@@ -2654,7 +2654,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "csr"
     title = "Compressed Sparse Row"
@@ -2663,7 +2663,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cst"
     title = "Caret Seperated Text"
@@ -2672,7 +2672,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "csv"
     title = "Comma Seperated Values"
@@ -2681,7 +2681,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dbf"
     title = "dBase Database"
@@ -2690,7 +2690,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dif"
     title = "Data Interchange Format"
@@ -2699,7 +2699,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "edl"
     title = "Edit Decision List"
@@ -2708,7 +2708,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "fil"
     title = "SIGPROC Filter Bank"
@@ -2717,7 +2717,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gcode"
     title = "3D Printing Definition"
@@ -2726,7 +2726,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gedcom"
     title = "Genealogical Family Tree"
@@ -2735,7 +2735,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gfa"
     title = "Graphical Fragment Assembly"
@@ -2744,7 +2744,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gff"
     title = "Generic Feature Format"
@@ -2753,7 +2753,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "graphviz"
     title = "Graphviz"
@@ -2762,7 +2762,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gtf"
     title = "Gene Transfer Format"
@@ -2771,7 +2771,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "hepmc2"
     title = "HepMC Collisions"
@@ -2780,7 +2780,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "hepmc3"
     title = "HepMC Collisions"
@@ -2789,7 +2789,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "i2"
     title = "MoTeC i2"
@@ -2798,7 +2798,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "igc"
     title = "IGC Flight Record"
@@ -2807,7 +2807,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = JsonFeed
     extension = "json"
@@ -2817,7 +2817,7 @@ extensions! {
     thumbnailer = Json
     opener = Noop
     viewer = Json
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "kdbx"
     title = "Keepass Database"
@@ -2826,7 +2826,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ltx"
     title = "Lite Transaction File"
@@ -2835,7 +2835,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "m20"
     title = "Atomic Mass Evaluation 2020"
@@ -2844,7 +2844,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftAccessDatabase
     extension = "mdb"
@@ -2854,7 +2854,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mdf"
     title = "Microsoft SQL Server Database"
@@ -2863,7 +2863,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mm1"
     title = "Metamath Zero Binary"
@@ -2872,7 +2872,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mtx"
     title = "Matrix Market"
@@ -2881,7 +2881,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mwa"
     title = "Murchison Widefield Array"
@@ -2890,7 +2890,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "obo"
     title = "OBO Ontology"
@@ -2899,7 +2899,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OpendocumentDatabase
     extension = "odb"
@@ -2909,7 +2909,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "orc"
     title = "Optimized Row Columnar"
@@ -2918,7 +2918,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "owl"
     title = "OWL Ontology"
@@ -2927,7 +2927,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ApacheParquet
     extension = "parquet"
@@ -2937,7 +2937,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pcap"
     title = "Packet Capture"
@@ -2946,7 +2946,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pdb"
     title = "Protein Data Bank"
@@ -2955,7 +2955,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "prn"
     title = "Lotus Formatted Text"
@@ -2964,7 +2964,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "qif"
     title = "Quicken Interchange Format"
@@ -2973,7 +2973,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "safetensors"
     title = "Safe Tensors"
@@ -2982,7 +2982,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sam"
     title = "Sequence Alignment/Map"
@@ -2991,7 +2991,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sarif"
     title = "Static Analysis Results Interchange Format"
@@ -3000,7 +3000,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "saz"
     title = "Fiddler Traffic"
@@ -3009,7 +3009,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "spdx"
     title = "Software Package Data Exchange"
@@ -3018,7 +3018,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sp3"
     title = "SP3 Precise GNSS Orbit"
@@ -3027,7 +3027,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Sqlite3
     extension = "sqlite"
@@ -3037,7 +3037,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "svf"
     title = "Serial Vector Format"
@@ -3046,7 +3046,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "tbi"
     title = "Tabix"
@@ -3055,7 +3055,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "tdms"
     title = "LabVIEW TDMS"
@@ -3064,7 +3064,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "tsfile"
     title = "IoTDB Time Series"
@@ -3073,7 +3073,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "tsp"
     title = "Travelling Salesman Problem Dataset"
@@ -3082,7 +3082,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ttl"
     title = "Turtle"
@@ -3091,7 +3091,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "tzif"
     title = "Timezone Information Format"
@@ -3100,7 +3100,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "uxf"
     title = "Uniform eXchange Format"
@@ -3109,7 +3109,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "vbo"
     title = "VBOX Automotive Format"
@@ -3118,7 +3118,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "winmd"
     title = "Windows Metadata"
@@ -3127,7 +3127,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "xdr"
     title = "Stellar Open XDR"
@@ -3136,7 +3136,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "adf"
     title = "Amiga Floppy Disk Image"
@@ -3145,7 +3145,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "b5t"
     title = "BlindWrite 5 Image"
@@ -3154,7 +3154,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "b6t"
     title = "BlindWrite 6 Image"
@@ -3163,7 +3163,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "bwt"
     title = "BlindWrite 4 Image"
@@ -3172,7 +3172,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "c2d"
     title = "Roxio-WinOnCD Image"
@@ -3181,7 +3181,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cdi"
     title = "DiscJuggler Image"
@@ -3190,7 +3190,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cif"
     title = "Easy CD Creator Image"
@@ -3199,7 +3199,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cue"
     title = "CDRWrite CUE Image"
@@ -3208,7 +3208,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "daa"
     title = "PowerISO Image"
@@ -3217,7 +3217,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AppleDiskImage
     extension = "dmg"
@@ -3227,7 +3227,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dms"
     title = "Amiga Disk Image"
@@ -3236,7 +3236,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dsk"
     title = "ZX Spectrum Disk Image"
@@ -3245,7 +3245,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Iso9660
     extension = "iso"
@@ -3255,7 +3255,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "nrg"
     title = "Nero Archive"
@@ -3264,7 +3264,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = QemuCopyOnWrite
     extension = "qcow"
@@ -3274,7 +3274,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sdi"
     title = "Virtual Disk"
@@ -3283,7 +3283,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftVirtualHardDisk
     extension = "vhd"
@@ -3293,7 +3293,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftVirtualHardDisk2
     extension = "vhdx"
@@ -3303,7 +3303,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = VirtualMachineDisk
     extension = "vmdk"
@@ -3313,7 +3313,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = VirtualboxVirtualDiskImage
     extension = "vdi"
@@ -3323,7 +3323,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "123"
     title = "Lotus 1-2-3"
@@ -3332,7 +3332,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Abiword
     extension = "abw"
@@ -3342,7 +3342,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AbiwordTemplate
     extension = "awt"
@@ -3352,7 +3352,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "bib"
     title = "BibTex"
@@ -3361,7 +3361,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = CircuitDiagramDocument
     extension = "cddx"
@@ -3371,7 +3371,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cook"
     title = "Cook Recipe"
@@ -3380,7 +3380,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftWordDocument
     extension = "doc"
@@ -3390,7 +3390,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Docx
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OfficeOpenXmlDocument
     extension = "docx"
@@ -3400,7 +3400,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Docx
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dj"
     title = "Djot"
@@ -3409,7 +3409,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Drawio
     extension = "drawio"
@@ -3419,7 +3419,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "123"
     title = "Lotus 1-2-3"
@@ -3428,7 +3428,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "fods"
     title = "Flat XML ODF Spreadsheet"
@@ -3437,7 +3437,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "graffle"
     title = "OmniGraffle"
@@ -3446,7 +3446,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gslides"
     title = "Google Drive Presentation"
@@ -3455,7 +3455,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = IndesignMarkupLanguage
     extension = "idml"
@@ -3465,7 +3465,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdobeIndesignDocument
     extension = "indd"
@@ -3475,7 +3475,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ipynb"
     title = "Interactive Python Notebook"
@@ -3484,7 +3484,7 @@ extensions! {
     thumbnailer = Ipynb
     opener = Noop
     viewer = Ipynb
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "keynote"
     title = "Apple Keynote"
@@ -3493,7 +3493,7 @@ extensions! {
     thumbnailer = Mac
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "md"
     title = "Markdown"
@@ -3502,7 +3502,7 @@ extensions! {
     thumbnailer = Md
     opener = Noop
     viewer = Markdown
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftProjectPlan
     extension = "mpp"
@@ -3512,7 +3512,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "nb"
     title = "Mathematica Slideshow"
@@ -3521,7 +3521,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "nbp"
     title = "Mathematica Player Slideshow"
@@ -3530,7 +3530,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "numbers"
     title = "Apple Numbers"
@@ -3539,7 +3539,7 @@ extensions! {
     thumbnailer = Mac
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OpendocumentFormula
     extension = "odf"
@@ -3549,7 +3549,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OpendocumentGraphics
     extension = "odg"
@@ -3559,7 +3559,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OpendocumentTextMaster
     extension = "odm"
@@ -3569,7 +3569,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OpendocumentPresentation
     extension = "odp"
@@ -3579,7 +3579,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OpendocumentSpreadsheet
     extension = "ods"
@@ -3589,7 +3589,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OpendocumentText
     extension = "odt"
@@ -3599,7 +3599,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OpendocumentGraphicsTemplate
     extension = "otg"
@@ -3609,7 +3609,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OpendocumentTextMasterTemplate
     extension = "otm"
@@ -3619,7 +3619,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OpendocumentSpreadsheetTemplate
     extension = "ots"
@@ -3629,7 +3629,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "p7m"
     title = "CieSign Document"
@@ -3638,7 +3638,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pages"
     title = "Apple Pages"
@@ -3647,7 +3647,7 @@ extensions! {
     thumbnailer = Mac
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pbix"
     title = "Microsoft PowerBI Report"
@@ -3656,7 +3656,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PortableDocumentFormat
     extension = "pdf"
@@ -3666,7 +3666,7 @@ extensions! {
     thumbnailer = Mac
     opener = Noop
     viewer = Pdf
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pez"
     title = "Prezi Desktop Presentation"
@@ -3675,7 +3675,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftPowerpointPresentation
     extension = "ppt"
@@ -3685,7 +3685,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OfficeOpenXmlPresentation
     extension = "pptx"
@@ -3695,7 +3695,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "prz"
     title = "Lotus Freelance Graphics"
@@ -3704,7 +3704,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftPublisherDocument
     extension = "pub"
@@ -3714,7 +3714,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "qpw"
     title = "Quattro Pro Spreadsheet"
@@ -3723,7 +3723,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = RichTextFormat
     extension = "rtf"
@@ -3733,7 +3733,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Stardraw
     extension = "sda"
@@ -3743,7 +3743,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Starcalc
     extension = "sdc"
@@ -3753,7 +3753,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Starimpress
     extension = "sdd"
@@ -3763,7 +3763,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Starchart
     extension = "sds"
@@ -3773,7 +3773,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Starwriter
     extension = "sdw"
@@ -3783,7 +3783,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SunXmlWriterGlobal
     extension = "sgw"
@@ -3793,7 +3793,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "shf"
     title = "ThinkFree Show"
@@ -3802,7 +3802,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Starmath
     extension = "smf"
@@ -3812,7 +3812,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SunXmlCalcTemplate
     extension = "stc"
@@ -3822,7 +3822,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SunXmlDrawTemplate
     extension = "std"
@@ -3832,7 +3832,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SunXmlWriterTemplate
     extension = "stw"
@@ -3842,7 +3842,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SunXmlCalc
     extension = "sxc"
@@ -3852,7 +3852,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SunXmlDraw
     extension = "sxd"
@@ -3862,7 +3862,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SunXmlImpress
     extension = "sxi"
@@ -3872,7 +3872,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SunXmlImpressTemplate
     extension = "sti"
@@ -3882,7 +3882,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SunXmlMath
     extension = "sxm"
@@ -3892,7 +3892,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SunXmlWriter
     extension = "sxw"
@@ -3902,7 +3902,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wb1"
     title = "Quattro Pro Spreadsheet"
@@ -3911,7 +3911,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wb2"
     title = "Quattro Pro Spreadsheet"
@@ -3920,7 +3920,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wb3"
     title = "Quattro Pro Spreadsheet"
@@ -3929,7 +3929,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wks"
     title = "Works 1.x-5.x Spreadsheet"
@@ -3938,7 +3938,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wk1"
     title = "Lotus 1-2-3"
@@ -3947,7 +3947,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wk2"
     title = "Lotus 1-2-3"
@@ -3956,7 +3956,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wk3"
     title = "Lotus 1-2-3"
@@ -3965,7 +3965,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wk4"
     title = "Lotus 1-2-3"
@@ -3974,7 +3974,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wq1"
     title = "Quattro Pro Spreadsheet"
@@ -3983,7 +3983,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wq2"
     title = "Quattro Pro Spreadsheet"
@@ -3992,7 +3992,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "xlr"
     title = "Works 6.x-9.x Spreadsheet"
@@ -4001,7 +4001,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WordperfectDocument
     extension = "wpd"
@@ -4011,7 +4011,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WordperfectGraphics
     extension = "wpg"
@@ -4021,7 +4021,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WordperfectMacro
     extension = "wpm"
@@ -4031,7 +4031,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Latex
     extension = "tex"
@@ -4041,7 +4041,7 @@ extensions! {
     thumbnailer = Tex
     opener = Noop
     viewer = Latex
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PlainText
     extension = "txt"
@@ -4051,7 +4051,7 @@ extensions! {
     thumbnailer = Txt
     opener = Noop
     viewer = Text
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "uos1"
     title = "Uniform Office Format Spreadsheet"
@@ -4060,7 +4060,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "uos2"
     title = "Uniform Office Format Spreadsheet"
@@ -4069,7 +4069,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftVisioDrawing
     extension = "vsd"
@@ -4079,7 +4079,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OfficeOpenXmlDrawing
     extension = "vsdx"
@@ -4089,7 +4089,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "webarchive"
     title = "Safari Web Archive"
@@ -4098,7 +4098,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftExcelSpreadsheet
     extension = "xls"
@@ -4108,7 +4108,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "xlsb"
     title = "Microsoft Excel Spreadsheet"
@@ -4117,7 +4117,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OfficeOpenXmlSpreadsheet
     extension = "xlsx"
@@ -4127,7 +4127,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = SheetJS
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "emlx"
     title = "Apple Email Message"
@@ -4136,7 +4136,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "eml"
     title = "Email Message"
@@ -4145,7 +4145,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "msg"
     title = "Email Message"
@@ -4154,7 +4154,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "bdf"
     title = "Glyph Bitmap Distribution Format"
@@ -4163,7 +4163,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Font
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = EmbeddedOpentype
     extension = "eot"
@@ -4173,7 +4173,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Font
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = BitmapFontBinary
     extension = "fnt"
@@ -4183,7 +4183,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Font
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Opentype
     extension = "otf"
@@ -4193,7 +4193,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Font
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Truetype
     extension = "ttf"
@@ -4203,7 +4203,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Font
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WebOpenFontFormat
     extension = "woff"
@@ -4213,7 +4213,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Font
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WebOpenFontFormat2
     extension = "woff2"
@@ -4223,7 +4223,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Font
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Atari7800Rom
     extension = "a78"
@@ -4233,7 +4233,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "acmi"
     title = "TacView Flight Plan"
@@ -4242,7 +4242,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "bms"
     title = "Beat Saber Open Replay"
@@ -4251,7 +4251,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "bsor"
     title = "Beat Saber Open Replay"
@@ -4260,7 +4260,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "bsp"
     title = "Valve Map"
@@ -4269,7 +4269,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "craft"
     title = "Kerbal Ship"
@@ -4278,7 +4278,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "d2s"
     title = "Diablo II Save"
@@ -4287,7 +4287,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dmx"
     title = "Valve Data Model eXchange"
@@ -4296,7 +4296,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "eqg"
     title = "Everquest Resource"
@@ -4305,7 +4305,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "fgfp"
     title = "Flight Gear Flight Plan"
@@ -4314,7 +4314,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = GameBoyAdvanceRom
     extension = "gba"
@@ -4324,7 +4324,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = GameBoyColorRom
     extension = "gbc"
@@ -4334,7 +4334,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = GameBoyRom
     extension = "gb"
@@ -4344,7 +4344,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gbx"
     title = "TrackMania Nations Game"
@@ -4353,7 +4353,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = GameGearRom
     extension = "gg"
@@ -4363,7 +4363,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gr2"
     title = "Granny2"
@@ -4372,7 +4372,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "hltas"
     title = "Half-Life TAS Script"
@@ -4381,7 +4381,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "jou"
     title = "Othello Players"
@@ -4390,7 +4390,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "manifest"
     title = "Riot Manifest"
@@ -4399,7 +4399,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mml"
     title = "Famicon Flavored Music Macro"
@@ -4408,7 +4408,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "msd"
     title = "StepMania"
@@ -4417,7 +4417,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mpq"
     title = "Blizzard Data File"
@@ -4426,7 +4426,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "nav"
     title = "SourceEngine Map"
@@ -4435,7 +4435,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = NeoGeoPocketRom
     extension = "ngp"
@@ -4445,7 +4445,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = NintendoDsRom
     extension = "nds"
@@ -4455,7 +4455,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = NintendoEntertainmentSystemRom
     extension = "nes"
@@ -4465,7 +4465,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = NintendoSwitchExecutable
     extension = "nso"
@@ -4475,7 +4475,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = NintendoSwitchPackage
     extension = "nsp"
@@ -4485,7 +4485,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "os"
     title = "osu! Beatmap"
@@ -4494,7 +4494,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pak"
     title = "Unreal Pak"
@@ -4503,7 +4503,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pfs"
     title = "Everquest Resource"
@@ -4512,7 +4512,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pgn"
     title = "Chess Portable Game Notation"
@@ -4521,7 +4521,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "rofl"
     title = "League of Legends Replay"
@@ -4530,7 +4530,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "s3d"
     title = "Everquest Resource"
@@ -4539,7 +4539,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sm"
     title = "StepMania"
@@ -4548,7 +4548,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sc2replay"
     title = "Starcraft 2 Replay"
@@ -4557,7 +4557,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sqm"
     title = "Arma Mission"
@@ -4566,7 +4566,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SegaMasterSystemRom
     extension = "sms"
@@ -4576,7 +4576,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "trn"
     title = "Othello Tournaments"
@@ -4585,7 +4585,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ttyrec"
     title = "TTY Recording"
@@ -4594,7 +4594,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "vdf"
     title = "Valve Data Format"
@@ -4603,7 +4603,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "vmf"
     title = "Valve Map Format"
@@ -4612,7 +4612,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wld"
     title = "Everquest World"
@@ -4621,7 +4621,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Xbox360Executable
     extension = "xex"
@@ -4631,7 +4631,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = XboxExecutable
     extension = "xbe"
@@ -4641,7 +4641,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = NintendoSwitchRom
     extension = "xci"
@@ -4651,7 +4651,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Nintendo64Rom
     extension = "z64"
@@ -4661,7 +4661,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Autodesk123d
     extension = "123dx"
@@ -4671,7 +4671,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Opennurbs
     extension = "3dm"
@@ -4681,7 +4681,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ThreeDimensionalStudio
     extension = "3ds"
@@ -4691,7 +4691,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ThreeDimensionalManufacturingFormat
     extension = "3mf"
@@ -4701,7 +4701,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Model3dAscii
     extension = "a3d"
@@ -4711,7 +4711,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdditiveManufacturingFormat
     extension = "amf"
@@ -4721,7 +4721,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "ase"
     title = "Aseprite Animation"
@@ -4730,7 +4730,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "b3d"
     title = "Blitz3d Game Model"
@@ -4739,7 +4739,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Blender
     extension = "blend"
@@ -4749,7 +4749,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "c3d"
     title = "C3D Motion Capture"
@@ -4758,7 +4758,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Cinema4d
     extension = "c4d"
@@ -4768,7 +4768,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = DigitalAssetExchange
     extension = "dae"
@@ -4778,7 +4778,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = GoogleDraco
     extension = "draco"
@@ -4788,7 +4788,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = DesignWebFormat
     extension = "dwf"
@@ -4798,7 +4798,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = DesignWebFormatXps
     extension = "dwfx"
@@ -4808,7 +4808,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AutocadDrawing
     extension = "dwg"
@@ -4818,7 +4818,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = DrawingExchangeFormatBinary
     extension = "dxf"
@@ -4828,7 +4828,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "e57"
     title = "Lidar Point Cloud Data"
@@ -4837,7 +4837,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Fusion360
     extension = "f3d"
@@ -4847,7 +4847,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Filmbox
     extension = "fbx"
@@ -4857,7 +4857,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gldf"
     title = "Global Lighting Data Format"
@@ -4866,7 +4866,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "glif"
     title = "Glyph Interchange Format"
@@ -4875,7 +4875,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = GlTransmissionFormatBinary
     extension = "glb"
@@ -4885,7 +4885,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gltf"
     title = "GL Transmission Format Text"
@@ -4894,7 +4894,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gvox"
     title = "General Voxel Format"
@@ -4903,7 +4903,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AutodeskInventorAssembly
     extension = "iam"
@@ -4913,7 +4913,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AutodeskInventorDrawing
     extension = "idw"
@@ -4923,7 +4923,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = InitialGraphicsExchangeSpecification
     extension = "iges"
@@ -4933,7 +4933,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AutodeskInventorPresentation
     extension = "ipn"
@@ -4943,7 +4943,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AutodeskInventorPart
     extension = "ipt"
@@ -4953,7 +4953,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = InterQuakeExport
     extension = "iqe"
@@ -4963,7 +4963,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = InterQuakeModel
     extension = "iqm"
@@ -4973,7 +4973,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = KhronosTexture
     extension = "ktx"
@@ -4983,7 +4983,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = KhronosTexture2
     extension = "ktx2"
@@ -4993,7 +4993,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "lw02"
     title = "Lightwave 3D Model"
@@ -5002,7 +5002,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Model3dBinary
     extension = "m3d"
@@ -5012,7 +5012,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MayaAscii
     extension = "ma"
@@ -5022,7 +5022,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ThreeDimensionalStudioMax
     extension = "max"
@@ -5032,7 +5032,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MayaBinary
     extension = "mb"
@@ -5042,7 +5042,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mmd"
     title = "MikuMikuDance Model"
@@ -5051,7 +5051,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "msh"
     title = "Gmsh Mesh"
@@ -5060,7 +5060,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mtl"
     title = "Wavefront Material Library"
@@ -5069,7 +5069,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "obj"
     title = "Wavefront Object"
@@ -5078,7 +5078,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "off"
     title = "Mesh Object File Format"
@@ -5087,7 +5087,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PolygonBinary
     extension = "ply"
@@ -5097,7 +5097,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pxr"
     title = "Pixar Image Format"
@@ -5106,7 +5106,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "rmesh"
     title = "Room Mesh"
@@ -5115,7 +5115,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SolidworksAssembly
     extension = "sldasm"
@@ -5125,7 +5125,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SolidworksDrawing
     extension = "slddrw"
@@ -5135,7 +5135,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SolidworksPart
     extension = "sldprt"
@@ -5145,7 +5145,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SpaceclaimDocument
     extension = "scdoc"
@@ -5155,7 +5155,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "sdf"
     title = "Simulation Description Format"
@@ -5164,7 +5164,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = StandardForTheExchangeOfProductModelData
     extension = "step"
@@ -5174,7 +5174,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Sketchup
     extension = "skp"
@@ -5184,7 +5184,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = StereolithographyAscii
     extension = "stl"
@@ -5194,7 +5194,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Universal3d
     extension = "u3d"
@@ -5204,7 +5204,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = UniversalSceneDescriptionAscii
     extension = "usda"
@@ -5214,7 +5214,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = UniversalSceneDescriptionBinary
     extension = "usdc"
@@ -5224,7 +5224,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = UniversalSceneDescriptionZipped
     extension = "usdz"
@@ -5234,7 +5234,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = VirtualRealityModelingLanguage
     extension = "vrml"
@@ -5244,7 +5244,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Magicavoxel
     extension = "vox"
@@ -5254,7 +5254,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AutodeskAlias
     extension = "wire"
@@ -5264,7 +5264,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Extensible3d
     extension = "x3d"
@@ -5274,7 +5274,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Extensible3d
     extension = "x3db"
@@ -5284,7 +5284,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cir"
     title = "Spice Hardware Description"
@@ -5293,7 +5293,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "fld"
     title = "Ansys 3D Fields"
@@ -5302,7 +5302,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gdb"
     title = "Garmin GPS Database"
@@ -5311,7 +5311,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gds"
     title = "GDSII File Format"
@@ -5320,7 +5320,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "lef"
     title = "Library Exchange Format"
@@ -5329,7 +5329,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "veryl"
     title = "Veryl Hardware Description"
@@ -5338,7 +5338,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "3fr"
     title = "Hasselblad Raw"
@@ -5347,7 +5347,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "aai"
     title = "AAI Dune"
@@ -5356,7 +5356,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "art"
     title = "PFS: 1st Publisher"
@@ -5365,7 +5365,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "arw"
     title = "Sony Alpha Raw"
@@ -5374,7 +5374,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdaptableScalableTextureCompression
     extension = "astc"
@@ -5384,7 +5384,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdobeIllustratorArtwork
     extension = "ai"
@@ -5394,7 +5394,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AnimatedPortableNetworkGraphics
     extension = "apng"
@@ -5404,7 +5404,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WindowsAnimatedCursor
     extension = "avaniif"
@@ -5414,7 +5414,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Av1ImageFileFormat
     extension = "avif"
@@ -5424,7 +5424,7 @@ extensions! {
     thumbnailer = Avif
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Av1ImageFileFormatSequence
     extension = "avifs"
@@ -5434,7 +5434,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "avs"
     title = "AVS X"
@@ -5443,7 +5443,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WindowsBitmap
     extension = "bmp"
@@ -5453,7 +5453,7 @@ extensions! {
     thumbnailer = Bmp
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = BetterPortableGraphics
     extension = "bpg"
@@ -5463,7 +5463,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "brf"
     title = "Braille Ready Format"
@@ -5472,7 +5472,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "cals"
     title = "Continuous Acquisition and Life-cycle Support"
@@ -5481,7 +5481,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Cineon
     extension = "cin"
@@ -5491,7 +5491,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = CanonRaw
     extension = "crw"
@@ -5501,7 +5501,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = CanonRaw2
     extension = "cr2"
@@ -5511,7 +5511,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = CanonRaw3
     extension = "cr3"
@@ -5521,7 +5521,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WindowsCursor
     extension = "cur"
@@ -5531,7 +5531,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = DigitalImagingAndCommunicationsInMedicine
     extension = "dcm"
@@ -5541,7 +5541,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dcr"
     title = "Kodak Digital Camera Raw "
@@ -5550,7 +5550,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftDirectdrawSurface
     extension = "dds"
@@ -5560,7 +5560,7 @@ extensions! {
     thumbnailer = Dds
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dng"
     title = "Adobe DNG Raw"
@@ -5569,7 +5569,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dot"
     title = "Graph Visualization"
@@ -5578,7 +5578,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "dpx"
     title = "SMPTE Digital Moving Picture Exchange"
@@ -5587,7 +5587,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Djvu
     extension = "dvju"
@@ -5597,7 +5597,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = DigitalPictureExchange
     extension = "dpx"
@@ -5607,7 +5607,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "emf"
     title = "Microsoft Enhanced Metafile"
@@ -5616,7 +5616,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = EncapsulatedPostscript
     extension = "eps"
@@ -5626,7 +5626,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Openexr
     extension = "exr"
@@ -5636,7 +5636,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Three
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ExtensibleStylesheetLanguageTransformations
     extension = "ff"
@@ -5646,7 +5646,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = FreeLosslessImageFormat
     extension = "flif"
@@ -5656,7 +5656,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "fpx"
     title = "FlashPix"
@@ -5665,7 +5665,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = GraphicsInterchangeFormat
     extension = "gif"
@@ -5675,7 +5675,7 @@ extensions! {
     thumbnailer = Gif
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "gpmf"
     title = "GoPro Metadata Format"
@@ -5684,7 +5684,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = RadianceHdr
     extension = "hdr"
@@ -5694,7 +5694,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = HighEfficiencyImageCoding
     extension = "heic"
@@ -5704,7 +5704,7 @@ extensions! {
     thumbnailer = Heif
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = HighEfficiencyImageCodingSequence
     extension = "heics"
@@ -5714,7 +5714,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = HighEfficiencyImageFileFormat
     extension = "heif"
@@ -5724,7 +5724,7 @@ extensions! {
     thumbnailer = Heif
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = HighEfficiencyImageFileFormatSequence
     extension = "heifs"
@@ -5734,7 +5734,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "hvif"
     title = "Haiku Vector Icon Format"
@@ -5743,7 +5743,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = IccProfile
     extension = "icc"
@@ -5753,7 +5753,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AppleIconImage
     extension = "icns"
@@ -5763,7 +5763,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WindowsIcon
     extension = "ico"
@@ -5773,7 +5773,7 @@ extensions! {
     thumbnailer = Ico
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Jpeg2000Codestream
     extension = "j2c"
@@ -5783,7 +5783,7 @@ extensions! {
     thumbnailer = Jpeg
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = JpegLs
     extension = "jls"
@@ -5793,7 +5793,7 @@ extensions! {
     thumbnailer = Jpeg
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = JpegNetworkGraphics
     extension = "jng"
@@ -5803,7 +5803,7 @@ extensions! {
     thumbnailer = Jpeg
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Jpeg2000Part1
     extension = "jp2"
@@ -5813,7 +5813,7 @@ extensions! {
     thumbnailer = Jpeg
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = JointPhotographicExpertsGroup
     extension = "jpeg"
@@ -5823,7 +5823,7 @@ extensions! {
     thumbnailer = Jpeg
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = JointPhotographicExpertsGroup
     extension = "jpg"
@@ -5833,7 +5833,7 @@ extensions! {
     thumbnailer = Jpeg
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Jpeg2000Part6
     extension = "jpm"
@@ -5843,7 +5843,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Jpeg2000Part2
     extension = "jpx"
@@ -5853,7 +5853,7 @@ extensions! {
     thumbnailer = Jpeg
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = JpegExtendedRange
     extension = "jxr"
@@ -5863,7 +5863,7 @@ extensions! {
     thumbnailer = Jpeg
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = JpegXl
     extension = "jxl"
@@ -5873,7 +5873,7 @@ extensions! {
     thumbnailer = Jpeg
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mat"
     title = "MATLAB Image"
@@ -5882,7 +5882,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MagickImageFileFormat
     extension = "miff"
@@ -5892,7 +5892,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MultipleImageNetworkGraphics
     extension = "mng"
@@ -5902,7 +5902,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mrw"
     title = "Sony (Minolta) Raw"
@@ -5911,7 +5911,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mtv"
     title = "MTV Raytracing"
@@ -5920,7 +5920,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = NikonElectronicFile
     extension = "nef"
@@ -5930,7 +5930,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Openraster
     extension = "ora"
@@ -5940,7 +5940,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OlympusRawFormat
     extension = "orf"
@@ -5950,7 +5950,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PortableArbitraryMap
     extension = "pam"
@@ -5960,7 +5960,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PortableBitmap
     extension = "pbm"
@@ -5970,7 +5970,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "pef"
     title = "Pentax Electronic File"
@@ -5979,7 +5979,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PortableFloatmap
     extension = "pfm"
@@ -5989,7 +5989,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PortableGraymap
     extension = "pgm"
@@ -5999,7 +5999,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PortableNetworkGraphics
     extension = "png"
@@ -6009,7 +6009,7 @@ extensions! {
     thumbnailer = Png
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PortablePixmap
     extension = "ppm"
@@ -6019,7 +6019,7 @@ extensions! {
     thumbnailer = Ppm
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Postscript
     extension = "ps"
@@ -6029,7 +6029,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdobePhotoshopDocument
     extension = "psd"
@@ -6039,7 +6039,7 @@ extensions! {
     thumbnailer = Psd
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = QuiteOkImage
     extension = "qoi"
@@ -6049,7 +6049,7 @@ extensions! {
     thumbnailer = Qoi
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = FujifilmRaw
     extension = "raf"
@@ -6059,7 +6059,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = PanasonicRaw
     extension = "rw2"
@@ -6069,7 +6069,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "rwl"
     title = "Leica Raw"
@@ -6078,7 +6078,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SiliconGraphicsImage
     extension = "sgi"
@@ -6088,7 +6088,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ScalableVectorGraphics
     extension = "svg"
@@ -6098,7 +6098,7 @@ extensions! {
     thumbnailer = Svg
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "tga"
     title = "Truevision Targa Image"
@@ -6107,7 +6107,7 @@ extensions! {
     thumbnailer = Tga
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "tif"
     title = "Tag Image File Format"
@@ -6116,7 +6116,7 @@ extensions! {
     thumbnailer = Tiff
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = TagImageFileFormat
     extension = "tiff"
@@ -6126,7 +6126,7 @@ extensions! {
     thumbnailer = Tiff
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ExperimentalComputingFacility
     extension = "xcf"
@@ -6136,7 +6136,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Webp
     extension = "webp"
@@ -6146,7 +6146,7 @@ extensions! {
     thumbnailer = Webp
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WindowsMetafile
     extension = "wmf"
@@ -6156,7 +6156,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "wpg"
     title = "Word Perfect Graphics"
@@ -6165,7 +6165,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "x3f"
     title = "Sigma Raw"
@@ -6174,7 +6174,7 @@ extensions! {
     thumbnailer = Raw
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "xisf"
     title = "Extensible Image Serialization Format"
@@ -6183,7 +6183,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = XPixmap
     extension = "xpm"
@@ -6193,7 +6193,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = FlexibleAndInteroperableDataTransfer
     extension = "fit"
@@ -6203,7 +6203,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = FlexibleImageTransportSystem
     extension = "fits"
@@ -6213,7 +6213,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = GpsExchangeFormat
     extension = "gpx"
@@ -6223,7 +6223,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Leaflet
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = GeographyMarkupLanguage
     extension = "gml"
@@ -6233,7 +6233,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = KeyholeMarkupLanguage
     extension = "kml"
@@ -6243,7 +6243,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Leaflet
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = KeyholeMarkupLanguageZipped
     extension = "kmz"
@@ -6253,7 +6253,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "loc"
     title = "GPS Location"
@@ -6262,7 +6262,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "osrm"
     title = "OpenStreetMap Route"
@@ -6271,7 +6271,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "rinex"
     title = "RTCM Receiver Independent Exchange"
@@ -6280,7 +6280,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Shapefile
     extension = "shp"
@@ -6290,7 +6290,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = TiledTilesetXml
     extension = "tsx"
@@ -6300,7 +6300,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = TimedTextMarkupLanguage
     extension = "ttml"
@@ -6310,7 +6310,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = TrainingCenterXml
     extension = "tcx"
@@ -6320,7 +6320,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ThirdGenerationPartnershipProject
     extension = "3gp"
@@ -6330,7 +6330,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ThirdGenerationPartnershipProject
     extension = "3gpp"
@@ -6340,7 +6340,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ThirdGenerationPartnershipProject2
     extension = "3gpp2"
@@ -6350,7 +6350,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = ActionsMediaVideo
     extension = "amv"
@@ -6360,7 +6360,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AudioVideoInterleave
     extension = "avi"
@@ -6370,7 +6370,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MicrosoftDigitalVideoRecording
     extension = "dvr-ms"
@@ -6380,7 +6380,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdobeFlashPlayerProtectedVideo
     extension = "f4p"
@@ -6390,7 +6390,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AdobeFlashPlayerVideo
     extension = "f4v"
@@ -6400,7 +6400,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AutodeskAnimatorPro
     extension = "flc"
@@ -6410,7 +6410,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AutodeskAnimator
     extension = "fli"
@@ -6420,7 +6420,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = FlashVideo
     extension = "flv"
@@ -6430,7 +6430,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = BdavMpeg2TransportStream
     extension = "m2ts"
@@ -6440,7 +6440,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AppleItunesVideo
     extension = "m4v"
@@ -6450,7 +6450,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Jpeg2000Part3
     extension = "mj2"
@@ -6460,7 +6460,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Matroska3dVideo
     extension = "mk3d"
@@ -6470,7 +6470,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MatroskaVideo
     extension = "mkv"
@@ -6480,7 +6480,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = AppleQuicktime
     extension = "mov"
@@ -6490,7 +6490,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Mpeg12Video
     extension = "mpg"
@@ -6500,7 +6500,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "mpls"
     title = "Movie Playlist"
@@ -6509,7 +6509,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
    format = Mpeg4Part14Video
     extension = "mp4"
@@ -6519,7 +6519,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Mtv
     extension = "mtv"
@@ -6529,7 +6529,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = SonyMovie
     extension = "mqv"
@@ -6539,7 +6539,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = MaterialExchangeFormat
     extension = "mxf"
@@ -6549,7 +6549,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OggMedia
     extension = "ogm"
@@ -6559,7 +6559,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = OggTheora
     extension = "ogv"
@@ -6569,7 +6569,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Realvideo
     extension = "rv"
@@ -6579,7 +6579,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "srt"
     title = "SubRip Subtitles"
@@ -6588,7 +6588,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "vcxproj"
     title = "Visual Studio Project"
@@ -6597,7 +6597,7 @@ extensions! {
     thumbnailer = Noop
     opener = Noop
     viewer = Code
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     extension = "vob"
     title = "VOB"
@@ -6606,7 +6606,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = Webm
     extension = "webm"
@@ -6616,7 +6616,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WindowsMediaVideo
     extension = "wmv"
@@ -6626,7 +6626,7 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 
     format = WindowsRecordedTvShow
     extension = "wtv"
@@ -6636,5 +6636,5 @@ extensions! {
     thumbnailer = Video
     opener = Noop
     viewer = Noop
-    cards = []
+    cards = ["thumbnail", "file_info"]
 }

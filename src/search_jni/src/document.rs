@@ -44,13 +44,13 @@ impl Document {
             ("accessed".to_string(), u64(self.accessed.clone())),
             ("size".to_string(), u64(self.size.clone())),
             ("colour".to_string(), str(self.colour.clone())),
-            ("path".to_string(), str(self.colour.clone())),
-            ("extension".to_string(), str(self.colour.clone())),
+            ("path".to_string(), str(self.path.clone())),
+            ("extension".to_string(), str(self.extension.clone())),
             ("extension_title".to_string(), str(self.colour.clone())),
-            ("parent_folder_name".to_string(), str(self.colour.clone())),
-            ("parent_folder_path".to_string(), str(self.colour.clone())),
-            ("metadata".to_string(), str(self.colour.clone())),
-            ("cards".to_string(), str(self.colour.clone()))
+            ("parent_folder_name".to_string(), str(self.parent_folder_name.clone())),
+            ("parent_folder_path".to_string(), str(self.parent_folder_path.clone())),
+            ("metadata".to_string(), str(self.metadata.clone())),
+            ("cards".to_string(), str(Some(self.cards.clone().join(","))))
         ]);
 
         DocumentPayload(map)

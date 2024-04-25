@@ -19,5 +19,5 @@ harana_tantivy = { package = "tantivy", path = "../../tantivy"}
 
 blake3 = "1"
 chrono = "0.4"
-filesize = "0.2.0"
-partial_application = "0.2.1"
+filesize = "0.2"
+partial_application = "0.2"

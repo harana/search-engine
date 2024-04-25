@@ -8,8 +8,7 @@ harana_common = { package = "common", path = "../../common" }
 harana_document = { package = "document", path = "../../document" }
 harana_io = { package = "io", path = "../../io" }
 
-fast_image_resize = "2.7.3"
+fast_image_resize = "2.7"
 image = { git = "https://github.com/harana-oss/image.git" }
-resize = "0.8.3"
-wry = { version = "0.19", default-features = false, features = [ "file-drop", "protocol" ] }
+resize = "0.8"
 zune-image = "0.4"

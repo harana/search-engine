@@ -3,6 +3,8 @@ use harana_common::tantivy::Order;
 use harana_common::futures::future::join_all;
 use harana_common::hashbrown::HashMap;
 use harana_document::document::Document;
+use harana_search_tantivy::document;
+use harana_search_tantivy::document::TantivyDocument;
 use harana_tantivy::QueryPayload;
 use harana_tantivy::query::{FieldSelector, Occur, QueryData, QueryKind, QuerySelector};
 use harana_tantivy::structures::DocumentValue;
@@ -48,7 +50,7 @@ impl IndexSearcher {
                 }
             ).await.unwrap();
 
-            let docs: Vec<Document> = results.hits.into_iter().map(|hit| Document::from_hit(hit)).collect();
+            let docs: Vec<Document> = results.hits.into_iter().map(|hit| TantivyDocument::from_hit(hit)).collect();
             (index_name.to_string(), docs)
         }).collect();
 

@@ -1,7 +1,4 @@
 use std::path::Path;
-use std::sync::Arc;
-use harana_common::crossbeam_skiplist::SkipSet;
-use harana_common::log::info;
 use harana_common::tauri::{AppHandle, Manager, Wry};
 
 #[derive(Clone)]

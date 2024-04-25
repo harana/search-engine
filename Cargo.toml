@@ -32,10 +32,10 @@ members = [
 ]
 
 [dependencies]
-snmalloc-rs = "0.3.4"
+snmalloc-rs = "0.3"
 
 [build-dependencies]
-conan2 = "0.1.0"
+conan2 = "0.1"
 
 #[profile.test]
 #opt-level = 2

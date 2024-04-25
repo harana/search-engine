@@ -43,7 +43,7 @@ sysinfo = "0.30"
 systemstat = "0.2"
 tantivy = "0.21"
 tantivy-vibrato = { git = "https://github.com/harana-oss/tantivy-vibrato.git" }
-tauri = { version = "1", features = [ "devtools", "window-all", "dialog-all", "http-all", "fs-read-dir", "fs-read-file", "global-shortcut-all", "macos-private-api", "path-all", "protocol-all", "system-tray"] }
+tauri = { version = "1.6.2", features = [ "devtools", "window-all", "dialog-all", "http-all", "fs-read-dir", "fs-read-file", "global-shortcut-all", "macos-private-api", "path-all", "protocol-all", "system-tray"] }
 temp-dir = "0.1"
 thiserror = "1"
 time = { version = "0.3", features = ["std", "serde"] }

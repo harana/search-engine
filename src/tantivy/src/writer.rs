@@ -61,7 +61,7 @@ mod defaults {
 
     /// Size of the margin for the heap. A segment is closed when the remaining memory
     /// in the heap goes below MARGIN_IN_BYTES.
-    pub const MARGIN_IN_BYTES: usize = 15_000_000;
+    pub const MARGIN_IN_BYTES: usize = 50_000_000;
 
     /// We impose the memory per thread to be at least 3 MB.
     pub const HEAP_SIZE_MIN: usize = ((MARGIN_IN_BYTES as u32) * 3u32) as usize;
@@ -401,8 +401,8 @@ impl IndexWriterWorker {
     }
 
     fn commit(&mut self) -> Result<Opstamp> {
-        info!("Committing index: {}", self.index_name);
         let op = self.writer.commit()?;
+        self.reader.force_reload()?;
 
         if self.using_fast_fuzzy {
             self.calculate_frequency_dictionary()?;

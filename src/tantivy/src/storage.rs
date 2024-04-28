@@ -4,13 +4,8 @@ use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
 use bincode::Options;
-use harana_common::tantivy::directory::{
-    FileHandle,
-    MmapDirectory,
-    WatchCallback,
-    WatchHandle,
-    WritePtr,
-};
+use harana_common::tantivy::directory::{FileHandle, FileSlice, MmapDirectory, WatchCallback, WatchHandle, WritePtr};
+use crate::encrypted_dir::{EncryptedMmapDirectory, PBKDF_COUNT};
 use harana_common::tantivy::Directory;
 use harana_common::tantivy::directory::error::{DeleteError, OpenReadError, OpenWriteError};
 
@@ -32,7 +27,7 @@ static DATA_INNER_ROOT: &str = "data";
 
 #[derive(Debug)]
 pub enum OpenType {
-    Dir(PathBuf),
+    Dir(PathBuf, String),
     TempFile,
 }
 
@@ -40,12 +35,12 @@ impl OpenType {
     pub fn exists(&self) -> bool {
         match self {
             Self::TempFile => true,
-            Self::Dir(path) => path.exists(),
+            Self::Dir(path, _) => path.exists(),
         }
     }
 }
 
-/// A wrapper around a MmapDirectory but using sled to provide
+/// A wrapper around a EncryptedMmapDirectory but using sled to provide
 /// the atomic write/read interface.
 ///
 /// The only difference is Tantivy's special `meta.json` and `managed.json` is
@@ -54,7 +49,7 @@ impl OpenType {
 /// are watched.
 #[derive(Clone)]
 pub struct SledBackedDirectory {
-    inner: MmapDirectory,
+    inner: Box<dyn Directory>,
     conn: sled::Db,
 }
 
@@ -67,8 +62,8 @@ impl SledBackedDirectory {
     /// If OpenType::TempFile is set the system will create a temporary structure,
     /// normally for testing.
     pub fn new_with_root(path: &OpenType) -> Result<Self> {
-        let (conn, inner) = match path {
-            OpenType::Dir(path) => {
+        let (conn, inner): (sled::Db, Box<dyn Directory>) = match path {
+            OpenType::Dir(path, passphrase) => {
                 std::fs::create_dir_all(path)?;
                 std::fs::create_dir_all(path.join(DATA_INNER_ROOT))?;
 
@@ -77,7 +72,7 @@ impl SledBackedDirectory {
                         .mode(sled::Mode::HighThroughput)
                         .path(path.join(METASTORE_INNER_ROOT))
                         .open()?,
-                    MmapDirectory::open(path.join(DATA_INNER_ROOT))?,
+                    Box::new(EncryptedMmapDirectory::open_or_create(path.join(DATA_INNER_ROOT), passphrase.as_str(), PBKDF_COUNT)?),
                 )
             },
             OpenType::TempFile => (
@@ -85,7 +80,7 @@ impl SledBackedDirectory {
                     .mode(sled::Mode::HighThroughput)
                     .temporary(true)
                     .open()?,
-                MmapDirectory::create_from_tempdir()?,
+                Box::new(MmapDirectory::create_from_tempdir()?),
             ),
         };
 
@@ -113,6 +108,10 @@ impl Directory for SledBackedDirectory {
 
     fn exists(&self, path: &Path) -> core::result::Result<bool, OpenReadError> {
         self.inner.exists(path)
+    }
+
+    fn open_read(&self, path: &Path) -> std::result::Result<FileSlice, OpenReadError> {
+        self.inner.open_read(path)
     }
 
     fn open_write(&self, path: &Path) -> core::result::Result<WritePtr, OpenWriteError> {

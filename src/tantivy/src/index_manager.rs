@@ -44,6 +44,7 @@ impl IndexManager {
         index_path: &Path,
         declaration: IndexDeclaration,
         override_if_exists: bool,
+        passphrase: String
     ) -> Result<()> {
         let mut indexes;
         {
@@ -60,7 +61,7 @@ impl IndexManager {
             self.remove_index(index_path, declaration.name()).await?;
         }
 
-        let ctx = declaration.create_context(index_path)?;
+        let ctx = declaration.create_context(index_path, passphrase)?;
         let name = ctx.name();
 
         let built_index = Index::create(index_path, ctx, true).await?;

@@ -19,7 +19,8 @@ pub extern "system" fn Java_Search_debug<'local>(
     mut env: JNIEnv<'local>,
     class: JClass<'local>,
     index_path: JString<'local>,
-    index_declarations_path: JString<'local>
+    index_declarations_path: JString<'local>,
+    passphrase: JString<'local>
 ) {
     let rt = Runtime::new().unwrap();
     rt.block_on(async {
@@ -27,7 +28,7 @@ pub extern "system" fn Java_Search_debug<'local>(
         let index_declarations_path_ref = Box::leak(Box::new(PathBuf::from(String::from(env.get_string(&index_declarations_path).expect("Couldn't get index_declarations_path")))));
 
         let index_manager = Box::leak(Box::new(IndexManager::new(index_path_ref, index_declarations_path_ref).await));
-        index_manager.create_indexes().await;
+        index_manager.create_indexes(passphrase.).await;
         index_manager.log_indexes().await;
     });
 }

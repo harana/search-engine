@@ -1,8 +1,7 @@
 use std::collections::BTreeMap;
 use std::convert::TryInto;
 use std::fmt;
-use std::fs::create_dir_all;
-use std::path::{Path, PathBuf};
+use std::path::Path;
 use std::sync::Arc;
 
 use harana_common::anyhow::{anyhow, Context, Error, Result};
@@ -119,7 +118,7 @@ impl IndexDeclaration {
     /// Builds IndexContext from the declaration, applying any validation in
     /// the process.
     // TODO add-back #[instrument(name = "index-setup", skip(self), fields(index = %self.name))]
-    pub fn create_context(&self, index_path: &Path) -> Result<IndexContext> {
+    pub fn create_context(&self, index_path: &Path, passphrase: String) -> Result<IndexContext> {
         self.validate()?;
 
         let mut schema_ctx = self.schema_ctx.clone();
@@ -127,7 +126,7 @@ impl IndexDeclaration {
 
         let open = match self.storage_type {
             StorageType::TempDir => OpenType::TempFile,
-            StorageType::FileSystem => OpenType::Dir(index_path.join(self.name.as_str()))
+            StorageType::FileSystem => OpenType::Dir(index_path.join(self.name.as_str()), passphrase)
         };
 
         let dir = SledBackedDirectory::new_with_root(&open)?;

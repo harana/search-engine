@@ -38,20 +38,21 @@ impl IndexManager {
         }
     }
 
-    pub async fn create_indexes(&self) {
+    pub async fn create_indexes(&self, passphrase: String) {
+
         // Built in indexes
         join_all(IndexDeclarations::iter().map(|index_decl_name| {
             let index_decl_file = IndexDeclarations::get(index_decl_name.as_ref());
             let index_decl_bytes = index_decl_file.unwrap().data.into_owned();
             let index_decl = std::str::from_utf8(index_decl_bytes.as_slice()).unwrap();
-            self.setup_index(index_decl.to_string())
+            self.setup_index(index_decl.to_string(), passphrase.clone())
         }).collect_vec()).await;
 
         // Remote indexes
         let remote_indexes = fs::read_dir(self.index_declarations_path).unwrap().collect_vec();
         join_all(remote_indexes.into_iter().map(|index| {
             let index_declaration = fs::read_to_string(index.unwrap().path()).unwrap();
-            self.setup_index(index_declaration)
+            self.setup_index(index_declaration, passphrase.clone())
         }).collect_vec()).await;
     }
 
@@ -73,7 +74,7 @@ impl IndexManager {
         self.index_manager.shutdown().await.unwrap();
     }
 
-    async fn setup_index(&self, index_declaration: String) {
+    async fn setup_index(&self, index_declaration: String, passphrase: String) {
         let mut index_decl: IndexDeclaration = serde_json::from_str(index_declaration.as_str()).unwrap();
         let int_options = CalculatedIntOptions { indexed: false, fieldnorms: None, fast: false, base: BaseFieldOptions { stored: true, multi: false, required: false }};
 
@@ -101,7 +102,7 @@ impl IndexManager {
 
         index_decl.add_fields(file_fields);
 
-        self.index_manager.add_index(self.index_path.as_path(), index_decl.clone(), false).await.unwrap();
+        self.index_manager.add_index(self.index_path.as_path(), index_decl.clone(), false, passphrase).await.unwrap();
     }
 
     pub fn get_index(&self, name: &str) -> Index {
@@ -113,7 +114,6 @@ impl IndexManager {
     pub async fn log_indexes(&'static self) {
         let tasks = self.index_manager.get_all_indexes().into_iter().map(|index| async move {
             tokio_rayon::spawn(move || async move {
-                println!("Index: {} ({})", index.name(), index.get_documents_count().await?);
                 info!("Index: {} ({})", index.name(), index.get_documents_count().await?);
                 Ok(())
             }).await.await

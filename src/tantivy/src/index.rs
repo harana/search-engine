@@ -231,7 +231,6 @@ impl InternalIndex {
 
     /// Commits any changes to the index since the last commit.
     async fn commit(&self) -> Result<()> {
-        info!("Sending commit op");
         self.writer.send_op(WriterOp::Commit).await
     }
 

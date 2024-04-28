@@ -46,7 +46,7 @@ pub fn generate_icons(applications: Vec<Application>) {
     applications.clone()
         .iter()
         .filter(|a| a.source_icon_path.is_some())
-        .foreach(|a|
+        .for_each(|a|
             if a.source_icon_path.clone().unwrap().ends_with(".png") {
                 let _ = copy(a.source_icon_path.clone().unwrap(), a.target_icon_path.clone().unwrap());
             } else {

@@ -466,7 +466,6 @@ impl Reader {
         };
 
         let elapsed = start.elapsed();
-
         Ok(QueryResults {
             time_taken: elapsed.as_secs_f32(), // filled in by handler later
             hits,

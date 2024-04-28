@@ -105,7 +105,7 @@ pub async fn crawl(database_manager: &'static DatabaseManager, index_manager: &'
 
     let now = Instant::now();
     index_manager.commit_all_indexes().await;
-    info!("Index committed in {:.2?}.", now.elapsed());
+    info!("Indexes committed in {:.2?}.", now.elapsed());
 
     database_manager.core(move |c| {
         search_folders_update_crawled(c, tantivy_name.clone(), false, true)

@@ -1,0 +1,10 @@
+[package]
+name = "keyring"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+harana_common = { package = "common", path = "../common" }
+keyring = { version = "3", features = ["apple-native", "windows-native", "sync-secret-service"] }
+keyring-search = "1"
+whoami = "1"

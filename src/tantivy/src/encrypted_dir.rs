@@ -27,8 +27,9 @@ use aes::{
     cipher::{NewCipher, StreamCipher},
     Aes256Ctr,
 };
+
 use hkdf::Hkdf;
-use hmac::{Hmac, Mac, NewMac};
+use hmac::{Hmac, KeyInit, Mac};
 use pbkdf2::pbkdf2;
 use sha2::{Sha256, Sha512};
 
@@ -384,7 +385,7 @@ impl EncryptedMmapDirectory {
             &hmac_key,
         ).map_err(|e| OpenDirectoryError::wrap_io_error(e, PathBuf::new()))?;
 
-        if mac.verify(&expected_mac).is_err() {
+        if mac.verify_slice(&expected_mac).is_err() {
             return Err({
                 let error = IoError::new(ErrorKind::Other, "invalid MAC of the store key").into();
                 OpenDirectoryError::wrap_io_error(error, PathBuf::new())
@@ -595,7 +596,7 @@ impl Directory for EncryptedMmapDirectory {
             }
         };
 
-        let writer = AesWriter::<Aes256Ctr, Hmac<Sha256>, _>::new(
+        let writer = AesWriter::<Aes256Ctr, _>::new(
             file,
             &self.encryption_key,
             &self.mac_key,
@@ -627,7 +628,7 @@ impl Directory for EncryptedMmapDirectory {
     fn atomic_write(&self, path: &Path, data: &[u8]) -> std::io::Result<()> {
         let mut encrypted = Vec::new();
         {
-            let mut writer = AesWriter::<Aes256Ctr, Hmac<Sha256>, _>::new(
+            let mut writer = AesWriter::<Aes256Ctr, _>::new(
                 &mut encrypted,
                 &self.encryption_key,
                 &self.mac_key,
@@ -661,8 +662,8 @@ impl Directory for EncryptedMmapDirectory {
 
 // This Tantivy trait is used to indicate when no more writes are expected to be
 // done on a writer.
-impl<E: NewCipher + StreamCipher + Send + Sync, M: Mac + NewMac + Send + Sync, W: Write + Send + Sync> TerminatingWrite
-for AesWriter<E, M, W>
+impl<E: NewCipher + StreamCipher + Send + Sync, W: Write + Send + Sync> TerminatingWrite
+for AesWriter<E, W>
 {
     fn terminate_ref(&mut self, _: AntiCallToken) -> std::io::Result<()> {
         self.finalize()
@@ -671,7 +672,7 @@ for AesWriter<E, M, W>
 
 #[cfg(test)]
 use tempfile::tempdir;
-use harana_common::tantivy::directory::{FileHandle, FileSlice};
+use harana_common::tantivy::directory::{FileHandle, FileSlice, OwnedBytes};
 
 #[test]
 fn create_new_store_and_reopen() {

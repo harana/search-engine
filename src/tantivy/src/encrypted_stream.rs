@@ -26,30 +26,32 @@ use std::{
     ops::Neg,
 };
 
-use hmac::{Mac, NewMac};
+use hmac::{Hmac, KeyInit, Mac};
 
 use aes::cipher::{NewCipher, StreamCipher};
-
+use aes::NewBlockCipher;
 use rand::{thread_rng, Rng};
+use sha2::Sha256;
 
 const BUFFER_SIZE: usize = 8192;
+
+type HmacSha256 = Hmac<Sha256>;
 
 /// Wraps a [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
 /// implementation with a [`SyncStreamCipher`][cy], additionally authenticates the
 /// writer with the given [`Mac`][mac]
 ///
 /// [be]: https://docs.rs/stream-cipher/0.3.2/stream_cipher/trait.SyncStreamCipher.html
-/// [mac]: https://docs.rs/crypto-mac/0.7.0/crypto_mac/trait.Mac.html
-pub struct AesWriter<E: NewCipher + StreamCipher, M: Mac + NewMac, W: Write + Send> {
+pub struct AesWriter<E: NewCipher + StreamCipher, W: Write + Send> {
     /// Writer to write encrypted data to
     writer: W,
     /// Encryptor to encrypt data with
     enc: E,
-    mac: M,
+    mac: HmacSha256,
     finalized: bool,
 }
 
-impl<E: NewCipher + StreamCipher, M: Mac + NewMac, W: Write + Send> AesWriter<E, M, W> {
+impl<E: NewCipher + StreamCipher, W: Write + Send> AesWriter<E, W> {
     /// Creates a new AesWriter with a random IV.
     ///
     /// The IV will be written as first block of the file.
@@ -68,13 +70,13 @@ impl<E: NewCipher + StreamCipher, M: Mac + NewMac, W: Write + Send> AesWriter<E,
         key: &[u8],
         mac_key: &[u8],
         iv_size: usize,
-    ) -> Result<AesWriter<E, M, W>> {
+    ) -> Result<AesWriter<E, W>> {
         let mut iv = vec![0u8; iv_size];
         let mut rng = thread_rng();
         rng.try_fill(&mut iv[0..iv_size / 2])
             .map_err(|e| Error::new(ErrorKind::Other, format!("error generating iv: {:?}", e)))?;
 
-        let mac = M::new_from_slice(mac_key)
+        let mac = HmacSha256::new_from_slice(mac_key)
             .map_err(|e| Error::new(ErrorKind::Other, format!("error creating mac: {:?}", e)))?;
 
         let enc = E::new_from_slices(key, &iv).map_err(|e| {
@@ -86,8 +88,8 @@ impl<E: NewCipher + StreamCipher, M: Mac + NewMac, W: Write + Send> AesWriter<E,
         writer.write_all(&iv)?;
         Ok(AesWriter {
             writer,
-            enc,
             mac,
+            enc,
             finalized: false,
         })
     }
@@ -129,13 +131,13 @@ impl<E: NewCipher + StreamCipher, M: Mac + NewMac, W: Write + Send> AesWriter<E,
 
         // Mark the file as finalized and flush our underlying writer.
         self.finalized = true;
-        // self.flush()?;
+        self.flush()?;
 
         Ok(())
     }
 }
 
-impl<E: NewCipher + StreamCipher, M: Mac + NewMac, W: Write + Send> Write for AesWriter<E, M, W> {
+impl<E: NewCipher + StreamCipher, W: Write + Send> Write for AesWriter<E, W> {
     /// Encrypts the passed buffer and writes the result to the underlying writer.
     fn write(&mut self, buf: &[u8]) -> Result<usize> {
         let mut buf = buf.to_owned();
@@ -150,7 +152,7 @@ impl<E: NewCipher + StreamCipher, M: Mac + NewMac, W: Write + Send> Write for Ae
     }
 }
 
-impl<E: NewCipher + StreamCipher, M: Mac + NewMac, W: Write + Send> Drop for AesWriter<E, M, W> {
+impl<E: NewCipher + StreamCipher, W: Write + Send> Drop for AesWriter<E, W> {
     /// Drop our AesWriter adding the MAC at the end of the file and flushing
     /// our buffers.
     fn drop(&mut self) {
@@ -192,7 +194,7 @@ impl<D: NewCipher + StreamCipher, R: Read + Seek + Clone> AesReader<D, R> {
     /// * `mac_key`: The authentication key for the MAC.
     /// * `iv_size`: The size of the initialization vector or nonce for the
     /// streaam cipher.
-    pub fn new<M: Mac + NewMac>(
+    pub fn new<M: Mac>(
         mut reader: R,
         key: &[u8],
         mac_key: &[u8],
@@ -201,7 +203,7 @@ impl<D: NewCipher + StreamCipher, R: Read + Seek + Clone> AesReader<D, R> {
     ) -> Result<AesReader<D, R>> {
         let iv_length = iv_size;
 
-        let mut mac = M::new_from_slice(mac_key)
+        let mut mac = HmacSha256::new_from_slice(mac_key)
             .map_err(|e| Error::new(ErrorKind::Other, format!("error creating mac: {:?}", e)))?;
 
         let mac_length = mac_size;
@@ -245,7 +247,7 @@ impl<D: NewCipher + StreamCipher, R: Read + Seek + Clone> AesReader<D, R> {
             mac.update(&buffer[..read]);
         }
 
-        if mac.verify(&expected_mac).is_err() {
+        if mac.verify_slice(&expected_mac).is_err() {
             return Err(Error::new(ErrorKind::Other, "Invalid MAC"));
         }
 
@@ -325,7 +327,7 @@ impl<D: NewCipher + StreamCipher, R: Read + Seek + Clone> Read for AesReader<D, 
 #[cfg(test)]
 mod test {
     use aes::Aes128Ctr;
-    use hmac::Hmac;
+    use hmac::{Hmac, KeyInit};
     use sha2::Sha256;
     use std::io::{Cursor, Read, Seek, Write};
 
@@ -338,14 +340,14 @@ mod test {
         let mut enc = Vec::new();
         {
             let mut aes =
-                AesWriter::<Aes128Ctr, Hmac<Sha256>, _>::new(&mut enc, &key, &hmac_key, 16)
+                AesWriter::<Aes128Ctr, _>::new(&mut enc, &key, &hmac_key, 16)
                     .unwrap();
             aes.write_all(data).unwrap();
         }
         enc
     }
 
-    fn decrypt<R: Read + Seek + Clone>(data: R) -> Vec<u8> {
+    fn decrypt<R: Read + Seek + Clone>(mut data: R) -> Vec<u8> {
         let key = [0u8; 16];
         let mut dec = Vec::new();
         let mut aes =
@@ -363,7 +365,7 @@ mod test {
         let mut enc = Vec::new();
         {
             let mut aes =
-                AesWriter::<Aes128Ctr, Hmac<Sha256>, _>::new(&mut enc, &key, &hmac_key, 16)
+                AesWriter::<Aes128Ctr, _>::new(&mut enc, &key, &hmac_key, 16)
                     .unwrap();
             for chunk in orig.chunks(3) {
                 aes.write_all(chunk).unwrap();

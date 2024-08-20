@@ -519,10 +519,10 @@ impl InternalIndex {
 #[cfg(test)]
 mod tests {
     use std::time::Duration;
-    use harana_common::tokio;
+    use harana_common::{serde_json, tokio};
 
     use super::*;
-    use crate::structures::{DocumentValue, IndexDeclaration};
+    use crate::structures::{DocumentOptions, DocumentValue, IndexDeclaration};
 
     fn init_state() {
         let _ = std::env::set_var("RUST_LOG", "debug,sled=info");

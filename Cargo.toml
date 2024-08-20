@@ -17,21 +17,25 @@ members = [
     "src/io",
     "src/job",
     "src/json",
+    "src/keyring",
     "src/meilisearch",
     "src/metrics",
     "src/opener",
+    "src/openid",
     "src/file_opener",
     "src/rocksdb",
     "src/rpc",
     "src/s3",
     "src/search",
-    "src/tantivy",
     "src/search_jni",
+    "src/search_ruby",
+    "src/tantivy",
     "src/thumbnailer",
     "src/utils"
 ]
 
 [dependencies]
+ffmpeg-next = "= 6.1.0"
 snmalloc-rs = "0.3"
 
 [build-dependencies]

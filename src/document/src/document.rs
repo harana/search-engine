@@ -1,8 +1,6 @@
-use std::path::PathBuf;
-use std::time::{Duration, SystemTime, UNIX_EPOCH};
-
-use harana_common::hashbrown::HashSet;
+use harana_common::hashbrown::{HashMap, HashSet};
 use harana_common::serde::{self, Deserialize, Serialize};
+use harana_common::serde_json::Value;
 
 #[derive(Deserialize, Serialize, PartialEq, Clone, Debug)]
 #[serde(crate = "self::serde")]
@@ -11,7 +9,7 @@ pub struct Document {
     pub title: String,
     pub subtitle: Option<String>,
     pub description: Option<String>,
-    pub tags: Option<String>,
+    pub tags: HashSet<String>,
     pub author: Option<String>,
     pub primary_tokens: HashSet<String>,
     pub secondary_tokens: HashSet<String>,
@@ -30,5 +28,6 @@ pub struct Document {
     pub parent_folder_name: Option<String>,
     pub parent_folder_path: Option<String>,
     pub metadata: Option<String>,
-    pub cards: Vec<String>
+    pub cards: Vec<String>,
+    pub cards_data: HashMap<String, String>
 }

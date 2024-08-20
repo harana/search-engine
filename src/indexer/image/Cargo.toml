@@ -10,10 +10,10 @@ harana_indexer_core = { package = "indexer_core", path = "../core" }
 harana_io = { package = "io", path = "../../io" }
 
 libraw = { git = "https://github.com/harana-oss/libraw-rs.git" }
-lrcat-extractor = { git = "https://github.com/harana-oss/lrcat-extractor.git" }
-psd = "0.3.4"
-svg_metadata = "0.5.0"
-svg = "0.14.0"
+lrcat-extractor = "0.4.1"
+psd = "0.3.5"
+svg_metadata = "0.5.1"
+svg = "0.17.0"
 
 [[bench]]
 name = "benchmark_image"

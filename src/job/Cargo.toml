@@ -7,6 +7,6 @@ edition = "2021"
 harana_common = { package = "common", path = "../common" }
 harana_database = { package = "database", path = "../database" }
 
-effectum = "0.4"
+effectum = "0.3.0"
 log = "0.4"
 time = "0.3"

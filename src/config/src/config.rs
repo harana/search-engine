@@ -1,6 +1,7 @@
 use config::Config;
+use lazy_static::lazy_static;
 
-lazy_static::lazy_static! {
+lazy_static! {
     #[derive(Debug)]
     pub static ref CONFIG: Config = Config::builder()
         .add_source(config::Environment::with_prefix("HARANA").separator("_"))

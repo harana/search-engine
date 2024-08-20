@@ -1,6 +1,6 @@
 use std::path::Path;
 use harana_common::anyhow::Result;
-use opener_common::file_opener::FileOpener;
+use harana_file_opener_common::file_opener::FileOpener;
 
 pub struct OpenerMac;
 

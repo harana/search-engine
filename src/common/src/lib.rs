@@ -47,6 +47,7 @@ pub extern crate tracing_attributes;
 pub extern crate tracing_flame;
 pub extern crate tracing_futures;
 pub extern crate tracing_subscriber;
+pub extern crate url;
 extern crate alloc;
 
 pub mod error;

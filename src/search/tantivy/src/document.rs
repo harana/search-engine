@@ -4,8 +4,8 @@ use std::time::{Duration, SystemTime, UNIX_EPOCH};
 use humansize::{DECIMAL, format_size};
 use timeago::Formatter;
 
-use harana_common::hashbrown::HashSet;
-use harana_common::serde::{self, Deserialize, Serialize};
+use harana_common::hashbrown::{HashMap, HashSet};
+use harana_common::serde_json::{from_str, Value};
 use harana_document::document::Document;
 use harana_tantivy::helpers::{hit_bool, hit_string, hit_u64};
 use harana_tantivy::structures::DocumentHit;
@@ -16,6 +16,11 @@ pub struct TantivyDocument {}
 
 impl TantivyDocument {
     pub fn from_hit(hit: DocumentHit) -> Document {
+        let mut tags = HashSet::new();
+        hit_string(&hit, "tags").unwrap_or_default().split(",").map(|s| s.to_string()).for_each(|s| {
+            tags.insert(s);
+        });
+
         let mut primary_tokens = HashSet::new();
         hit_string(&hit, "primary_tokens").unwrap_or_default().split(" ").map(|s| s.to_string()).for_each(|s| {
             primary_tokens.insert(s);
@@ -34,12 +39,22 @@ impl TantivyDocument {
 
         let extension = hit_string(&hit, "extension");
 
+        let mut cards_data: HashMap<String, String> = HashMap::new();
+        let cards_data_json: Option<Value> = hit_string(&hit, "cards_data").and_then(|s| from_str(s.as_str()).ok());
+        if cards_data_json.is_some() {
+            if let Value::Object(obj) = cards_data_json.unwrap() {
+                for (key, value) in obj {
+                    cards_data.insert(key, value.to_string());
+                }
+            }
+        }
+
         Document {
             id: hit.document_id.to_string(),
             title: hit_string(&hit, "title").unwrap_or(String::new()),
             subtitle: hit_string(&hit, "subtitle"),
             description: hit_string(&hit, "description"),
-            tags: hit_string(&hit, "tags"),
+            tags,
             author: hit_string(&hit, "author"),
             primary_tokens,
             secondary_tokens,
@@ -58,7 +73,8 @@ impl TantivyDocument {
             parent_folder_name,
             parent_folder_path,
             metadata: hit_string(&hit, "metadata"),
-            cards: if extension.is_some() { Extensions::cards(None, extension.unwrap().as_str()).iter().map(|s| s.to_string()).collect() } else { vec!() }
+            cards: if extension.is_some() { Extensions::cards(None, extension.unwrap().as_str()).iter().map(|s| s.to_string()).collect() } else { vec!() },
+            cards_data
         }
     }
 }

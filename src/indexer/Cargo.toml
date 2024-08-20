@@ -16,6 +16,7 @@ harana_indexer_code = { package = "indexer_code", path = "code" }
 harana_indexer_codeartifact = { package = "indexer_codeartifact", path = "codeartifact" }
 harana_indexer_contact = { package = "indexer_contact", path = "contact" }
 harana_indexer_data = { package = "indexer_data", path = "data" }
+harana_indexer_deno = { package = "indexer_deno", path = "deno" }
 harana_indexer_diskimage = { package = "indexer_diskimage", path = "diskimage" }
 harana_indexer_document = { package = "indexer_document", path = "document" }
 harana_indexer_email = { package = "indexer_email", path = "email" }
@@ -31,37 +32,37 @@ harana_indexer_video = { package = "indexer_video", path = "video" }
 
 harana_io = { package = "io", path = "../io" }
 
-byteorder = "1.4.3"
-candle-core = "0.3.0"
-candle-examples = "0.3.0"
-candle-nn = "0.3.0"
-candle-transformers = "0.3.0"
-hf-hub = "0.3.1"
-image = "0.24"
-imageproc = "0.23"
+byteorder = "1.5.0"
+candle-core = "0.6.0"
+candle-examples = "0.6.0"
+candle-nn = "0.6.0"
+candle-transformers = "0.6.0"
+hf-hub = "0.3.2"
+image = "0.25"
+imageproc = "0.25"
 kamadak-exif = "0.5"
 #magick_rust = { version = "0.19", features = ["disable-hdri"] }
 metadata = "= 0.1.8"
-ndarray = "0.15"
-palette = "0.7.3"
-reverse_geocoder = "3"
-rust_decimal = "1.32"
-rust_decimal_macros = "1.32"
+ndarray = "0.16.1"
+palette = "0.7.6"
+reverse_geocoder = "4"
+rust_decimal = "1.35"
+rust_decimal_macros = "1.35"
 rust_tokenizers = "8"
 rusttype = "0.9"
 rusty-tesseract = "1.1"
-tokenizers = "0.15"
+tokenizers = "0.20"
 tracing = "0.1"
-wav = "1.0.0"
+wav = "1.0.1"
 
 [target.'cfg(target_os = "linux")'.dependencies]
-candle-core = { version = "0.3.0", features = ["mkl"] }
+candle-core = { version = "0.6.0", features = ["mkl"] }
 
 [target.'cfg(target_os = "macos")'.dependencies]
-candle-core = { version = "0.3.0", features = ["accelerate"] }
+candle-core = { version = "0.6.0", features = ["accelerate"] }
 
 [target.'cfg(target_os = "windows")'.dependencies]
-candle-core = { version = "0.3.0" }
+candle-core = { version = "0.6.0" }
 
 [dev-dependencies]
 tokenizers = { version = ">=0.13.4", default-features = false, features = [ "onig" ] }

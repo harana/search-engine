@@ -4,7 +4,7 @@ mod env;
 use harana_common::anyhow::Result;
 
 use std::path::Path;
-use opener_common::file_opener::FileOpener;
+use harana_file_opener_common::file_opener::FileOpener;
 use crate::app_info::App;
 
 pub struct FileOpenerLinux;

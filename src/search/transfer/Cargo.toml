@@ -1,5 +1,5 @@
 [package]
-name = "search_tantivy"
+name = "search_transfer"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,10 +7,5 @@ edition = "2021"
 harana_common = { package = "common", path = "../../common" }
 harana_document = { package = "document", path = "../../document" }
 harana_search_extensions = { package = "search_extensions", path = "../extensions" }
+harana_search_index = { package = "search_index", path = "../index" }
 harana_tantivy = { package = "tantivy", path = "../../tantivy" }
-
-config = "0.14"
-humansize = "2"
-timeago = "0.4"
-time = "0.3"
-uuid = "1"

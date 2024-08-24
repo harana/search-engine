@@ -5,4 +5,5 @@ edition = "2021"
 
 [dependencies]
 harana_common = { package = "common", path = "../common" }
+oauth2 = "4"
 openidconnect = "3"

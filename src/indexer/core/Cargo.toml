@@ -16,6 +16,7 @@ candle-transformers = "0.6.0"
 hf-hub = "0.3.1"
 image = { version = "0.25", default_features = false }
 imageproc = "0.25"
+itertools = "0.12.1"
 jbig2dec = "0.3"
 jpeg2k = { version = "0.9.1" }
 kamadak-exif = "0.5"
@@ -35,6 +36,7 @@ tokenizers = "0.20.0"
 tracing = "0.1"
 wav = "1.0.0"
 zune-inflate = "0.2.54"
+anyhow = "1.0.86"
 
 [target.'cfg(target_os = "linux")'.dependencies]
 candle-core = { version = "0.6.0", features = ["mkl"] }

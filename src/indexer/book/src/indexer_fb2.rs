@@ -4,6 +4,8 @@ use std::path::PathBuf;
 
 use fb2::{Author, FictionBook, Genre};
 
+use crate::indexer_fb2::serde_json::de;
+
 use harana_common::anyhow::Result;
 use harana_common::hashbrown::HashSet;
 use harana_common::serde::{self, Deserialize, Serialize};
@@ -30,7 +32,7 @@ impl Indexer for IndexerFb2 {
     fn index(&self, path: PathBuf) -> Result<IndexResult> {
         let file = File::open(path.clone())?;
         let reader = BufReader::new(file);
-        let book: FictionBook = quick_xml::de::from_reader(reader)?;
+        let book: FictionBook = de::from_reader(reader)?;
 
         let mut primary_tokens = HashSet::<String>::new();
         let mut secondary_tokens = HashSet::<String>::new();

@@ -1,37 +1,17 @@
 use std::collections::HashMap;
 
-use openidconnect::{
-    AccessTokenHash,
-    AuthenticationFlow,
-    AuthorizationCode,
-    ClientId,
-    ClientSecret,
-    CsrfToken,
-    IssuerUrl,
-    Nonce,
-    OAuth2TokenResponse,
-    PkceCodeChallenge,
-    RedirectUrl,
-    Scope,
-    TokenResponse,
-};
-
-use openidconnect::core::{
-    CoreAuthenticationFlow,
-    CoreClient,
-    CoreProviderMetadata,
-    CoreResponseType,
-    CoreUserInfoClaims,
-};
-
-use harana_common::anyhow::Result;
+use oauth2::basic::{BasicErrorResponseType, BasicRevocationErrorResponse, BasicTokenType};
+use oauth2::StandardRevocableToken;
+use openidconnect::*;
+use openidconnect::core::*;
+use harana_common::anyhow::{anyhow, Result};
 use harana_common::lazy_static::lazy_static;
 use harana_common::url;
 
 use openidconnect::reqwest::http_client;
 use url::Url;
 
-#[derive(Debug)]
+#[derive(Debug, Eq, Hash, PartialEq)]
 pub enum OpenIDProvider {
     Apple,
     Auth0,
@@ -56,21 +36,45 @@ lazy_static! {
     };
 }
 
-impl OpenIdManager {
+struct OpenIdConnection {
+    auth_url: Url,
+    client: Client<
+        EmptyAdditionalClaims,
+        CoreAuthDisplay,
+        CoreGenderClaim,
+        CoreJweContentEncryptionAlgorithm,
+        CoreJwsSigningAlgorithm,
+        CoreJsonWebKeyType,
+        CoreJsonWebKeyUse,
+        CoreJsonWebKey,
+        CoreAuthPrompt,
+        StandardErrorResponse<BasicErrorResponseType>,
+        CoreTokenResponse,
+        BasicTokenType,
+        CoreTokenIntrospectionResponse,
+        StandardRevocableToken,
+        BasicRevocationErrorResponse
+    >,
+    csrf_token: CsrfToken,
+    nonce: Nonce,
+    pkce_verifier: PkceCodeVerifier
+}
 
-    fn connect(provider: OpenIDProvider, client_id: String, client_secret: String, redirect_url: String) -> Option<String> {
-        let issuer_url = OPENID_ISSUER_URLS.get(&provider);
+impl OpenIdConnection {
+
+    pub fn new(provider: OpenIDProvider, client_id: String, client_secret: String, redirect_url: String) -> Self {
+        let issuer_url = OPENID_ISSUER_URLS.get(&provider).unwrap().to_string();
 
         let provider_metadata = CoreProviderMetadata::discover(
-            &IssuerUrl::new(issuer_url)?,
+            &IssuerUrl::new(issuer_url).unwrap(),
             http_client,
-        )?;
+        ).unwrap();
 
         let client = CoreClient::from_provider_metadata(
             provider_metadata,
             ClientId::new(client_id),
             Some(ClientSecret::new(client_secret)),
-        ).set_redirect_uri(RedirectUrl::new(redirect_url)?);
+        ).set_redirect_uri(RedirectUrl::new(redirect_url).unwrap());
 
         let (pkce_challenge, pkce_verifier) = PkceCodeChallenge::new_random_sha256();
 
@@ -85,7 +89,13 @@ impl OpenIdManager {
             .set_pkce_challenge(pkce_challenge)
             .url();
 
-        auth_url
+        Self {
+            auth_url,
+            client,
+            csrf_token,
+            nonce,
+            pkce_verifier
+        }
     }
 
     fn authorization_code(callback_url: String) -> Option<String> {
@@ -96,22 +106,24 @@ impl OpenIdManager {
             .map(|(_, value)| value.into_owned())
     }
 
-    fn claims(authorization_code: String) -> Option<CoreUserInfoClaims> {
+    fn claims(&self, authorization_code: String) -> Result<CoreUserInfoClaims> {
         let token_response =
-            client
-                .exchange_code(AuthorizationCode::new("some authorization code".to_string()))
-                .set_pkce_verifier(pkce_verifier)
+            self.client
+                .exchange_code(AuthorizationCode::new(authorization_code))
+                .set_pkce_verifier(PkceCodeVerifier::new(self.pkce_verifier.secret().to_string()))
                 .request(http_client)?;
 
         let id_token = token_response
             .id_token()
             .ok_or_else(|| anyhow!("Server did not return an ID token"))?;
-        let claims = id_token.claims(&client.id_token_verifier(), &nonce)?;
+        let claims = id_token.claims(&self.client.id_token_verifier(), &self.nonce)?;
 
-        client
+        Ok(
+            self.client
             .user_info(token_response.access_token().to_owned(), None)
             .map_err(|err| anyhow!("No user info endpoint: {:?}", err))?
             .request(http_client)
             .map_err(|err| anyhow!("Failed requesting user info: {:?}", err))?
+        )
     }
 }

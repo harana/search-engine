@@ -1,7 +1,6 @@
 use strum_macros::EnumIter;
 use strum::IntoEnumIterator;
 use harana_indexer_core::indexer::Indexer;
-use harana_common::itertools::Itertools;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, EnumIter)]
 #[cfg_attr(feature = "serde", derive(serde::Deserialize, serde::Serialize))]
@@ -35,9 +34,9 @@ pub enum FileCategory {
 impl FileCategory {
 
     pub fn indexes() -> Vec<String> {
-        FileCategory::iter().map(|category| {
-            category.index().to_string()
-        }).collect_vec()
+        FileCategory::iter()
+            .map(|category| category.index().to_string())
+            .collect()
     }
 
     pub fn index(&self) -> &str {

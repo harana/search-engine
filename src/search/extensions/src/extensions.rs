@@ -62,7 +62,7 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = AdvancedCompressionEngine
+    format = Ace
     extension = "ace"
     title = "Advanced Compression Engine"
     category = Archive
@@ -457,9 +457,9 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = Iff8BitSampledVoice
+    format = EightBitSampledVoice
     extension = "8svx"
-    title = "IFF 8-Bit Sampled Voice"
+    title = "8-Bit Sampled Voice"
     category = Audio
     indexer = Noop
     thumbnailer = Noop
@@ -575,7 +575,7 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = AdobeFlashPlayerAudio
+    format = FlashMp4Audio
     extension = "f4a"
     title = "Adobe Flash Player Audio"
     category = Audio
@@ -585,7 +585,7 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = AdobeFlashPlayerAudiobook
+    format = FlashMp4Audiobook
     extension = "f4b"
     title = "Adobe Flash Player Audiobook"
     category = Audio
@@ -751,9 +751,9 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = MusicxmlZipped
+    format = MusicxmlZip
     extension = "mxl"
-    title = "MusicXML Zipped"
+    title = "MusicXML Zip"
     category = Audio
     indexer = Noop
     thumbnailer = Noop
@@ -1004,9 +1004,9 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = FictionbookZipped
+    format = FictionbookZip
     extension = "fbz"
-    title = "FictionBook Zipped"
+    title = "FictionBook Zip"
     category = Book
     indexer = Noop
     thumbnailer = Noop
@@ -2188,7 +2188,7 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = AndroidCompiledResources
+    format = AndroidResourceStorageContainer
     extension = "arsc"
     title = "Android Compiled Resources"
     category = CodeArtifact
@@ -2277,9 +2277,9 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = DebianBinaryPackage
+    format = DebianPackage
     extension = "deb"
-    title = "Debian Binary Package"
+    title = "Debian Package"
     category = CodeArtifact
     indexer = Noop
     thumbnailer = Noop
@@ -2547,7 +2547,7 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = ApacheAvroObjectContainer
+    format = ApacheAvro
     extension = "avro"
     title = "Apache Avro Container"
     category = Data
@@ -4175,7 +4175,7 @@ extensions! {
     viewer = Font
     cards = ["thumbnail", "file_info"]
 
-    format = BitmapFontBinary
+    format = BmfontBinary
     extension = "fnt"
     title = "Bitmap Font"
     category = Font
@@ -4770,7 +4770,7 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = DigitalAssetExchange
+    format = CollaborativeDesignActivity
     extension = "dae"
     title = "Digital Asset Exchange"
     category = Graphics
@@ -5226,9 +5226,9 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = UniversalSceneDescriptionZipped
+    format = UniversalSceneDescriptionZip
     extension = "usdz"
-    title = "Universal Scene Description Zipped"
+    title = "Universal Scene Description Zip"
     category = Graphics
     indexer = Noop
     thumbnailer = Noop
@@ -6245,9 +6245,9 @@ extensions! {
     viewer = Leaflet
     cards = ["thumbnail", "file_info"]
 
-    format = KeyholeMarkupLanguageZipped
+    format = KeyholeMarkupLanguageZip
     extension = "kmz"
-    title = "Keyhole Markup Language Zipped"
+    title = "Keyhole Markup Language Zip"
     category = Map
     indexer = Noop
     thumbnailer = Noop
@@ -6382,7 +6382,7 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = AdobeFlashPlayerProtectedVideo
+    format = FlashMp4ProtectedVideo
     extension = "f4p"
     title = "Adobe Flash Player Protected Video"
     category = Video
@@ -6392,7 +6392,7 @@ extensions! {
     viewer = Noop
     cards = ["thumbnail", "file_info"]
 
-    format = AdobeFlashPlayerVideo
+    format = FlashMp4Video
     extension = "f4v"
     title = "Adobe Flash Player Video"
     category = Video

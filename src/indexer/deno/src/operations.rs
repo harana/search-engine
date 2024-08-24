@@ -1,42 +1,38 @@
-use deno_runtime::deno_core::{error::AnyError, op};
+use deno_core::*;
+use deno_core::error::AnyError;
+use harana_document::document::Document;
 
-#[op]
-fn url(&mut self, url: String) -> Result<(), AnyError> {
-    self.url = url;
+#[op2(fast)]
+pub fn url(#[string] url: &str) -> Result<(), AnyError> {
     Ok(())
 }
 
-#[op]
-fn authentication_credentials(&mut self, credentials: String) -> Result<(), AnyError> {
-    self.auth_credentials = credentials;
+#[op2(fast)]
+pub fn authentication_credentials(#[string] credentials: &str) -> Result<(), AnyError> {
     Ok(())
 }
 
-#[op]
-fn authentication_type(&mut self, auth_type: String) -> Result<(), AnyError> {
-    self.auth_type = auth_type;
+#[op2(fast)]
+pub fn authentication_type(#[string] auth_type: &str) -> Result<(), AnyError> {
     Ok(())
 }
 
-#[op]
-fn add_document(&self, document: Document) -> Result<(), AnyError> {
-    println!("Adding document: {:?}", document);
-    // Implement document addition logic here
-    Ok(())
-}
+// #[op2(fast)]
+// pub fn add_document(document: Document) -> Result<(), AnyError> {
+//     println!("Adding document: {:?}", document);
+//     // Implement document addition logic here
+//     Ok(())
+// }
+//
+// #[op2(fast)]
+// pub fn add_documents(documents: Vec<Document>) -> Result<(), AnyError> {
+//     println!("Adding multiple documents: {:?}", documents);
+//     // Implement multiple document addition logic here
+//     Ok(())
+// }
 
-#[op]
-fn add_documents(&self, documents: Vec<Document>) -> Result<(), AnyError> {
-    println!("Adding multiple documents: {:?}", documents);
-    // Implement multiple document addition logic here
-    Ok(())
-}
-
-#[op]
-fn init(&self) -> Result<(), AnyError> {
-    println!("Initializing with URL: {}", self.url);
-    println!("Auth Type: {}", self.auth_type);
-    println!("Auth Credentials: {}", self.auth_credentials);
+#[op2(fast)]
+pub fn init() -> Result<(), AnyError> {
     // Implement initialization logic here
     Ok(())
 }

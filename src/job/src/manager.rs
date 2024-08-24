@@ -202,7 +202,7 @@ fn should_execute(context: Arc<JobContext>) -> bool {
     let valid_cpu_usage =
         if context.cpu_maximum_usage_enabled {
             let mut total = 0.0;
-            sys.refresh_cpu();
+            sys.refresh_cpu_all();
 
             for cpu in sys.cpus() {
                 total += cpu.cpu_usage()

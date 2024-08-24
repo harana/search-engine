@@ -4,7 +4,7 @@ use harana_common::hashbrown::HashMap;
 
 use crate::indexer_rtf::GroupState;
 
-type StateHandler = dyn Fn(&mut GroupState, &str, Option<i32>) + 'static + Sync;
+type StateHandler = dyn Fn(&mut GroupState, &str, Option<i32>) + 'static + Send + Sync;
 
 lazy_static::lazy_static! {
     // The values for these tables are draw from the Word 2007 RTF Spec (1.9.1)

@@ -1,19 +1,16 @@
-use harana_common::anyhow::Result;
+use anyhow::Result;
 use image::DynamicImage;
-use okolors::OklabCounts;
-use palette::convert::FromColorUnclamped;
-use palette::{Clamp, LinSrgb, Okhsv};
-use harana_common::itertools::Itertools;
+use okolors::Okolors;
+use palette::Srgb;
 
-pub fn colors(img: DynamicImage, color_count: u8) -> Result<Vec<(f32, f32, f32)>> {
-    let oklab = OklabCounts::try_from_image(&img, u8::MAX)?.with_lightness_weight(0.325);
-    let result = okolors::run(&oklab, 1, color_count, 0.05, 64, 0);
+pub fn colors(img: DynamicImage, color_count: u8) -> Result<Vec<Srgb<u8>>> {
     Ok(
-        result.centroids.into_iter().map(|oklab| {
-            let okhsv: Okhsv = Okhsv::from_color_unclamped(oklab);
-            let clamped_okhsv = okhsv.clamp();
-            let linsrgb = LinSrgb::from_color_unclamped(clamped_okhsv);
-            (linsrgb.red, linsrgb.green, linsrgb.blue)
-        }).collect_vec()
+        Okolors::try_from(&img.to_rgb8())?
+        .palette_size(color_count)
+        .lightness_weight(0.5)
+        .sampling_factor(0.25)
+        .parallel(true)
+        .sort_by_frequency(true)
+        .srgb8_palette()
     )
-} 
+}

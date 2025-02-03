@@ -3,7 +3,7 @@ use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::time::Duration;
 
-use serde::{Deserialize, Serialize};
+use harana_common::serde::{Deserialize, Serialize};
 
 use harana_common::{serde_json, tokio};
 use harana_common::anyhow::{Context, Result};

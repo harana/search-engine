@@ -1,7 +1,7 @@
 use std::collections::BTreeMap;
 use std::path::PathBuf;
 
-use serde::Deserialize;
+use harana_common::serde::Deserialize;
 
 use harana_common::anyhow::{Context, Result};
 use harana_common::async_trait::async_trait;

@@ -1,3 +1,3 @@
 pub mod indexer_deno;
 mod deno;
-mod operations;
+mod deno_operations;

@@ -6,11 +6,9 @@ edition = "2021"
 [dependencies]
 harana_common = { package = "common", path = "../common" }
 
-deadpool-sqlite = "0.6.0"
-#r2d2 = "0.8"
-#r2d2_sqlite = "0.23"
-rusqlite = { version = "=0.29.0", features = ["functions", "time", "bundled", "blob", "array", "trace"] }
-rusqlite_migration = "1.0.2"
+deadpool-sqlite = "0.8.1"
+rusqlite = { version = "=0.31.0", features = ["functions", "time", "bundled", "blob", "array", "trace"] }
+rusqlite_migration = "1.2.0"
 serde = { version = "1.0", features = ["derive"] }
 urlencoding = "2"
-tracing = "0.1.40"
+tracing = "0.1.41"

@@ -11,10 +11,10 @@ harana_io = { package = "io", path = "../../io" }
 
 blend = "0.8.0"
 dxf = "0.5.0"
-libflate = "2.0.0"
+libflate = "2.1.0"
 lightwave-3d = "1.0.0"
 zstd = "0.12"
-zstd-sys = "=2.0.9"
+zstd-sys = "=2.0.13"
 
 [[bench]]
 name = "benchmark_graphics"

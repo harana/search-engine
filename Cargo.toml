@@ -11,6 +11,7 @@ members = [
     "src/config",
     "src/document",
     "src/file_crawler",
+    "src/file_opener",
     "src/file_watcher",
     "src/http_server",
     "src/indexer",
@@ -22,7 +23,7 @@ members = [
     "src/metrics",
     "src/opener",
     "src/openid",
-    "src/file_opener",
+    "src/plugin",
     "src/rocksdb",
     "src/rpc",
     "src/s3",
@@ -35,7 +36,7 @@ members = [
 ]
 
 [dependencies]
-ffmpeg-next = "= 6.1.0"
+ffmpeg-next = "=7.1.0"
 snmalloc-rs = "0.3"
 
 [build-dependencies]

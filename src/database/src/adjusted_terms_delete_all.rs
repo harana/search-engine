@@ -6,7 +6,7 @@ pub const QUERY: &str = r##"
     DELETE FROM adjusted_terms
 "##;
 
-pub fn adjusted_terms_clear(tx: &Connection) -> Result<()> {
+pub fn adjusted_terms_delete_all(tx: &Connection) -> Result<()> {
     let mut sql_stmt = tx.prepare_cached(QUERY)?;
     sql_stmt.execute([])?;
     Ok(())

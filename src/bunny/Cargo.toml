@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-base64 = { version = "0.21" }
+base64 = { version = "0.22" }
 curl = { version = "0.4" }
-sha256 = { version = "1.2" }
+sha256 = { version = "1.5" }
 urlencoding = { version = "2.1" }
-url = { version = "2.4" }
+url = { version = "2.5" }

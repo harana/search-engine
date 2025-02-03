@@ -1,7 +1,7 @@
 //! jsonrpc errors
 use super::Value;
-use serde::de::{Deserialize, Deserializer};
-use serde::ser::{Serialize, Serializer};
+use harana_common::serde::de::{Deserialize, Deserializer};
+use harana_common::serde::ser::{Serialize, Serializer};
 use std::fmt;
 
 /// JSONRPC error code

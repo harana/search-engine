@@ -21,6 +21,7 @@ pub extern crate once_cell;
 pub extern crate parking_lot;
 pub extern crate paste;
 pub extern crate rand;
+pub extern crate serde_yml;
 pub extern crate smallvec;
 pub extern crate strum;
 pub extern crate sysinfo;
@@ -48,6 +49,7 @@ pub extern crate tracing_flame;
 pub extern crate tracing_futures;
 pub extern crate tracing_subscriber;
 pub extern crate url;
+pub extern crate zip;
 extern crate alloc;
 
 pub mod error;

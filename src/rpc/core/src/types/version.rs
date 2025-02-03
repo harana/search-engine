@@ -1,6 +1,6 @@
 //! jsonrpc version field
-use serde::de::{self, Visitor};
-use serde::{Deserialize, Deserializer, Serialize, Serializer};
+use harana_common::serde::de::{self, Visitor};
+use harana_common::serde::{Deserialize, Deserializer, Serialize, Serializer};
 
 use std::fmt;
 

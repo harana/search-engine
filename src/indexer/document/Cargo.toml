@@ -18,7 +18,7 @@ flexi_logger = { version = "0.27", default-features = false, features = [ "textf
 image = "0.24"
 ipynb = "0.0.1"
 log = "0.4"
-markdown = "1.0.0-alpha.16"
+markdown = "1.0.0-alpha.22"
 msoffice_pptx = "0.2"
 msoffice_shared = "0.1"
 nanohtml2text = "0.1"

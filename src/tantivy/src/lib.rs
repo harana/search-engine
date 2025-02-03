@@ -1,6 +1,7 @@
 pub mod corrections;
 pub mod encrypted_dir;
 pub mod encrypted_stream;
+pub mod frecency;
 pub mod helpers;
 pub mod index;
 pub mod index_manager;

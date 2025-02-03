@@ -12,7 +12,7 @@ harana_io = { package = "io", path = "../../io" }
 #deb-rust = { git = "https://github.com/harana-oss/deb-rust.git", branch = "main" }
 jars = "0.1.1"
 msi = "0.6.0"
-wasm-metadata = "0.10.3"
+wasm-metadata = "0.10.20"
 
 [[bench]]
 name = "benchmark_codeartifact"

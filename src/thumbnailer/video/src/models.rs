@@ -10,7 +10,7 @@ use std::{
 use clap::arg_enum;
 use image;
 use rustfft::{FFTplanner, num_complex::Complex, num_traits::Zero};
-use serde::Deserialize;
+use harana_common::serde::Deserialize;
 use structopt::StructOpt;
 
 use crate::constants::*;

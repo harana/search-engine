@@ -8,13 +8,9 @@ harana_common = { package = "common", path = "../../common" }
 harana_document = { package = "document", path = "../../document" }
 harana_indexer_core = { package = "indexer_core", path = "../core" }
 harana_io = { package = "io", path = "../../io" }
+harana_plugin = { package = "plugin", path = "../../plugin" }
 
-deno_core = "0.306.0"
-deno_runtime = "0.175.0"
-reqwest = { version = "0.12", features = ["json"] }
-serde = { version = "1", features = ["derive"] }
-serde_json = "1"
-tokio = { version = "1", features = ["full"] }
+deno_core = "0.307.0"
 
 [[bench]]
 name = "benchmark_deno"

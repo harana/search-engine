@@ -9,34 +9,34 @@ harana_document = { package = "document", path = "../../document" }
 harana_io = { package = "io", path = "../../io" }
 
 byteorder = "1.5.0"
-candle-core = "0.6.0"
-candle-examples = "0.6.0"
-candle-nn = "0.6.0"
-candle-transformers = "0.6.0"
-hf-hub = "0.3.1"
-image = { version = "0.25", default_features = false }
+candle-core = "0.8.2"
+candle-examples = "0.8.1"
+candle-nn = "0.8.2"
+candle-transformers = "0.8.2"
+hf-hub = "0.3.2"
+image = { version = "0.25", default-features = false }
 imageproc = "0.25"
-itertools = "0.12.1"
+itertools = "0.14.0"
 jbig2dec = "0.3"
 jpeg2k = { version = "0.9.1" }
 kamadak-exif = "0.5"
-libdeflater = "1.21.0"
+libdeflater = "1.23.0"
 #magick_rust = { version = "0.19.1", features = ["disable-hdri"] }
 ndarray = "0.16"
 okolors = "0.8.1"
-palette = "0.7.3"
+palette = "0.7.6"
 reverse_geocoder = "3"
-rust_decimal = "1.32"
-rust_decimal_macros = "1.32"
+rust_decimal = "1.36"
+rust_decimal_macros = "1.36"
 rust_tokenizers = "8"
 rusttype = "0.9.3"
 rusty-tesseract = "1.1"
 stop-words = "0.8"
-tokenizers = "0.20.0"
+tokenizers = "0.20.4"
 tracing = "0.1"
-wav = "1.0.0"
+wav = "1.0.1"
 zune-inflate = "0.2.54"
-anyhow = "1.0.86"
+anyhow = "1.0.95"
 
 [target.'cfg(target_os = "linux")'.dependencies]
 candle-core = { version = "0.6.0", features = ["mkl"] }

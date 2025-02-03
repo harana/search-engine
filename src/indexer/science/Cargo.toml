@@ -10,7 +10,7 @@ harana_indexer_core = { package = "indexer_core", path = "../core" }
 harana_io = { package = "io", path = "../../io" }
 
 c3dio = "0.4.0"
-sp3 = "1.0.4"
+sp3 = "1.0.8"
 
 [[bench]]
 name = "benchmark_science"

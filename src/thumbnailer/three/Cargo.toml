@@ -11,4 +11,4 @@ harana_search_core = { package = "search_core", path = "../../search/core" }
 harana_thumbnailer_core = { package = "thumbnailer_core", path = "../core" }
 
 filament-bindings = "0.2.2"
-image = "0.24.7"
+image = "0.24.9"

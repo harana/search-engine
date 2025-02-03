@@ -9,7 +9,7 @@ harana_document = { package = "document", path = "../../document" }
 harana_indexer_core = { package = "indexer_core", path = "../core" }
 harana_io = { package = "io", path = "../../io" }
 
-eml-parser = "0.1.3"
+eml-parser = "0.1.4"
 emlx = "0.1.0"
 msg_parser = "0.1.1"
 

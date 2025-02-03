@@ -4,7 +4,7 @@ use harana_common::serde_json::value::RawValue;
 use harana_common::serde_json;
 use harana_common::smallvec::SmallVec;
 
-type RawJsonArray<'a> = SmallVec<[&'a serde_json::value::RawValue; 5]>;
+type RawJsonArray<'a> = SmallVec<[&'a RawValue; 5]>;
 
 pub fn register_functions(conn: &mut rusqlite::Connection) -> Result<(), rusqlite::Error> {
     conn.create_scalar_function(

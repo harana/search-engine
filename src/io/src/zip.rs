@@ -1,12 +1,16 @@
-use std::fs::File;
+use std::{fs, io};
+use std::fs::{copy, File};
 use std::io::prelude::*;
 use std::iter::Iterator;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 use walkdir::WalkDir;
-use zip::CompressionMethod;
-use zip::result::{ZipError, ZipResult};
-use zip::write::FileOptions;
+use harana_common::anyhow::Context;
+use harana_common::zip::{CompressionMethod, ZipArchive, ZipWriter};
+use harana_common::zip::result::{ZipError, ZipResult};
+use harana_common::zip::write::FileOptions;
+
+
 
 pub fn zip_directory(from_path: &Path, to_path: &Path, method: Option<&str>, _strip_prefix: bool) -> ZipResult<()> {
     if !from_path.is_dir() {
@@ -21,7 +25,7 @@ pub fn zip_directory(from_path: &Path, to_path: &Path, method: Option<&str>, _st
     };
 
     let zip_file = File::create(&Path::new(to_path)).unwrap();
-    let mut zip = zip::ZipWriter::new(zip_file);
+    let mut zip = ZipWriter::new(zip_file);
     let options = FileOptions::default()
         .compression_method(method)
         .unix_permissions(0o755);

@@ -13,5 +13,5 @@ class Harana(ConanFile):
         self.requires("libmp3lame/3.100")
         self.requires("libpng/1.6.42", override=True)
         self.requires("libraw/0.21.1")
-        self.requires("openjpeg/2.5.0")
+        self.requires("openjpeg/2.5.2")
         self.requires("tesseract/5.3.0")

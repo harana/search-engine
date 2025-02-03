@@ -1,6 +1,6 @@
 use harana_rpc_core::{IoHandler, Params};
 use harana_rpc_ws::{Broadcaster, DomainsValidation, Origin, ServerBuilder};
-use serde::{Deserialize, Serialize};
+use harana_common::serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 use harana_common::tauri::async_runtime;
 use harana_common::tauri::api::ipc::CallbackFn;

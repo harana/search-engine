@@ -14,6 +14,22 @@ pub mod ai_models_delete;
 pub mod ai_models_list;
 pub mod ai_models_update;
 
+pub mod authentication_http_basic_delete;
+pub mod authentication_http_basic_upsert;
+pub mod authentication_oauth_delete;
+pub mod authentication_oauth_upsert;
+pub mod authentication_token_delete;
+pub mod authentication_token_upsert;
+
+pub mod connections_add;
+pub mod connections_delete_plugin;
+pub mod connections_delete;
+pub mod connections_list;
+pub mod connections_update;
+pub mod connection_parameters_delete_all;
+pub mod connection_parameters_list;
+pub mod connection_parameters_upsert;
+
 pub mod developer_sources_add;
 pub mod developer_sources_list;
 pub mod developer_sources_update;
@@ -45,7 +61,7 @@ pub mod private_folders_delete;
 pub mod private_folders_list;
 
 pub mod recent_documents_add;
-pub mod recent_documents_clear;
+pub mod recent_documents_delete_all;
 pub mod recent_documents_delete;
 pub mod recent_documents_list;
 
@@ -114,6 +130,51 @@ pub struct HaranaAiModel {
     pub name: String,
     pub version: String,
     pub creation_date: OffsetDateTime,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct HaranaAuthenticationToken {
+    pub connection_id: String,
+    pub token_secret_id: String,
+    pub token_type: String,
+    pub expiration: OffsetDateTime,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct HaranaAuthenticationOAuth {
+    pub connection_id: String,
+    pub client_id: String,
+    pub client_secret_id: String,
+    pub auth_url: String,
+    pub token_url: String,
+    pub redirect_url: String,
+    pub scope: String,
+    pub access_token: String,
+    pub refresh_token: String,
+    pub expiration: OffsetDateTime,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct HaranaAuthenticationHttpBasic {
+    pub connection_id: String,
+    pub username_secret_id: String,
+    pub password_secret_id: String,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct HaranaConnection {
+    pub id: String,
+    pub status: String,
+    pub plugin: String,
+    pub name: String,
+    pub authentication_type: String,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct HaranaConnectionParameter {
+    pub connection_id: String,
+    pub key: String,
+    pub value: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]

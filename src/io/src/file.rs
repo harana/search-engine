@@ -3,7 +3,7 @@ use std::path::{Path, PathBuf};
 use std::time::SystemTime;
 
 // use lfs_core::*;
-use serde::{Deserialize, Serialize};
+use harana_common::serde::{Deserialize, Serialize};
 
 // Given a byte buffer it will infer the mime type based on the magic number signature
 pub fn infer_mimetype(buf: &[u8]) -> &str {

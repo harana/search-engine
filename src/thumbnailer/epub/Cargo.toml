@@ -11,4 +11,4 @@ harana_io = { package = "io", path = "../../io" }
 harana_search_core = { package = "search_core", path = "../../search/core" }
 
 epub = "2.1"
-regex = "1.10"
+regex = "1.11"

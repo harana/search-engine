@@ -11,7 +11,7 @@ harana_io = { package = "io", path = "../../io" }
 
 ffmml = "0.1.2"
 rofl-parser = "0.1.26"
-unpak = "1.0.4"
+unpak = "1.0.5"
 
 [[bench]]
 name = "benchmark_game"

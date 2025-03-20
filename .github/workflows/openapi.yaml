@@ -120,6 +120,12 @@ jobs:
             echo "Output directory doesn't exist: ${{ matrix.client.output_dir }}"
             echo "commit_created=false" >> $GITHUB_OUTPUT
           fi
+
+      - name: Push changes
+        if: steps.commit.outputs.commit_created == 'true'
+        run: |
+          echo "Pushing changes to branch ${{ steps.create-branch.outputs.branch_name }}"
+          git push -u origin ${{ steps.create-branch.outputs.branch_name }}
       
       - name: Create Pull Request
         if: steps.commit.outputs.commit_created == 'true'

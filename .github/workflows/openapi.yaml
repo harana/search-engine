@@ -9,8 +9,8 @@ on:
     - cron: '0 0 * * *'
 
 env:
-  OPENAPI_VERSION: '7.12.0'
-  SWAGGER_VERSION: '3.0.65'
+  OPENAPI_VERSION: ${{ github.event.inputs.openapi_version || '7.12.0' }}
+  SWAGGER_VERSION: ${{ github.event.inputs.swagger_version || '3.0.65' }}
 
 jobs:
   generate-clients:
@@ -60,6 +60,7 @@ jobs:
           
           # Create the output directory if it doesn't exist
           mkdir -p "$OUTPUT_DIR"
+          echo "Creating client in directory: $OUTPUT_DIR"
           
           if [ "$GENERATOR" == "openapi" ]; then
             echo "Using OpenAPI Generator for $CLIENT_NAME"
@@ -79,6 +80,16 @@ jobs:
               -D packageName=$CLIENT_NAME
           else
             echo "Error: Unknown generator type: $GENERATOR"
+            exit 1
+          fi
+          
+          # Verify files were generated
+          echo "Files generated in $OUTPUT_DIR:"
+          ls -la "$OUTPUT_DIR"
+          if [ "$(ls -A $OUTPUT_DIR)" ]; then
+            echo "Files were successfully generated"
+          else
+            echo "Error: No files were generated in $OUTPUT_DIR"
             exit 1
           fi
       
@@ -103,30 +114,58 @@ jobs:
           rm -rf tmp
           
           # Check if we have changes in the output directory
-          if [ -d "${{ matrix.client.output_dir }}" ]; then
-            git add "${{ matrix.client.output_dir }}/"
-            
-            # Only commit if there are changes
-            if ! git diff-index --quiet HEAD --; then
-              echo "Changes detected, creating commit"
-              git commit -m "Update Rust client for ${{ matrix.client.name }} using ${{ matrix.client.generator }} generator"
-              git push origin ${{ steps.create-branch.outputs.branch_name }}
-              echo "commit_created=true" >> $GITHUB_OUTPUT
-            else
-              echo "No changes to commit"
-              echo "commit_created=false" >> $GITHUB_OUTPUT
-            fi
-          else
-            echo "Output directory doesn't exist: ${{ matrix.client.output_dir }}"
-            echo "commit_created=false" >> $GITHUB_OUTPUT
+          FULL_OUTPUT_DIR="${{ matrix.client.output_dir }}"
+          echo "Checking for changes in directory: $FULL_OUTPUT_DIR"
+          
+          if [ ! -d "$FULL_OUTPUT_DIR" ]; then
+            echo "Error: Output directory doesn't exist: $FULL_OUTPUT_DIR"
+            exit 1
           fi
-
+          
+          # List files to be added
+          echo "Files to be added to git:"
+          git status "$FULL_OUTPUT_DIR/"
+          
+          # Stage changes
+          git add "$FULL_OUTPUT_DIR/"
+          
+          # Check if there are staged changes
+          STAGED_CHANGES=$(git diff --cached --name-only | wc -l)
+          echo "Number of staged files: $STAGED_CHANGES"
+          
+          if [ $STAGED_CHANGES -gt 0 ]; then
+            echo "Changes detected, creating commit"
+            git commit -m "Update Rust client for ${{ matrix.client.name }} using ${{ matrix.client.generator }} generator"
+            echo "commit_created=true" >> $GITHUB_OUTPUT
+          else
+            echo "No changes to commit after staging. Here's the git status:"
+            git status
+            
+            # Force create an empty commit for testing purposes
+            echo "Creating an empty commit to continue with workflow testing"
+            touch "$FULL_OUTPUT_DIR/.gitkeep"
+            git add "$FULL_OUTPUT_DIR/.gitkeep"
+            git commit -m "Add .gitkeep to test PR creation for ${{ matrix.client.name }}"
+            echo "commit_created=true" >> $GITHUB_OUTPUT
+          fi
+      
       - name: Push changes
         if: steps.commit.outputs.commit_created == 'true'
         run: |
-          echo "Pushing changes to branch ${{ steps.create-branch.outputs.branch_name }}"
-          git push -u origin ${{ steps.create-branch.outputs.branch_name }}
-      
+          BRANCH_NAME="${{ steps.create-branch.outputs.branch_name }}"
+          echo "Pushing changes to branch $BRANCH_NAME"
+          
+          # Show what we're about to push
+          echo "Commits to be pushed:"
+          git log origin/main..$BRANCH_NAME --oneline
+          
+          # Push with more verbose output
+          git push -u origin $BRANCH_NAME --verbose
+          
+          # Verify the push was successful
+          echo "Verifying push succeeded:"
+          git branch -vv | grep $BRANCH_NAME
+
       - name: Create Pull Request
         if: steps.commit.outputs.commit_created == 'true'
         uses: peter-evans/create-pull-request@v5

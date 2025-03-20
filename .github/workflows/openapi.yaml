@@ -93,85 +93,15 @@ jobs:
             exit 1
           fi
       
-      - name: Create branch
-        id: create-branch
-        run: |
-          # Generate a random string for the branch name
-          RANDOM_ID=$(openssl rand -hex 4)
-          BRANCH_NAME="feat/update-rust-client-${{ matrix.client.name }}-$RANDOM_ID"
-          
-          echo "Using branch name: $BRANCH_NAME"
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
-          git checkout -b $BRANCH_NAME
-          echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
-      
-      - name: Commit changes
-        id: commit
-        run: |
-          # First, clean up any artifacts from the generation process
           rm -f *.jar
           rm -rf tmp
-          
-          # Check if we have changes in the output directory
-          FULL_OUTPUT_DIR="${{ matrix.client.output_dir }}"
-          echo "Checking for changes in directory: $FULL_OUTPUT_DIR"
-          
-          if [ ! -d "$FULL_OUTPUT_DIR" ]; then
-            echo "Error: Output directory doesn't exist: $FULL_OUTPUT_DIR"
-            exit 1
-          fi
-          
-          # List files to be added
-          echo "Files to be added to git:"
-          git status "$FULL_OUTPUT_DIR/"
-          
-          # Stage changes
-          git add "$FULL_OUTPUT_DIR/"
-          
-          # Check if there are staged changes
-          STAGED_CHANGES=$(git diff --cached --name-only | wc -l)
-          echo "Number of staged files: $STAGED_CHANGES"
-          
-          if [ $STAGED_CHANGES -gt 0 ]; then
-            echo "Changes detected, creating commit"
-            git commit -m "Update Rust client for ${{ matrix.client.name }} using ${{ matrix.client.generator }} generator"
-            echo "commit_created=true" >> $GITHUB_OUTPUT
-          else
-            echo "No changes to commit after staging. Here's the git status:"
-            git status
-            
-            # Force create an empty commit for testing purposes
-            echo "Creating an empty commit to continue with workflow testing"
-            touch "$FULL_OUTPUT_DIR/.gitkeep"
-            git add "$FULL_OUTPUT_DIR/.gitkeep"
-            git commit -m "Add .gitkeep to test PR creation for ${{ matrix.client.name }}"
-            echo "commit_created=true" >> $GITHUB_OUTPUT
-          fi
-      
-      - name: Push changes
-        if: steps.commit.outputs.commit_created == 'true'
-        run: |
-          BRANCH_NAME="${{ steps.create-branch.outputs.branch_name }}"
-          echo "Pushing changes to branch $BRANCH_NAME"
-          
-          # Show what we're about to push
-          echo "Commits to be pushed:"
-          git log origin/main..$BRANCH_NAME --oneline
-          
-          # Push with more verbose output
-          git push -u origin $BRANCH_NAME --verbose
-          
-          # Verify the push was successful
-          echo "Verifying push succeeded:"
-          git branch -vv | grep $BRANCH_NAME
 
       - name: Create Pull Request
-        if: steps.commit.outputs.commit_created == 'true'
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Update Rust client for ${{ matrix.client.name }}"
+          commit-message: "Update Rust client for ${{ matrix.client.name }}"
           body: |
             This PR updates the Rust client for ${{ matrix.client.name }} based on the latest OpenAPI specification.
             

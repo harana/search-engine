@@ -9,8 +9,9 @@ on:
     - cron: '0 0 * * *'
 
 env:
-  OPENAPI_VERSION: ${{ github.event.inputs.openapi_version || '7.12.0' }}
-  SWAGGER_VERSION: ${{ github.event.inputs.swagger_version || '3.0.65' }}
+  OPENAPI_VERSION: '7.12.0'
+  SWAGGER_VERSION: '3.0.65'
+  GITHUB_ORG: 'harana'
 
 jobs:
   generate-clients:
@@ -21,12 +22,10 @@ jobs:
         client:
           - name: github-api-client
             spec_url: https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json
-            output_dir: clients/github
             generator: openapi
           # Add more clients as needed:
           # - name: another-api-client
           #   spec_url: https://example.com/api-spec.json
-          #   output_dir: clients/another
           #   generator: swagger
     
     steps:
@@ -55,12 +54,15 @@ jobs:
       - name: Generate Rust client
         run: |
           CLIENT_NAME="${{ matrix.client.name }}"
-          OUTPUT_DIR="${{ matrix.client.output_dir }}"
+          OUTPUT_DIR="tmp/$CLIENT_NAME"
           GENERATOR="${{ matrix.client.generator }}"
           
           # Create the output directory if it doesn't exist
           mkdir -p "$OUTPUT_DIR"
           echo "Creating client in directory: $OUTPUT_DIR"
+          
+          # Store output directory for later steps
+          echo "OUTPUT_DIR=$OUTPUT_DIR" >> $GITHUB_ENV
           
           if [ "$GENERATOR" == "openapi" ]; then
             echo "Using OpenAPI Generator for $CLIENT_NAME"
@@ -93,23 +95,80 @@ jobs:
             exit 1
           fi
       
+      - name: Setup GitHub CLI
+        run: |
+          gh --version || (
+            curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+            sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+            echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+            sudo apt update
+            sudo apt install gh -y
+          )
+
+      - name: Check if repository exists and create if needed
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          CLIENT_NAME: ${{ matrix.client.name }}
+        run: |
+          # Use organization name from environment variable
+          ORG_NAME="${{ env.GITHUB_ORG }}"
+          # Create repository name based on client name
+          REPO_NAME="$ORG_NAME/client-$CLIENT_NAME-rs"
+          echo "Repository name will be: $REPO_NAME"
+          
+          # Store repo name for later steps
+          echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
+          
+          REPO_EXISTS=$(gh repo view $REPO_NAME --json name 2>/dev/null || echo "false")
+          
+          if [ "$REPO_EXISTS" == "false" ]; then
+            echo "Repository $REPO_NAME does not exist. Creating it..."
+            # Create the repository
+            gh repo create $REPO_NAME --public --description "Rust client for $CLIENT_NAME API generated from OpenAPI spec" -y
+            echo "Repository $REPO_NAME created successfully."
+          else
+            echo "Repository $REPO_NAME already exists."
+          fi
+      
+      - name: Publish generated code to repository
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          # Create a temporary directory for the repo
+          TEMP_DIR=$(mktemp -d)
+          cd $TEMP_DIR
+          
+          # Clone the repository
+          gh repo clone $REPO_NAME .
+          
+          # Remove all existing files except .git directory
+          find . -mindepth 1 -not -path "./.git*" -delete
+          
+          # Copy generated code to the repository
+          cp -r "$GITHUB_WORKSPACE/$OUTPUT_DIR"/* .
+          
+          # Add a README if it doesn't exist
+          if [ ! -f "README.md" ]; then
+            echo "# ${{ matrix.client.name }}" > README.md
+            echo "" >> README.md
+            echo "Rust client for ${{ matrix.client.name }} API generated from OpenAPI spec." >> README.md
+            echo "" >> README.md
+            echo "Generated from: ${{ matrix.client.spec_url }}" >> README.md
+            echo "Generated using: ${{ matrix.client.generator == 'openapi' && 'OpenAPI Generator' || 'Swagger Codegen' }}" >> README.md
+            echo "Generator version: ${{ matrix.client.generator == 'openapi' && env.OPENAPI_VERSION || env.SWAGGER_VERSION }}" >> README.md
+            echo "Generated on: $(date +'%Y-%m-%d')" >> README.md
+          fi
+          
+          # Configure Git
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          
+          # Commit and push changes
+          git add .
+          git commit -m "Update Rust client for ${{ matrix.client.name }}" || echo "No changes to commit"
+          git push
+
+      - name: Cleanup
+        run: |
           rm -f *.jar
           rm -rf tmp
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: "Update Rust client for ${{ matrix.client.name }}"
-          commit-message: "Update Rust client for ${{ matrix.client.name }}"
-          body: |
-            This PR updates the Rust client for ${{ matrix.client.name }} based on the latest OpenAPI specification.
-            
-            - Generated from: ${{ matrix.client.spec_url }}
-            - Generated using: ${{ matrix.client.generator == 'openapi' && 'OpenAPI Generator' || 'Swagger Codegen' }}
-            - Generator version: ${{ matrix.client.generator == 'openapi' && env.OPENAPI_VERSION || env.SWAGGER_VERSION }}
-            - Generated on: $(date +'%Y-%m-%d')
-            
-            This update was automatically generated by the API Client Generator GitHub Action.
-          base: main
-          draft: false

@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         client:
-          - name: github-api-client
+          - name: github
             spec_url: https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json
             generator: openapi
           # Add more clients as needed:
@@ -113,7 +113,7 @@ jobs:
           # Use organization name from environment variable
           ORG_NAME="${{ env.GITHUB_ORG }}"
           # Create repository name based on client name
-          REPO_NAME="$ORG_NAME/client-$CLIENT_NAME-rs"
+          REPO_NAME="$ORG_NAME/$CLIENT_NAME-client-rs"
           echo "Repository name will be: $REPO_NAME"
           
           # Store repo name for later steps
@@ -124,7 +124,7 @@ jobs:
           if [ "$REPO_EXISTS" == "false" ]; then
             echo "Repository $REPO_NAME does not exist. Creating it..."
             # Create the repository
-            gh repo create $REPO_NAME --public --description "Rust client for $CLIENT_NAME API generated from OpenAPI spec" -y
+            gh repo create $REPO_NAME --public --description "$CLIENT_NAME Rust client generated from OpenAPI spec" -y
             echo "Repository $REPO_NAME created successfully."
           else
             echo "Repository $REPO_NAME already exists."
@@ -166,7 +166,7 @@ jobs:
             git add .
             
             # Create initial commit
-            git commit -m "Initial commit: Add Rust client for ${{ matrix.client.name }}"
+            git commit -m "Initial commit: Add ${{ matrix.client.name }} Rust client "
             
             # Set remote and push
             git remote add origin https://x-access-token:${GH_TOKEN}@github.com/${REPO_NAME}.git
@@ -190,7 +190,7 @@ jobs:
             
             # Commit and push changes
             git add .
-            git commit -m "Update Rust client for ${{ matrix.client.name }}" || echo "No changes to commit"
+            git commit -m "Update ${{ matrix.client.name }}" Rust client  || echo "No changes to commit"
             git push
           fi
 

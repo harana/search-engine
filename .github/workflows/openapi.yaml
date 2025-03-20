@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         client:
-          - name: github
+          - name: github-api-client
             spec_url: https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json
             generator: openapi
           # Add more clients as needed:
@@ -38,10 +38,30 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
       
-      - name: Fetch OpenAPI spec
+      - name: Fetch OpenAPI spec and extract version
         run: |
           mkdir -p tmp
           curl -o tmp/openapi-spec.json "${{ matrix.client.spec_url }}"
+          
+          # Extract version from the OpenAPI spec using jq
+          # Install jq if not available
+          which jq || apt-get update && apt-get install -y jq
+          
+          # Extract the version from the spec
+          SPEC_VERSION=$(jq -r '.info.version' tmp/openapi-spec.json)
+          
+          # Validate the version - if empty or null, use a fallback
+          if [ -z "$SPEC_VERSION" ] || [ "$SPEC_VERSION" = "null" ]; then
+            echo "Warning: Could not extract version from spec, using date-based version instead"
+            SPEC_VERSION="$(date +'%Y.%m.%d')"
+          fi
+          
+          # Format as a proper version tag
+          CODE_VERSION="v$SPEC_VERSION"
+          echo "Extracted version from spec: $CODE_VERSION"
+          
+          # Store for later steps
+          echo "CODE_VERSION=$CODE_VERSION" >> $GITHUB_ENV
       
       - name: Download Generator CLIs
         run: |
@@ -113,7 +133,7 @@ jobs:
           # Use organization name from environment variable
           ORG_NAME="${{ env.GITHUB_ORG }}"
           # Create repository name based on client name
-          REPO_NAME="$ORG_NAME/$CLIENT_NAME-client-rs"
+          REPO_NAME="$ORG_NAME/client-$CLIENT_NAME-rs"
           echo "Repository name will be: $REPO_NAME"
           
           # Store repo name for later steps
@@ -124,7 +144,7 @@ jobs:
           if [ "$REPO_EXISTS" == "false" ]; then
             echo "Repository $REPO_NAME does not exist. Creating it..."
             # Create the repository
-            gh repo create $REPO_NAME --public --description "$CLIENT_NAME Rust client generated from OpenAPI spec" -y
+            gh repo create $REPO_NAME --public --description "Rust client for $CLIENT_NAME API generated from OpenAPI spec" -y
             echo "Repository $REPO_NAME created successfully."
           else
             echo "Repository $REPO_NAME already exists."
@@ -138,11 +158,15 @@ jobs:
           TEMP_DIR=$(mktemp -d)
           cd $TEMP_DIR
           
-          # Create README file
+          # Add a version file
+          echo "${{ env.CODE_VERSION }}" > VERSION
+          
+          # Update README to include version
           echo "# ${{ matrix.client.name }}" > README.md
           echo "" >> README.md
           echo "Rust client for ${{ matrix.client.name }} API generated from OpenAPI spec." >> README.md
           echo "" >> README.md
+          echo "Version: ${{ env.CODE_VERSION }}" >> README.md
           echo "Generated from: ${{ matrix.client.spec_url }}" >> README.md
           echo "Generated using: ${{ matrix.client.generator == 'openapi' && 'OpenAPI Generator' || 'Swagger Codegen' }}" >> README.md
           echo "Generator version: ${{ matrix.client.generator == 'openapi' && env.OPENAPI_VERSION || env.SWAGGER_VERSION }}" >> README.md
@@ -166,12 +190,16 @@ jobs:
             git add .
             
             # Create initial commit
-            git commit -m "Initial commit: Add ${{ matrix.client.name }} Rust client "
+            git commit -m "Initial commit: Add Rust client for ${{ matrix.client.name }} ${{ env.CODE_VERSION }}"
             
             # Set remote and push
             git remote add origin https://x-access-token:${GH_TOKEN}@github.com/${REPO_NAME}.git
             git branch -M main
             git push -u origin main
+            
+            # Create and push tag
+            git tag -a ${{ env.CODE_VERSION }} -m "Version ${{ env.CODE_VERSION }}"
+            git push origin ${{ env.CODE_VERSION }}
           else
             echo "Repository already has commits. Updating content..."
             
@@ -190,8 +218,12 @@ jobs:
             
             # Commit and push changes
             git add .
-            git commit -m "Update ${{ matrix.client.name }}" Rust client  || echo "No changes to commit"
+            git commit -m "Update Rust client for ${{ matrix.client.name }} to ${{ env.CODE_VERSION }}" || echo "No changes to commit"
             git push
+            
+            # Create and push tag
+            git tag -a ${{ env.CODE_VERSION }} -m "Version ${{ env.CODE_VERSION }}"
+            git push origin ${{ env.CODE_VERSION }}
           fi
 
       - name: Cleanup

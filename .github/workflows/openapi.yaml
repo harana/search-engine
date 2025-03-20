@@ -138,35 +138,61 @@ jobs:
           TEMP_DIR=$(mktemp -d)
           cd $TEMP_DIR
           
-          # Clone the repository
-          gh repo clone $REPO_NAME .
+          # Create README file
+          echo "# ${{ matrix.client.name }}" > README.md
+          echo "" >> README.md
+          echo "Rust client for ${{ matrix.client.name }} API generated from OpenAPI spec." >> README.md
+          echo "" >> README.md
+          echo "Generated from: ${{ matrix.client.spec_url }}" >> README.md
+          echo "Generated using: ${{ matrix.client.generator == 'openapi' && 'OpenAPI Generator' || 'Swagger Codegen' }}" >> README.md
+          echo "Generator version: ${{ matrix.client.generator == 'openapi' && env.OPENAPI_VERSION || env.SWAGGER_VERSION }}" >> README.md
+          echo "Generated on: $(date +'%Y-%m-%d')" >> README.md
           
-          # Remove all existing files except .git directory
-          find . -mindepth 1 -not -path "./.git*" -delete
+          # Check if repository is empty (newly created)
+          IS_EMPTY_REPO=$(gh repo view $REPO_NAME --json isEmpty -q '.isEmpty // false')
           
-          # Copy generated code to the repository
-          cp -r "$GITHUB_WORKSPACE/$OUTPUT_DIR"/* .
-          
-          # Add a README if it doesn't exist
-          if [ ! -f "README.md" ]; then
-            echo "# ${{ matrix.client.name }}" > README.md
-            echo "" >> README.md
-            echo "Rust client for ${{ matrix.client.name }} API generated from OpenAPI spec." >> README.md
-            echo "" >> README.md
-            echo "Generated from: ${{ matrix.client.spec_url }}" >> README.md
-            echo "Generated using: ${{ matrix.client.generator == 'openapi' && 'OpenAPI Generator' || 'Swagger Codegen' }}" >> README.md
-            echo "Generator version: ${{ matrix.client.generator == 'openapi' && env.OPENAPI_VERSION || env.SWAGGER_VERSION }}" >> README.md
-            echo "Generated on: $(date +'%Y-%m-%d')" >> README.md
+          if [ "$IS_EMPTY_REPO" = "true" ]; then
+            echo "Repository is empty. Initializing with first commit..."
+            
+            # Initialize git
+            git init
+            git config user.name "GitHub Actions"
+            git config user.email "actions@github.com"
+            
+            # Copy generated code to the repository
+            cp -r "$GITHUB_WORKSPACE/$OUTPUT_DIR"/* .
+            
+            # Add all files
+            git add .
+            
+            # Create initial commit
+            git commit -m "Initial commit: Add Rust client for ${{ matrix.client.name }}"
+            
+            # Set remote and push
+            git remote add origin https://x-access-token:${GH_TOKEN}@github.com/${REPO_NAME}.git
+            git branch -M main
+            git push -u origin main
+          else
+            echo "Repository already has commits. Updating content..."
+            
+            # Clone the repository
+            gh repo clone $REPO_NAME .
+            
+            # Remove all existing files except .git directory
+            find . -mindepth 1 -not -path "./.git*" -delete
+            
+            # Copy generated code to the repository
+            cp -r "$GITHUB_WORKSPACE/$OUTPUT_DIR"/* .
+            
+            # Configure Git
+            git config user.name "GitHub Actions"
+            git config user.email "actions@github.com"
+            
+            # Commit and push changes
+            git add .
+            git commit -m "Update Rust client for ${{ matrix.client.name }}" || echo "No changes to commit"
+            git push
           fi
-          
-          # Configure Git
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          
-          # Commit and push changes
-          git add .
-          git commit -m "Update Rust client for ${{ matrix.client.name }}" || echo "No changes to commit"
-          git push
 
       - name: Cleanup
         run: |

@@ -45,7 +45,7 @@ jobs:
           
           # Extract version from the OpenAPI spec using jq
           # Install jq if not available
-          which jq || apt-get update && apt-get install -y jq
+          which jq || sudo apt-get update && sudo apt-get install -y jq
           
           # Extract the version from the spec
           SPEC_VERSION=$(jq -r '.info.version' tmp/openapi-spec.json)

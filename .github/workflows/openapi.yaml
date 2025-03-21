@@ -146,7 +146,7 @@ jobs:
           if [ "$REPO_EXISTS" == "false" ]; then
             echo "Repository $REPO_NAME does not exist. Creating it..."
             # Create the repository
-            gh repo create $REPO_NAME --private --disable-issues --disable-wiki --description "Rust API client for $CLIENT_NAME" -y
+            gh repo create $REPO_NAME --public --disable-issues --disable-wiki --description "Rust API client for $CLIENT_NAME" -y
             echo "Repository $REPO_NAME created successfully."
           else
             echo "Repository $REPO_NAME already exists."

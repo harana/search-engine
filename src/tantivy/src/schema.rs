@@ -1,8 +1,7 @@
 use std::iter::FromIterator;
 
 use harana_common::anyhow::{anyhow, Error, Result};
-use harana_common::serde::{Deserialize, Serialize};
-use harana_common::serde;
+use harana_common::serde::{self, Deserialize, Serialize};
 use harana_common::tantivy::schema::{
     FacetOptions,
     Field,

@@ -5,8 +5,7 @@ use triple_accel::levenshtein_exp;
 
 use harana_common::arc_swap::ArcSwap;
 use harana_common::itertools::Itertools;
-use harana_common::serde::{Deserialize, Serialize};
-use harana_common::serde;
+use harana_common::serde::{self, Deserialize, Serialize};
 
 use crate::mac::{applications, generate_icons};
 

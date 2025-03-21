@@ -79,7 +79,7 @@ mod test {
         let facet = Facet::from_text(&current_dir_facet_string).unwrap();
         println!("{:?}", facet);
 
-        let dir_from_facet = Path::from_facet_value(&facet);
+        let dir_from_facet = Path::from_facet(&facet);
         println!("{:?}", dir_from_facet);
 
         File::open(dir_from_facet).unwrap();

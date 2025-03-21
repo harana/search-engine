@@ -1,5 +1,5 @@
-use anyhow::Result;
-use image::DynamicImage;
+use harana_common::anyhow::Result;
+use harana_common::image::DynamicImage;
 use okolors::Okolors;
 use palette::Srgb;
 

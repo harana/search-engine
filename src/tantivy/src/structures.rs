@@ -1,21 +1,21 @@
 use std::collections::BTreeMap;
 use std::convert::TryInto;
 use std::fmt;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
 use harana_common::anyhow::{anyhow, Context, Error, Result};
-use harana_common::serde;
 use harana_common::serde::de::value::{MapAccessDeserializer, SeqAccessDeserializer};
 use harana_common::serde::de::{MapAccess, SeqAccess, Visitor};
-use harana_common::serde::{Deserialize, Deserializer, Serialize};
-use harana_common::tantivy::schema::{Facet, FacetParseError, Field, FieldType, Schema, Value};
-use harana_common::tantivy::{DateTime, Document as InternalDocument, Index, Score};
+use harana_common::serde::{self, Deserialize, Deserializer, Serialize};
+use harana_common::tantivy::schema::{Facet as SchemaFacet, OwnedValue};
+use harana_common::tantivy::schema::{FacetParseError, Field, FieldType, Schema, Value};
+use harana_common::tantivy::{DateTime, Document as InternalDocument, Document, Index, Score, TantivyDocument};
 use harana_common::tantivy::time::format_description::well_known::Rfc3339;
 use harana_common::tantivy::time::OffsetDateTime;
 use harana_common::hashbrown::HashMap;
 use harana_common::serde_json;
-
+use harana_common::tantivy::schema::document::OwnedValue::*;
 use crate::corrections::{SymSpellCorrectionManager, SymSpellManager};
 use crate::helpers::{Calculated, Validate};
 use crate::query::QueryContext;
@@ -118,7 +118,7 @@ impl IndexDeclaration {
     /// Builds IndexContext from the declaration, applying any validation in
     /// the process.
     // TODO add-back #[instrument(name = "index-setup", skip(self), fields(index = %self.name))]
-    pub fn create_context(&self, index_path: &Path, passphrase: String) -> Result<IndexContext> {
+    pub fn create_context(&self, index_path: &Path, index_passphrase: String) -> Result<IndexContext> {
         self.validate()?;
 
         let mut schema_ctx = self.schema_ctx.clone();
@@ -126,7 +126,7 @@ impl IndexDeclaration {
 
         let open = match self.storage_type {
             StorageType::TempDir => OpenType::TempFile,
-            StorageType::FileSystem => OpenType::Dir(index_path.join(self.name.as_str()), passphrase)
+            StorageType::FileSystem => OpenType::Dir(index_path.join(self.name.as_str()), index_passphrase.clone())
         };
 
         let dir = SledBackedDirectory::new_with_root(&open)?;
@@ -182,6 +182,8 @@ impl IndexDeclaration {
 
         Ok(IndexContext {
             name: self.name.clone(),
+            path: index_path.to_path_buf(),
+            passphrase: index_passphrase,
             storage,
             correction_manager: corrections,
             index,
@@ -201,6 +203,12 @@ pub struct IndexContext {
     /// The name of the index.
     pub name: String,
 
+    // The path of the index.
+    pub path: PathBuf,
+    
+    // The passphrase of ihe index.
+    pub passphrase: String,
+    
     /// An SQLite DB instance used for storing engine state.
     pub storage: StorageBackend,
 
@@ -238,6 +246,16 @@ impl IndexContext {
     #[inline]
     pub fn name(&self) -> String {
         self.name.clone()
+    }
+
+    #[inline]
+    pub fn path(&self) -> &Path {
+        self.path.as_path()
+    }
+
+    #[inline]
+    pub fn passphrase(&self) -> String {
+        self.passphrase.clone()
     }
 
     /// Get the schema of the index.
@@ -279,23 +297,25 @@ pub enum DocumentValue {
 impl DocumentValue {
 
     #[inline]
-    pub fn from(value: Value) -> Self {
+    pub fn from(value: OwnedValue) -> Self {
         match value {
-            Value::Str(v) => DocumentValue::Text(v),
-            Value::PreTokStr(v) => DocumentValue::Text(v.text),
-            Value::U64(v) => DocumentValue::U64(v),
-            Value::I64(v) => DocumentValue::I64(v),
-            Value::F64(v) => DocumentValue::F64(v),
-            Value::Bool(v) => DocumentValue::Boolean(v),
-            Value::Date(v) => {
+            Str(v) => DocumentValue::Text(v.to_string()),
+            PreTokStr(v) => DocumentValue::Text(v.clone().text),
+            U64(v) => DocumentValue::U64(v),
+            I64(v) => DocumentValue::I64(v),
+            F64(v) => DocumentValue::F64(v),
+            Bool(v) => DocumentValue::Boolean(v),
+            Date(v) => {
                 let utc = v.into_utc();
                 let date = utc.format(&Rfc3339).unwrap_or_else(|_| utc.to_string());
                 DocumentValue::Datetime(date)
             },
-            Value::Facet(v) => DocumentValue::Text(v.to_path_string()),
-            Value::Bytes(v) => DocumentValue::Text(format!("{:?}", v)),
-            Value::JsonObject(v) => DocumentValue::Text(serde_json::to_string(&v).unwrap()),
-            Value::IpAddr(v) => DocumentValue::Text(v.to_string()),
+            Facet(v) => DocumentValue::Text(v.to_string()),
+            Bytes(v) => DocumentValue::Text(format!("{:?}", v)),
+            IpAddr(v) => DocumentValue::Text(v.to_string()),
+            Null => DocumentValue::Text("".to_string()),
+            Array(_) => todo!(),
+            Object(_) => todo!(),
         }
     }
 
@@ -495,14 +515,14 @@ impl TryInto<bool> for DocumentValue {
 }
 
 
-impl TryInto<Facet> for DocumentValue {
+impl TryInto<SchemaFacet> for DocumentValue {
     type Error = Error;
 
     /// Attempts to convert the value into a `facet`.
-    fn try_into(self) -> Result<Facet> {
+    fn try_into(self) -> Result<SchemaFacet> {
         let facet: String = self.try_into()?;
 
-        let facet = Facet::from_text(&facet).map_err(|e| {
+        let facet = SchemaFacet::from_text(&facet).map_err(|e| {
             let FacetParseError::FacetParseError(e) = e;
             Error::msg(e)
         })?;
@@ -654,9 +674,9 @@ impl DocumentPayload {
         id: u64,
         schema: &Schema,
         ctx: &SchemaContext,
-    ) -> Result<InternalDocument> {
+    ) -> Result<TantivyDocument> {
 
-        let mut doc = InternalDocument::new();
+        let mut doc = TantivyDocument::new();
         let field = schema.get_field(ID_FIELD).unwrap();
         doc.add_u64(field, id);
 
@@ -716,23 +736,23 @@ impl DocumentPayload {
         field: Field,
         field_type: &FieldType,
         value: DocumentValue,
-        doc: &mut InternalDocument,
+        doc: &mut TantivyDocument,
     ) -> Result<()> {
         let value = match field_type {
-            FieldType::U64(_) => Value::U64(value.try_into()?),
-            FieldType::I64(_) => Value::I64(value.try_into()?),
-            FieldType::F64(_) => Value::F64(value.try_into()?),
+            FieldType::U64(_) => U64(value.try_into()?),
+            FieldType::I64(_) => I64(value.try_into()?),
+            FieldType::F64(_) => F64(value.try_into()?),
             FieldType::Date(_) => {
                 let value: DateTime = value.try_into()?;
-                Value::Date(value)
+                Date(value)
             },
             FieldType::Str(_) => {
                 let value: String = value.try_into()?;
-                Value::Str(value)
+                Str(value)
             },
             FieldType::Facet(_) => {
-                let facet: Facet = value.try_into()?;
-                Value::Facet(facet)
+                let facet: SchemaFacet = value.try_into()?;
+                Facet(facet)
             },
             _ => {
                 return Err(anyhow!(
@@ -942,7 +962,8 @@ mod test_doc_value {
     #[test]
     fn test_into_raw_values_from_datetime() -> Result<()> {
         let ts = OffsetDateTime::now_utc();
-        let sample = DocumentValue::Datetime(DateTime::from_utc(ts));
+        let datetime_str = ts.format(Format::Rfc3339).unwrap();
+        let sample = DocumentValue::Datetime(datetime_str);
         let res: Result<String> = sample.clone().try_into();
         assert!(res.is_ok());
 

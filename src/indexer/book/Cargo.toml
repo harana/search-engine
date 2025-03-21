@@ -12,7 +12,7 @@ harana_io = { package = "io", path = "../../io" }
 epub = { git = "https://github.com/danigm/epub-rs" }
 fb2 = { git = "https://github.com/harana-oss/fb2.git" }
 mobi = "0.8.0"
-quick-xml = "0.36.2"
+quick-xml = "0.37"
 remarkable_lines = { git = "https://github.com/harana-oss/remarkable-lines.git" }
 twee-v3 = "0.2.1"
 

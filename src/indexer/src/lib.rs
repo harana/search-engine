@@ -11,16 +11,7 @@ use harana_indexer_book::indexer_twee::IndexerTwee;
 
 use harana_indexer_calendar::indexer_ical::IndexerIcal;
 
-use harana_indexer_certificate::indexer_certificate::IndexerCertificate;
-
 use harana_indexer_code::indexer_comments::IndexerComments;
-use harana_indexer_code::indexer_xcodeproj::IndexerXcodeProj;
-
-use harana_indexer_codeartifact::indexer_deb::IndexerDeb;
-use harana_indexer_codeartifact::indexer_jar::IndexerJar;
-use harana_indexer_codeartifact::indexer_msi::IndexerMsi;
-use harana_indexer_codeartifact::indexer_rpm::IndexerRpm;
-use harana_indexer_codeartifact::indexer_wasm::IndexerWasm;
 
 use harana_indexer_contact::indexer_vcard::IndexerVcard;
 

@@ -11,9 +11,7 @@ harana_indexer_archive = { package = "indexer_archive", path = "archive" }
 harana_indexer_audio = { package = "indexer_audio", path = "audio" }
 harana_indexer_book = { package = "indexer_book", path = "book" }
 harana_indexer_calendar = { package = "indexer_calendar", path = "calendar" }
-harana_indexer_certificate = { package = "indexer_certificate", path = "certificate" }
 harana_indexer_code = { package = "indexer_code", path = "code" }
-harana_indexer_codeartifact = { package = "indexer_codeartifact", path = "codeartifact" }
 harana_indexer_contact = { package = "indexer_contact", path = "contact" }
 harana_indexer_data = { package = "indexer_data", path = "data" }
 harana_indexer_deno = { package = "indexer_deno", path = "deno" }

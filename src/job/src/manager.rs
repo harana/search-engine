@@ -16,7 +16,7 @@ use harana_common::itertools::Itertools;
 use harana_common::log::info;
 use harana_common::once_cell::sync::OnceCell;
 use harana_common::{num_cpus, serde, systemstat};
-use harana_common::serde::{Deserialize, Serialize};
+use harana_common::serde::{self, Deserialize, Serialize};
 use harana_common::serde_json::Value;
 use harana_common::sysinfo::*;
 use harana_common::systemstat::Platform;

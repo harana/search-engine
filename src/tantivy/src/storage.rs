@@ -3,7 +3,8 @@ use std::io::ErrorKind;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
-use bincode::Options;
+use harana_common::bincode::Options;
+use harana_common::sled;
 use harana_common::tantivy::directory::{FileHandle, FileSlice, MmapDirectory, WatchCallback, WatchHandle, WritePtr};
 use crate::encrypted_dir::{EncryptedMmapDirectory, PBKDF_COUNT};
 use harana_common::tantivy::Directory;
@@ -218,7 +219,7 @@ impl StorageBackend {
         keyspace: &str,
         value: &T,
     ) -> Result<()> {
-        let data = bincode::options().with_big_endian().serialize(value)?;
+        let data = harana_common::bincode::options().with_big_endian().serialize(value)?;
 
         self.conn.atomic_write(keyspace.as_ref(), &data)?;
         Ok(())
@@ -243,10 +244,8 @@ impl Debug for StorageBackend {
 
 #[cfg(test)]
 mod tests {
-    use bincode::Options;
-
     use harana_common::anyhow::Context;
-
+    use harana_common::bincode::Options;
     use super::*;
 
     #[test]
@@ -257,7 +256,7 @@ mod tests {
         let storage = StorageBackend::using_conn(dir);
         storage.store_structure("test", &test_structure)?;
         if let Some(buffer) = storage.load_structure("test")? {
-            let test_res: Vec<&str> = bincode::options()
+            let test_res: Vec<&str> = harana_common::bincode::options()
                 .with_big_endian()
                 .deserialize(&buffer)
                 .context("failed to deserialize base type")?;

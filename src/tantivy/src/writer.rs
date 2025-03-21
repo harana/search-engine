@@ -6,8 +6,7 @@ use std::time::Duration;
 use harana_common::anyhow::{Error, Result};
 use harana_common::crossbeam::channel::{self, RecvTimeoutError};
 use harana_common::crossbeam::queue::SegQueue;
-use harana_common::serde;
-use harana_common::serde::{Deserialize, Serialize};
+use harana_common::serde::{self, Deserialize, Serialize};
 use harana_common::tantivy::schema::{Field, Schema};
 use harana_common::tantivy::{IndexWriter, Opstamp, Term};
 use harana_common::hashbrown::HashMap;
@@ -312,14 +311,6 @@ impl IndexWriterWorker {
 
     fn handle_add_document(&mut self, id: u64, document: DocumentPayload) -> Result<Opstamp> {
         let document = document.parse_into_document(id, &self.schema, &self.schema_ctx)?;
-        document.field_values().iter().for_each(|field_value| {
-            match field_value.value.tokenized_text() {
-                None => {}
-                Some(value) => {
-                    println!("{}", value.text);
-                }
-            }
-        });
         self.writer.add_document(document).map_err(Error::from)
     }
 
@@ -641,15 +632,8 @@ impl Writer {
     }
 
     // TODO add-back #[instrument(name = "writer-storage-cleanup", skip(self), fields(index = %self.index_name))]
-    pub async fn destroy(&self, index_path: &Path) -> Result<()> {
+    pub async fn destroy(&self) -> Result<()> {
         self.shutdown().await?;
-
-        let dir = index_path.join(self.index_name.as_str());
-
-        if dir.exists() {
-            tokio::fs::remove_dir_all(dir).await?;
-        }
-
         Ok(())
     }
 }

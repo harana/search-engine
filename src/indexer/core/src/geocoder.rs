@@ -1,8 +1,8 @@
 use std::collections::{HashMap, HashSet};
 
 use reverse_geocoder::{Locations, ReverseGeocoder};
-use tracing::Level;
-use tracing::span;
+use harana_common::tracing::Level;
+use harana_common::tracing::span;
 
 use harana_common::anyhow::{Context, Result};
 use harana_common::error_adapter::log_and_return_error_string;

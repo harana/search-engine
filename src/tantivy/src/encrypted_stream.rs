@@ -26,12 +26,12 @@ use std::{
     ops::Neg,
 };
 
-use hmac::{Hmac, KeyInit, Mac};
+use hmac::{Hmac, Mac};
 
 use aes::cipher::{NewCipher, StreamCipher};
 use aes::NewBlockCipher;
-use rand::{thread_rng, Rng};
-use sha2::Sha256;
+use harana_common::rand::{thread_rng, Rng};
+use harana_common::sha2::Sha256;
 
 const BUFFER_SIZE: usize = 8192;
 
@@ -327,8 +327,8 @@ impl<D: NewCipher + StreamCipher, R: Read + Seek + Clone> Read for AesReader<D, 
 #[cfg(test)]
 mod test {
     use aes::Aes128Ctr;
-    use hmac::{Hmac, KeyInit};
-    use sha2::Sha256;
+    use hmac::Hmac;
+    use harana_common::sha2::Sha256;
     use std::io::{Cursor, Read, Seek, Write};
 
     use super::{AesReader, AesWriter};

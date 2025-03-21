@@ -9,19 +9,18 @@ harana_document = { package = "document", path = "../../document" }
 harana_indexer_core = { package = "indexer_core", path = "../core" }
 harana_io = { package = "io", path = "../../io" }
 
-calamine = "0.24"
+calamine = "0.26.1"
 codepage = "0.1"
 docx-rust = "0.1"
 dotext_ed8fc7b = "0.1"
 encoding_rs = "0.8"
 flexi_logger = { version = "0.27", default-features = false, features = [ "textfilter" ] }
-image = "0.24"
+image = "0.25"
 ipynb = "0.0.1"
-log = "0.4"
 markdown = "1.0.0-alpha.22"
 msoffice_pptx = "0.2"
 msoffice_shared = "0.1"
-nanohtml2text = "0.1"
+nanohtml2text = "0.2"
 pbix = "0.1"
 pddl-parser = "0.2"
 pdf = { git = "https://github.com/harana-oss/pdf.git" }

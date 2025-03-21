@@ -24,16 +24,14 @@ impl Indexer for IndexerBlend {
         let mut primary_tokens = HashSet::new();
         let mut secondary_tokens = HashSet::new();
 
-        if let Ok(decoded_data) = zstd::stream::decode_all(&file) {
-            data = Some(decoded_data);
-        };
+        // if let Ok(decoded_data) = zstd::stream::decode_all(&file) {
+        //     data = Some(decoded_data);
+        // };
 
-        if data.is_none() {
-            if let Ok(mut decoder) = Decoder::new(&file) {
-                let mut gzip_data = Vec::new();
-                decoder.read_to_end(&mut gzip_data)?;
-                data = Some(gzip_data);
-            }
+        if let Ok(mut decoder) = Decoder::new(&file) {
+            let mut gzip_data = Vec::new();
+            decoder.read_to_end(&mut gzip_data)?;
+            data = Some(gzip_data);
         }
 
         if data.is_none() {

@@ -15,10 +15,5 @@ harana_search_core = { package = "search_core", path = "../core"}
 harana_search_extensions = { package = "search_extensions", path = "../extensions"}
 harana_search_index = { package = "search_index", path = "../index"}
 harana_tantivy = { package = "tantivy", path = "../../tantivy"}
-serde = { version = "1.0.217", features = ["derive"] }
 
 blake3 = "1"
-filesize = "0.2.0"
-finder_info = "0.2.3"
-rand = "0.8.5"
-time = "0.3.37"

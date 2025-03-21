@@ -30,6 +30,7 @@ use harana_search_jobs::job_index::JobHandlerIndexPayload;
 use harana_search_jobs::job_thumbnail::JobHandlerThumbnailPayload;
 use harana_tantivy::structures::{DocumentPayload, DocumentValue, DocumentValueOptions};
 use harana_job::manager::JobManager;
+use harana_tantivy::structures::DocumentValue::*;
 
 pub async fn tantivy_payload(path: PathBuf, metadata: Option<Metadata>, format: Option<FileFormat>) -> DocumentPayload {
     let extension = path.extension().and_then(|e| e.to_os_string().into_string().ok());
@@ -43,15 +44,15 @@ pub async fn tantivy_payload(path: PathBuf, metadata: Option<Metadata>, format: 
     let size = metadata.clone().and_then(|m| path.size_on_disk_fast(&m).ok());
 
     let map = BTreeMap::from([
-        ("title".to_string(), DocumentValueOptions::Single(DocumentValue::Text(title))),
-        // ("is_file".to_string(), DocumentValueOptions::Single(DocumentValue::Boolean(is_file.unwrap_or(true)))),
-        ("created".to_string(), DocumentValueOptions::Single(DocumentValue::U64(created.unwrap_or_default()))),
-        ("modified".to_string(), DocumentValueOptions::Single(DocumentValue::U64(modified.unwrap_or_default()))),
-        ("accessed".to_string(), DocumentValueOptions::Single(DocumentValue::U64(accessed.unwrap_or_default()))),
-        ("size".to_string(), DocumentValueOptions::Single(DocumentValue::U64(size.unwrap_or_default()))),
-        ("path".to_string(), DocumentValueOptions::Single(DocumentValue::Text(path.to_str().unwrap_or_default().to_string()))),
-        ("extension".to_string(), DocumentValueOptions::Single(DocumentValue::Text(extension.unwrap_or_default().to_string()))),
-        ("extension_title".to_string(), DocumentValueOptions::Single(DocumentValue::Text(extension_title.unwrap_or_default().to_string()))),
+        ("title".to_string(), DocumentValueOptions::Single(Text(title))),
+        // ("is_file".to_string(), DocumentValueOptions::Single(Boolean(is_file.unwrap_or(true)))),
+        ("created".to_string(), DocumentValueOptions::Single(U64(created.unwrap_or_default()))),
+        ("modified".to_string(), DocumentValueOptions::Single(U64(modified.unwrap_or_default()))),
+        ("accessed".to_string(), DocumentValueOptions::Single(U64(accessed.unwrap_or_default()))),
+        ("size".to_string(), DocumentValueOptions::Single(U64(size.unwrap_or_default()))),
+        ("path".to_string(), DocumentValueOptions::Single(Text(path.to_str().unwrap_or_default().to_string()))),
+        ("extension".to_string(), DocumentValueOptions::Single(Text(extension.unwrap_or_default().to_string()))),
+        ("extension_title".to_string(), DocumentValueOptions::Single(Text(extension_title.unwrap_or_default().to_string()))),
     ]);
     DocumentPayload(map)
 }

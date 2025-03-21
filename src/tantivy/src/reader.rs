@@ -3,12 +3,11 @@ use std::cmp::Reverse;
 use std::sync::Arc;
 
 use harana_common::anyhow::*;
-use harana_common::serde::{Deserialize, Serialize};
-use harana_common::serde;
+use harana_common::serde::{self, Deserialize, Serialize};
 use harana_common::tantivy::collector::{Count, TopDocs};
 use harana_common::tantivy::query::{Query, TermQuery};
-use harana_common::tantivy::schema::{Field, FieldType, IndexRecordOption, Schema, Value};
-use harana_common::tantivy::{DateTime, DocAddress, DocId, IndexReader, Order, ReloadPolicy, Score, Searcher, SegmentReader, Term};
+use harana_common::tantivy::schema::{Field, FieldType, IndexRecordOption, OwnedValue, Schema, Value};
+use harana_common::tantivy::{DateTime, DocAddress, DocId, Document, IndexReader, Order, ReloadPolicy, Score, Searcher, SegmentReader, TantivyDocument, Term};
 use harana_common::hashbrown::HashMap;
 use harana_common::thread_pools::{execute_operation, SEARCH_POOL};
 
@@ -166,13 +165,13 @@ fn process_search<S: AsScore>(
 ) -> Result<Vec<DocumentHit>> {
     let mut hits = Vec::with_capacity(top_docs.len());
     for (ratio, ref_address) in top_docs {
-        let retrieved_doc = searcher.doc(ref_address)?;
-        let mut doc = searcher.schema().to_named_doc(&retrieved_doc);
+        let retrieved_doc: TantivyDocument = searcher.doc(ref_address)?;
+        let mut doc = retrieved_doc.to_named_doc(searcher.schema());
         let id = doc.0
             .remove("_id")
             .ok_or_else(|| Error::msg("document has been missed labeled (missing primary key '_id'), the dataset is invalid"))?;
 
-        if let Value::U64(doc_id) = id[0] {
+        if let OwnedValue::U64(doc_id) = id[0] {
             hits.push(DocumentHit::from_tantivy_document(
                 ctx,
                 doc_id,
@@ -347,7 +346,7 @@ impl Reader {
         let reader: IndexReader = ctx
             .index
             .reader_builder()
-            .reload_policy(ReloadPolicy::OnCommit)
+            .reload_policy(ReloadPolicy::OnCommitWithDelay)
             .try_into()?;
 
         let query_ctx = ctx.query_ctx.clone();
@@ -403,10 +402,9 @@ impl Reader {
                 }
 
                 let (_, addr) = results.remove(0);
-                let doc = searcher.doc(addr)?;
+                let doc: TantivyDocument = searcher.doc(addr)?;
                 let schema = searcher.schema();
-
-                Ok(schema.to_named_doc(&doc))
+                Ok(doc.to_named_doc(&schema))
             }).await?;
 
         Ok(DocumentHit::from_tantivy_document(

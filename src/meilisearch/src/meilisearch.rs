@@ -18,7 +18,7 @@ pub fn search(query: String, indexes: Vec<String>, meilisearch_url: String, meil
     let queries = indexes
         .iter()
         .map(|index|
-            format!("{{ \"indexUid\": {}, \"q\": {}, \"limit\": {}}}", String::from(index), query, 1)
+            format!("{{ \"indexUid\": {}, \"q\": {}, \"limit\": {}}}", String::fromindex, query, 1)
         )
         .collect::<Vec<String>>()
         .join(",");

@@ -14,7 +14,6 @@ candle-examples = "0.8.1"
 candle-nn = "0.8.2"
 candle-transformers = "0.8.2"
 hf-hub = "0.3.2"
-image = { version = "0.25", default-features = false }
 imageproc = "0.25"
 itertools = "0.14.0"
 jbig2dec = "0.3"
@@ -33,10 +32,8 @@ rusttype = "0.9.3"
 rusty-tesseract = "1.1"
 stop-words = "0.8"
 tokenizers = "0.20.4"
-tracing = "0.1"
 wav = "1.0.1"
 zune-inflate = "0.2.54"
-anyhow = "1.0.95"
 
 [target.'cfg(target_os = "linux")'.dependencies]
 candle-core = { version = "0.6.0", features = ["mkl"] }

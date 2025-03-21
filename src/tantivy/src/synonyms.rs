@@ -3,7 +3,7 @@ use std::sync::Arc;
 
 use harana_common::anyhow::{anyhow, Result};
 use harana_common::arc_swap::ArcSwap;
-use bincode::Options;
+use harana_common::bincode::Options;
 use harana_common::hashbrown::{HashMap, HashSet};
 use harana_common::log::{debug, info};
 
@@ -140,7 +140,7 @@ impl PersistentSynonymsManager {
 
         let raw_structure = conn.load_structure(Self::KEYSPACE)?;
         let words: HashMap<String, Box<[String]>> = if let Some(buff) = raw_structure {
-            bincode::options().with_big_endian().deserialize(&buff)?
+            harana_common::bincode::options().with_big_endian().deserialize(&buff)?
         } else {
             HashMap::default()
         };

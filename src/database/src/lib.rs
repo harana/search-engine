@@ -1,7 +1,7 @@
 pub extern crate rusqlite;
 pub extern crate rusqlite_migration;
 
-use harana_common::serde::{Deserialize, Serialize};
+use harana_common::serde::{self, Deserialize, Serialize};
 use harana_common::time::OffsetDateTime;
 
 pub mod adjusted_terms_add;

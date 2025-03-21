@@ -8,5 +8,3 @@ harana_common = { package = "common", path = "../common" }
 harana_database = { package = "database", path = "../database" }
 
 effectum = { git = "https://github.com/harana-oss/effectum.git" }
-log = "0.4"
-time = "0.3"

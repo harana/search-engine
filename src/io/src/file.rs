@@ -3,7 +3,7 @@ use std::path::{Path, PathBuf};
 use std::time::SystemTime;
 
 // use lfs_core::*;
-use harana_common::serde::{Deserialize, Serialize};
+use harana_common::serde::{self, Deserialize, Serialize};
 
 // Given a byte buffer it will infer the mime type based on the magic number signature
 pub fn infer_mimetype(buf: &[u8]) -> &str {
@@ -11,6 +11,7 @@ pub fn infer_mimetype(buf: &[u8]) -> &str {
 }
 
 #[derive(Deserialize, Serialize)]
+#[serde(crate = "self::serde")]
 pub struct FileObject {
     path: String,
     file_name: String,
@@ -26,6 +27,7 @@ pub struct FileObject {
 }
 
 #[derive(Deserialize, Serialize)]
+#[serde(crate = "self::serde")]
 pub struct Mount {
     id: String,
     disk: String,

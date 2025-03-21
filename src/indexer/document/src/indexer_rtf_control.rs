@@ -1,4 +1,4 @@
-use log::{debug, error, trace};
+use harana_common::log::{debug, error, trace};
 use harana_common::lazy_static;
 use harana_common::hashbrown::HashMap;
 

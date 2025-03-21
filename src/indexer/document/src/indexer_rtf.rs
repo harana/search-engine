@@ -4,7 +4,7 @@ use std::io::Read;
 use std::path::PathBuf;
 use std::rc::Rc;
 
-use log::{debug, info, warn};
+use harana_common::log::{debug, info, warn};
 use rtf_grimoire::tokenizer::parse_finished as parse_tokens;
 use rtf_grimoire::tokenizer::Token;
 

@@ -1,6 +1,6 @@
 use jpeg2k::*;
-use image::DynamicImage;
 use harana_common::anyhow::Result;
+use harana_common::image::DynamicImage;
 
 pub fn decode_jpeg2k(data: &[u8]) -> Result<Vec<u8>> {
     let jp2_image = Image::from_bytes(data)?;

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use rand::{thread_rng, Rng};
+use harana_common::rand::{thread_rng, Rng};
 use std::{
     fs::File,
     io::{BufWriter, Cursor, Error as IoError, ErrorKind, Read, Write},
@@ -29,9 +29,9 @@ use aes::{
 };
 
 use hkdf::Hkdf;
-use hmac::{Hmac, KeyInit, Mac};
+use hmac::{Hmac, Mac};
 use pbkdf2::pbkdf2;
-use sha2::{Sha256, Sha512};
+use harana_common::sha2::{Sha256, Sha512};
 
 use crate::encrypted_stream::*;
 use harana_common::tantivy;
@@ -671,7 +671,7 @@ for AesWriter<E, W>
 }
 
 #[cfg(test)]
-use tempfile::tempdir;
+use harana_common::tempfile::tempdir;
 use harana_common::tantivy::directory::{FileHandle, FileSlice, OwnedBytes};
 
 #[test]

@@ -4,7 +4,7 @@ use std::sync::Arc;
 
 use harana_common::anyhow::{Error, Result};
 use harana_common::arc_swap::ArcSwap;
-use bincode::Options;
+use harana_common::bincode::Options;
 use harana_common::flate2::write::GzDecoder;
 use harana_common::once_cell::sync::OnceCell;
 use harana_common::log::debug;
@@ -147,7 +147,7 @@ impl PersistentStopWordManager {
 
         let raw_structure = conn.load_structure(Self::KEYSPACE)?;
         let words: Vec<String> = if let Some(buff) = raw_structure {
-            bincode::options().with_big_endian().deserialize(&buff)?
+            harana_common::bincode::options().with_big_endian().deserialize(&buff)?
         } else {
             vec![]
         };

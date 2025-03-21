@@ -74,7 +74,7 @@ pub struct PluginParameter {
     pub options: Vec<PluginParameterOption>
 }
 
-#[derive(Debug, Clone, Deserialize, PartialEq)]
+#[derive(Deserialize, Serialize, PartialEq, Debug, Clone)]
 #[serde(crate = "self::serde")]
 #[serde(rename_all = "kebab-case")]
 pub enum PluginParameterKind {

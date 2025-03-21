@@ -6,7 +6,4 @@ edition = "2021"
 [dependencies]
 harana_common = { package = "common", path = "../common" }
 
-blake3 = "1.5.5"
-highway = "1.3"
-infer = "0.16"
-walkdir = "2.5"
+infer = "0.19"

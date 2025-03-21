@@ -9,7 +9,7 @@ harana_document = { package = "document", path = "../../document" }
 harana_indexer_core = { package = "indexer_core", path = "../core" }
 harana_io = { package = "io", path = "../../io" }
 
-ical = { version = "0.8.0", features = ["serde-derive"] }
+ical = { version = "0.11.0", features = ["serde-derive"] }
 
 [[bench]]
 name = "benchmark_contact"

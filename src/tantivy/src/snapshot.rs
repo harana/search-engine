@@ -6,10 +6,11 @@ use harana_common::anyhow::{anyhow, Result};
 use harana_common::chrono::Utc;
 use harana_common::tokio;
 use harana_common::log::info;
-use walkdir::{DirEntry, WalkDir};
-use zip::read::ZipArchive;
-use zip::write::FileOptions;
-use zip::CompressionMethod;
+use harana_common::walkdir::{DirEntry, WalkDir};
+use harana_common::zip;
+use harana_common::zip::read::ZipArchive;
+use harana_common::zip::write::{FileOptions, FullFileOptions};
+use harana_common::zip::CompressionMethod;
 
 static IGNORE_FILES: [&str; 1] = [".tantivy-writer.lock"];
 
@@ -141,14 +142,14 @@ fn zip_dir(
     {
         use std::os::unix::fs::PermissionsExt;
         let perms = writer.metadata()?.permissions().mode();
-        options = FileOptions::default()
+        options = FullFileOptions::default()
             .compression_method(CompressionMethod::Deflated)
             .unix_permissions(perms);
     }
 
     #[cfg(not(unix))]
     {
-        options = FileOptions::default().compression_method(CompressionMethod::Deflated);
+        options = FullFileOptions::default().compression_method(CompressionMethod::Deflated);
     }
 
     let mut zip = zip::ZipWriter::new(writer);
@@ -169,7 +170,7 @@ fn zip_dir(
             }
 
             info!("adding file {:?} as {:?} ...", path, name);
-            zip.start_file(path_to_string(path), options)?;
+            zip.start_file(path_to_string(path), options.clone())?;
             let mut f = File::open(path)?;
 
             f.read_to_end(&mut buffer)?;
@@ -177,12 +178,11 @@ fn zip_dir(
             buffer.clear();
         } else if !name.as_os_str().is_empty() {
             info!("adding dir {:?} as {:?} ...", path, name);
-            zip.add_directory(path_to_string(path), options)?;
+            zip.add_directory(path_to_string(path), options.clone())?;
         }
     }
     zip.finish()?;
-
-    Result::Ok(())
+    Ok(())
 }
 
 fn path_to_string(path: &std::path::Path) -> String {

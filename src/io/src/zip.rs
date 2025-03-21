@@ -1,15 +1,12 @@
-use std::{fs, io};
-use std::fs::{copy, File};
+use std::fs::File;
 use std::io::prelude::*;
 use std::iter::Iterator;
-use std::path::{Path, PathBuf};
+use std::path::Path;
 
-use walkdir::WalkDir;
-use harana_common::anyhow::Context;
-use harana_common::zip::{CompressionMethod, ZipArchive, ZipWriter};
+use harana_common::walkdir::WalkDir;
 use harana_common::zip::result::{ZipError, ZipResult};
-use harana_common::zip::write::FileOptions;
-
+use harana_common::zip::write::{FileOptions, FullFileOptions, SimpleFileOptions};
+use harana_common::zip::{CompressionMethod, ZipWriter};
 
 
 pub fn zip_directory(from_path: &Path, to_path: &Path, method: Option<&str>, _strip_prefix: bool) -> ZipResult<()> {
@@ -26,7 +23,7 @@ pub fn zip_directory(from_path: &Path, to_path: &Path, method: Option<&str>, _st
 
     let zip_file = File::create(&Path::new(to_path)).unwrap();
     let mut zip = ZipWriter::new(zip_file);
-    let options = FileOptions::default()
+    let options = FullFileOptions::default()
         .compression_method(method)
         .unix_permissions(0o755);
 
@@ -45,6 +42,9 @@ pub fn zip_directory(from_path: &Path, to_path: &Path, method: Option<&str>, _st
         // Some unzip tools unzip files with directory paths correctly, some do not!
         if path.is_file() {
             println!("adding file {:?} as {:?} ...", path, name);
+            let options = FullFileOptions::default()
+                .compression_method(method)
+                .unix_permissions(0o755);
             #[allow(deprecated)]
                 zip.start_file_from_path(path, options)?;
             let mut f = File::open(path)?;
@@ -56,6 +56,7 @@ pub fn zip_directory(from_path: &Path, to_path: &Path, method: Option<&str>, _st
             // Only if not root! Avoids path spec / warning
             // and mapname conversion failed error on unzip
             println!("adding dir {:?} as {:?} ...", path, name);
+            let options = SimpleFileOptions::default();
             #[allow(deprecated)]
                 zip.add_directory_from_path(name, options)?;
         }

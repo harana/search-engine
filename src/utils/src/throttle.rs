@@ -1,7 +1,7 @@
 use std::{fmt::Debug, mem, sync::atomic::{AtomicU64, AtomicUsize, Ordering}, time::Duration};
 use std::sync::Mutex;
 
-use parking_lot::Mutex;
+use harana_common::parking_lot::Mutex;
 
 use crate::timestamp_ms;
 

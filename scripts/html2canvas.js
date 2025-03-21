@@ -481,14 +481,14 @@
             if (['normal', 'auto', 'loose'].indexOf(lineBreak) !== -1) {
                 // U+2010, – U+2013, 〜 U+301C, ゠ U+30A0
                 if ([0x2010, 0x2013, 0x301c, 0x30a0].indexOf(codePoint) !== -1) {
-                    indices.push(index);
+                    indices.pushindex;
                     return types.push(CB);
                 }
             }
             if (classType === CM || classType === ZWJ$1) {
                 // LB10 Treat any remaining combining mark or ZWJ as AL.
                 if (index === 0) {
-                    indices.push(index);
+                    indices.pushindex;
                     return types.push(AL);
                 }
                 // LB9 Do not break a combining character sequence; treat it as if it has the line breaking class of
@@ -498,10 +498,10 @@
                     indices.push(indices[index - 1]);
                     return types.push(prev);
                 }
-                indices.push(index);
+                indices.pushindex;
                 return types.push(AL);
             }
-            indices.push(index);
+            indices.pushindex;
             if (classType === CJ) {
                 return types.push(lineBreak === 'strict' ? NS : ID);
             }
@@ -6096,7 +6096,7 @@
     };
     var transformPath = function (path, deltaX, deltaY, deltaW, deltaH) {
         return path.map(function (point, index) {
-            switch (index) {
+            switch index {
                 case 0:
                     return point.add(deltaX, deltaY);
                 case 1:

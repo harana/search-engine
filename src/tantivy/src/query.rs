@@ -4,10 +4,9 @@ use std::sync::Arc;
 
 use harana_common::anyhow::{anyhow, Error, Result};
 use harana_common::thread_pools::*;
-use harana_common::serde;
 use harana_common::serde::de::value::{MapAccessDeserializer, SeqAccessDeserializer};
 use harana_common::serde::de::{MapAccess, SeqAccess, Visitor};
-use harana_common::serde::{Deserialize, Deserializer};
+use harana_common::serde::{self, Deserialize, Deserializer};
 use harana_common::tantivy::collector::TopDocs;
 use harana_common::tantivy::query::{
     AllQuery,

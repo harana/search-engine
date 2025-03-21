@@ -1,6 +1,6 @@
 use std::collections::BTreeMap;
 use std::fs::remove_file;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
 use harana_common::anyhow::Result;
@@ -8,7 +8,7 @@ use harana_common::tantivy::schema::Schema;
 use harana_common::tantivy::{Order, Searcher};
 use harana_common::hashbrown::HashMap;
 use harana_common::log::info;
-
+use harana_common::tokio;
 use crate::query::{DocumentId, Occur, QueryData, QuerySelector};
 use crate::reader::{QueryPayload, QueryResults};
 use crate::structures::{DocumentHit, DocumentPayload, DocumentValue, DocumentValueOptions, IndexContext};
@@ -21,10 +21,10 @@ pub struct Index(Arc<InternalIndex>);
 impl Index {
 
     /// Creates a new index handler from the given index context.
-    pub async fn create(index_path: &Path, ctx: IndexContext, remove_lock: bool) -> Result<Self> {
+    pub async fn create(ctx: IndexContext, remove_lock: bool) -> Result<Self> {
         if remove_lock {
             let name = ctx.name.to_string();
-            let path = index_path
+            let path = ctx.path
                 .join(name.as_str())
                 .join("data")
                 .join(".tantivy-writer.lock");
@@ -188,8 +188,8 @@ impl Index {
     }
 
     /// Shuts the index down removing any persistent data along with it.
-    pub async fn destroy(&self, index_path: &Path) -> Result<()> {
-        self.0.destroy(index_path).await
+    pub async fn destroy(&self) -> Result<()> {
+        self.0.destroy().await
     }
 
     pub fn get_schema(&self) -> Schema {
@@ -511,29 +511,42 @@ impl InternalIndex {
     }
 
     /// Shuts the index down removing any persistent data along with it.
-    async fn destroy(&self, index_path: &Path) -> Result<()> {
-        self.writer.destroy(index_path).await
+    async fn destroy(&self) -> Result<()> {
+        let dir = self._ctx.path.join(self._ctx.name.as_str());
+
+        if dir.exists() {
+            tokio::fs::remove_dir_all(dir).await?;
+        }
+
+        self.writer.destroy().await
     }
 }
 
 #[cfg(test)]
 mod tests {
+    use std::path::PathBuf;
     use std::time::Duration;
     use harana_common::{serde_json, tokio};
-
+    use harana_common::uuid::Uuid;
     use super::*;
     use crate::structures::{DocumentOptions, DocumentValue, IndexDeclaration};
 
     fn init_state() {
         let _ = std::env::set_var("RUST_LOG", "debug,sled=info");
-        let _ = pretty_env_logger::try_init_timed();
+        let _ = harana_common::pretty_env_logger::try_init_timed();
+    }
+
+    fn create_temp_path() -> PathBuf {
+        let uuid = Uuid::new_v4();
+        PathBuf::from("/tmp").join(uuid.to_string())
     }
 
     async fn get_index_with(value: serde_json::Value) -> Result<Index> {
+        let index_path = PathBuf::from(create_temp_path());
         let dec: IndexDeclaration = serde_json::from_value(value)?;
-
-        let res = dec.create_context()?;
-        Index::create(res).await
+        let res = dec.create_context(&index_path, "passphrase".to_string())?;
+        let index = Index::create(res, false).await?;
+        Ok(index)
     }
 
     #[tokio::test]
@@ -1368,9 +1381,8 @@ mod tests {
             now without taking a fish.",
         }))?;
 
-        let res = index.add_documents(document).await;
-        assert!(res.is_ok());
-
+        let result = index.add_documents(document).await;
+        assert!(result.is_ok());
         Ok(())
     }
 

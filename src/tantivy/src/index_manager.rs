@@ -58,13 +58,13 @@ impl IndexManager {
 
         // remove the index if it exists
         if override_if_exists {
-            self.remove_index(index_path, declaration.name()).await?;
+            self.remove_index(declaration.name()).await?;
         }
 
         let ctx = declaration.create_context(index_path, passphrase)?;
         let name = ctx.name();
 
-        let built_index = Index::create(index_path, ctx, true).await?;
+        let built_index = Index::create(ctx, true).await?;
 
         indexes.insert(name, built_index);
         self.indexes.store(Arc::new(indexes));
@@ -79,13 +79,13 @@ impl IndexManager {
 
     /// Removes an index to the index from the engine with a given name.
     /// This internally calls `Index.destroy()` to cleanup writers.
-    pub async fn remove_index(&self, index_path: &Path, name: &str) -> Result<()> {
+    pub async fn remove_index(&self, name: &str) -> Result<()> {
         let indexes = {
             let indexes = self.indexes.load();
 
             let mut indexes = indexes.as_ref().clone();
             if let Some(old) = indexes.remove(name) {
-                old.destroy(index_path).await?;
+                old.destroy().await?;
             };
 
             indexes
@@ -105,7 +105,6 @@ impl IndexManager {
     pub fn get_index(&self, index: &str) -> Option<Index> {
         let guard = self.indexes.load();
         let index = guard.get(index)?;
-
         Some(index.clone())
     }
 

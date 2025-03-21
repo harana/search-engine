@@ -1,6 +1,6 @@
 //! Subscription primitives.
 
-use parking_lot::Mutex;
+use harana_common::parking_lot::Mutex;
 use std::collections::HashMap;
 use std::fmt;
 use std::pin::Pin;

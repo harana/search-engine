@@ -10,11 +10,11 @@ harana_indexer_core = { package = "indexer_core", path = "../core" }
 harana_io = { package = "io", path = "../../io" }
 
 blend = "0.8.0"
-dxf = "0.5.0"
+dxf = "0.6.0"
 libflate = "2.1.0"
 lightwave-3d = "1.0.0"
-zstd = "0.12"
-zstd-sys = "=2.0.13"
+#zstd = "0.13"
+#zstd-safe = "=7.2.1"
 
 [[bench]]
 name = "benchmark_graphics"

@@ -20,9 +20,26 @@ jobs:
     strategy:
       matrix:
         client:
+          - name: Confluence
+            spec_url: https://developer.atlassian.com/cloud/confluence/swagger.json
+            generator: openapi
           - name: Github
             spec_url: https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json
             generator: openapi
+          - name: Jira
+            spec_url: http://developer.atlassian.com/cloud/jira/software/swagger.json
+            generator: openapi
+          - name: Klaviyo
+            spec_url: https://raw.githubusercontent.com/klaviyo/openapi/refs/heads/main/openapi/stable.json
+            generator: openapi
+          - name: Microsoft
+            spec_url: https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/refs/heads/master/openapi/v1.0/openapi.yaml
+            generator: openapi
+          - name: Slack
+            spec_url: https://api.slack.com/specs/openapi/v2/slack_web.json
+            generator: openapi
+            
+
           # Add more clients as needed:
           # - name: another-api-client
           #   spec_url: https://example.com/api-spec.json

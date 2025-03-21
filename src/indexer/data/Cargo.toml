@@ -10,9 +10,9 @@ harana_indexer_core = { package = "indexer_core", path = "../core" }
 harana_io = { package = "io", path = "../../io" }
 
 csv = "1"
-parquet = "47.0.0"
-qif_parser = "0.2.0"
-safetensors = "0.3.3"
+parquet = "54"
+qif_parser = "0.4.0"
+safetensors = "0.5.2"
 
 [[bench]]
 name = "benchmark_data"

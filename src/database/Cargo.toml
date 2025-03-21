@@ -8,7 +8,5 @@ harana_common = { package = "common", path = "../common" }
 
 deadpool-sqlite = "0.8.1"
 rusqlite = { version = "=0.31.0", features = ["functions", "time", "bundled", "blob", "array", "trace"] }
-rusqlite_migration = "1.2.0"
-serde = { version = "1.0", features = ["derive"] }
+rusqlite_migration = "=1.2.0"
 urlencoding = "2"
-tracing = "0.1.41"

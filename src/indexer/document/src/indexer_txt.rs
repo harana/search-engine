@@ -5,7 +5,6 @@ use std::path::PathBuf;
 use harana_common::anyhow::Result;
 use harana_common::serde::{self, Deserialize, Serialize};
 use harana_common::serde_json;
-use harana_common::tracing::{Level, span};
 use harana_indexer_core::entity_recognition::entity_tokens;
 use harana_indexer_core::index_result::IndexResult;
 use harana_indexer_core::indexer::Indexer;

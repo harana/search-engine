@@ -1,7 +1,7 @@
 use std::collections::BTreeMap;
-use harana_common::serde;
-use harana_common::serde::{Deserialize, Serialize};
+use harana_common::serde::{self, Deserialize, Serialize};
 use harana_tantivy::structures::{DocumentPayload, DocumentValue, DocumentValueOptions};
+use harana_tantivy::structures::DocumentValue::*;
 
 #[derive(Deserialize, Serialize, PartialEq, Clone, Debug)]
 #[serde(crate = "self::serde")]
@@ -61,9 +61,9 @@ impl TransferDocument {
 }
 
 fn str(value: Option<String>) -> DocumentValueOptions {
-    DocumentValueOptions::Single(DocumentValue::Text(value.unwrap_or_default()))
+    DocumentValueOptions::Single(Text(value.unwrap_or_default()))
 }
 
 fn u64(value: u64) -> DocumentValueOptions {
-    DocumentValueOptions::Single(DocumentValue::U64(value))
+    DocumentValueOptions::Single(U64(value))
 }

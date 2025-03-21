@@ -1,5 +1,5 @@
 use harana_common::chrono::{DateTime, Utc};
-use harana_common::serde::{Deserialize, Serialize};
+use harana_common::serde::{self, Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize, PartialEq, Clone, Debug)]
 #[serde(crate = "self::serde")]

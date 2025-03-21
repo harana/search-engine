@@ -131,7 +131,7 @@ jobs:
           GH_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           # Use organization name from environment variable
-          CLIENT_NAME_LOWER=$(echo "CLIENT_NAME" | tr '[:upper:]' '[:lower:]')
+          CLIENT_NAME_LOWER=$(echo "$CLIENT_NAME" | tr '[:upper:]' '[:lower:]')
           ORG_NAME="${{ env.GITHUB_ORG }}"
           # Create repository name based on client name
           REPO_NAME="$ORG_NAME/$CLIENT_NAME_LOWER-client-rs"

@@ -1,4 +1,4 @@
-name: Generate Rust Clients from OpenAPI Specs
+name: Generate Rust Clients
 
 on:
   # Run manually
@@ -127,13 +127,14 @@ jobs:
 
       - name: Check if repository exists and create if needed
         env:
+          CLIENT_NAME: "${{ matrix.client.name }}""
           GH_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           # Use organization name from environment variable
-          CLIENT_NAME=$(echo "${{ matrix.client.name }}" | tr '[:upper:]' '[:lower:]')
+          CLIENT_NAME_LOWER=$(echo "CLIENT_NAME" | tr '[:upper:]' '[:lower:]')
           ORG_NAME="${{ env.GITHUB_ORG }}"
           # Create repository name based on client name
-          REPO_NAME="$ORG_NAME/$CLIENT_NAME-client-rs"
+          REPO_NAME="$ORG_NAME/$CLIENT_NAME_LOWER-client-rs"
           echo "Repository name will be: $REPO_NAME"
           
           # Store repo name for later steps
@@ -144,7 +145,7 @@ jobs:
           if [ "$REPO_EXISTS" == "false" ]; then
             echo "Repository $REPO_NAME does not exist. Creating it..."
             # Create the repository
-            gh repo create $REPO_NAME --public --description "$CLIENT_NAME Rust Client" -y
+            gh repo create $REPO_NAME --public --description "Rust API client for $CLIENT_NAME" -y
             echo "Repository $REPO_NAME created successfully."
           else
             echo "Repository $REPO_NAME already exists."

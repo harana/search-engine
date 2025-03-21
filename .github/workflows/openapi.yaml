@@ -74,6 +74,7 @@ jobs:
       - name: Generate Rust client
         run: |
           CLIENT_NAME="${{ matrix.client.name }}"
+          CLIENT_NAME_LOWER=$(echo "$CLIENT_NAME" | tr '[:upper:]' '[:lower:]')
           OUTPUT_DIR="tmp/$CLIENT_NAME"
           GENERATOR="${{ matrix.client.generator }}"
           
@@ -99,7 +100,7 @@ jobs:
               -i tmp/openapi-spec.json \
               -l rust \
               -o "$OUTPUT_DIR" \
-              -D packageName=$CLIENT_NAME
+              -D packageName=$CLIENT_NAME_LOWER
           else
             echo "Error: Unknown generator type: $GENERATOR"
             exit 1
@@ -127,7 +128,7 @@ jobs:
 
       - name: Check if repository exists and create if needed
         env:
-          CLIENT_NAME: "${{ matrix.client.name }}""
+          CLIENT_NAME: "${{ matrix.client.name }}"
           GH_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           # Use organization name from environment variable
@@ -145,7 +146,7 @@ jobs:
           if [ "$REPO_EXISTS" == "false" ]; then
             echo "Repository $REPO_NAME does not exist. Creating it..."
             # Create the repository
-            gh repo create $REPO_NAME --public --description "Rust API client for $CLIENT_NAME" -y
+            gh repo create $REPO_NAME --public --disable-issues --disable-wiki --description "Rust API client for $CLIENT_NAME" -y
             echo "Repository $REPO_NAME created successfully."
           else
             echo "Repository $REPO_NAME already exists."

@@ -133,7 +133,7 @@ jobs:
           # Use organization name from environment variable
           ORG_NAME="${{ env.GITHUB_ORG }}"
           # Create repository name based on client name
-          REPO_NAME="$ORG_NAME/$CLIENT_NAME-rs"
+          REPO_NAME="$ORG_NAME/$CLIENT_NAME-client-rs"
           echo "Repository name will be: $REPO_NAME"
           
           # Store repo name for later steps

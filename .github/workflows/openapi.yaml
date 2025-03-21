@@ -167,7 +167,7 @@ jobs:
           # Update README to include version
           echo "# ${{ matrix.client.name }}" > README.md
           echo "" >> README.md
-          echo "Rust client for ${{ matrix.client.name }} API generated from OpenAPI spec." >> README.md
+          echo "${{ matrix.client.name }} Rust Client" >> README.md
           echo "" >> README.md
           echo "Version: ${{ env.CODE_VERSION }}" >> README.md
           echo "Generated from: ${{ matrix.client.spec_url }}" >> README.md

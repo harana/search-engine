@@ -45,7 +45,7 @@ jobs:
           
           # Extract version from the OpenAPI spec using jq
           # Install jq if not available
-          which jq || sudo apt-get update && sudo apt-get install -y jq
+          which jq || apt-get update && apt-get install -y jq
           
           # Extract the version from the spec
           SPEC_VERSION=$(jq -r '.info.version' tmp/openapi-spec.json)
@@ -203,8 +203,12 @@ jobs:
           else
             echo "Repository already has commits. Updating content..."
             
-            # Clone the repository
-            gh repo clone $REPO_NAME .
+            # Clone the repository to a subdirectory
+            gh repo clone $REPO_NAME repo_content
+            
+            # Copy the .git directory to preserve repository history
+            cp -r repo_content/.git .
+            rm -rf repo_content
             
             # Remove all existing files except .git directory
             find . -mindepth 1 -not -path "./.git*" -delete

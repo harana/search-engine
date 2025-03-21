@@ -128,12 +128,12 @@ jobs:
       - name: Check if repository exists and create if needed
         env:
           GH_TOKEN: ${{ secrets.PAT_TOKEN }}
-          CLIENT_NAME: ${{ matrix.client.name }}
         run: |
           # Use organization name from environment variable
+          CLIENT_NAME=$(echo "${{ matrix.client.name }}" | tr '[:upper:]' '[:lower:]')
           ORG_NAME="${{ env.GITHUB_ORG }}"
           # Create repository name based on client name
-          REPO_NAME="$ORG_NAME/$(echo "$CLIENT_NAME" | tr '[:upper:]' '[:lower:]')-client-rs"
+          REPO_NAME="$ORG_NAME/$CLIENT_NAME-client-rs"
           echo "Repository name will be: $REPO_NAME"
           
           # Store repo name for later steps
@@ -144,7 +144,7 @@ jobs:
           if [ "$REPO_EXISTS" == "false" ]; then
             echo "Repository $REPO_NAME does not exist. Creating it..."
             # Create the repository
-            gh repo create $REPO_NAME --public --description "Rust client for $CLIENT_NAME API generated from OpenAPI spec" -y
+            gh repo create $REPO_NAME --public --description "$CLIENT_NAME Rust Client" -y
             echo "Repository $REPO_NAME created successfully."
           else
             echo "Repository $REPO_NAME already exists."
@@ -193,7 +193,7 @@ jobs:
             git add .
             
             # Create initial commit
-            git commit -m "Initial commit: Add Rust client for ${{ matrix.client.name }} ${{ env.CODE_VERSION }}"
+            git commit -m "Initial commit for ${{ env.CODE_VERSION }}"
             
             # Set remote and push (using token in URL for authentication)
             git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO_NAME}.git"
@@ -225,7 +225,7 @@ jobs:
             
             # Commit and push changes
             git add .
-            git commit -m "Update Rust client for ${{ matrix.client.name }} to ${{ env.CODE_VERSION }}" || echo "No changes to commit"
+            git commit -m "Update to ${{ env.CODE_VERSION }}" || echo "No changes to commit"
             git push
             
             # Create and push tag

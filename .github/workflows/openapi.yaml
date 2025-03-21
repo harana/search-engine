@@ -106,6 +106,8 @@ jobs:
             exit 1
           fi
           
+          rm -rf "$GITHUB_WORKSPACE/$OUTPUT_DIR/git_push.sh"
+
           # Verify files were generated
           echo "Files generated in $OUTPUT_DIR:"
           ls -la "$OUTPUT_DIR"
@@ -166,9 +168,6 @@ jobs:
           # Add a version file
           echo "${{ env.CODE_VERSION }}" > VERSION
                     
-          # Remove git_push
-          rm git_push.sh
-
           # Check if repository is empty (newly created)
           IS_EMPTY_REPO=$(gh repo view $REPO_NAME --json isEmpty -q '.isEmpty // false' || echo "true")
           

@@ -154,6 +154,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
+          # Set up Git with token-based authentication
+          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
+          
           # Create a temporary directory for the repo
           TEMP_DIR=$(mktemp -d)
           cd $TEMP_DIR
@@ -173,7 +176,7 @@ jobs:
           echo "Generated on: $(date +'%Y-%m-%d')" >> README.md
           
           # Check if repository is empty (newly created)
-          IS_EMPTY_REPO=$(gh repo view $REPO_NAME --json isEmpty -q '.isEmpty // false')
+          IS_EMPTY_REPO=$(gh repo view $REPO_NAME --json isEmpty -q '.isEmpty // false' || echo "true")
           
           if [ "$IS_EMPTY_REPO" = "true" ]; then
             echo "Repository is empty. Initializing with first commit..."
@@ -192,8 +195,8 @@ jobs:
             # Create initial commit
             git commit -m "Initial commit: Add Rust client for ${{ matrix.client.name }} ${{ env.CODE_VERSION }}"
             
-            # Set remote and push
-            git remote add origin https://x-access-token:${GH_TOKEN}@github.com/${REPO_NAME}.git
+            # Set remote and push (using token in URL for authentication)
+            git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO_NAME}.git"
             git branch -M main
             git push -u origin main
             
@@ -203,8 +206,8 @@ jobs:
           else
             echo "Repository already has commits. Updating content..."
             
-            # Clone the repository to a subdirectory
-            gh repo clone $REPO_NAME repo_content
+            # Clone the repository to a subdirectory (with token-based auth)
+            git clone "https://x-access-token:${GH_TOKEN}@github.com/${REPO_NAME}.git" repo_content
             
             # Copy the .git directory to preserve repository history
             cp -r repo_content/.git .
